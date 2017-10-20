@@ -9,6 +9,8 @@ public class Test {
 		Weather weatherObj = new Weather(96.4);
 		
 		System.out.println(weatherObj.getTemp());
+		
+		// Test comment
 
 	}
 
