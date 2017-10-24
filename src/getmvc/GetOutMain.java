@@ -6,6 +6,11 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+/**
+ * 
+ * @author Julian Chan-xmp183
+ *
+ */
 public class GetOutMain extends Application {
 	public static Stage stage;
 
