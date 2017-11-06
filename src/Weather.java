@@ -1,4 +1,9 @@
 
+/**
+ * Class for performing weather conversions.
+ * @author Daniel Ghazvini dib952
+ *
+ */
 public class Weather {
 	
 	private double fahrenheit;
