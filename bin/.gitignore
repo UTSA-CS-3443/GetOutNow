@@ -6,4 +6,8 @@
 /getmvc/
 /settings/
 /userinformation/
+<<<<<<< HEAD
 /WeatherScrape.class
+=======
+/GetOutNowHomepage.fxml
+>>>>>>> branch 'master' of https://github.com/UTSA-CS-3443/GetOutNow.git
