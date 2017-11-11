@@ -1,13 +1,11 @@
+/GetOutNowHomepage.fxml
 /GetOutView.fxml
-/GetOutView2.fxml
 /Movies.class
 /Test.class
 /Weather.class
+/WeatherScrape.class
 /getmvc/
 /settings/
 /userinformation/
-<<<<<<< HEAD
-/WeatherScrape.class
-=======
-/GetOutNowHomepage.fxml
->>>>>>> branch 'master' of https://github.com/UTSA-CS-3443/GetOutNow.git
+/Profile.class
+/profile/
