@@ -1,4 +1,4 @@
-package getmvc;
+package application.model;
 
 public class GetOutModel {
 	

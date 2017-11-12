@@ -1,3 +1,4 @@
+package data;
 
 /**
  * Class for performing weather conversions.
