@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 /**
  * Main file for testing.
- * @author Daniel Ghazvini
+ * @author Daniel Ghazvini dib952
  *
  */
 
@@ -18,13 +18,12 @@ public class Test {
 		System.out.println(weatherObj.getTemp());
 		
 		
-		System.out.println("Enter your City:");
+/*		System.out.println("Enter your City:");
 		Scanner scanner = new Scanner(System.in);
 		String cityName = scanner.nextLine();
 		System.out.println("Your city is " + cityName);
+		*/
 		
-		//WeatherScrape.java()
-
 	}
 
 }

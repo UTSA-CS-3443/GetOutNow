@@ -2,7 +2,7 @@
 <classpath>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="lib" path="C:/Users/Erwin/Downloads/Software/jfoenix.jar"/>
+	<classpathentry kind="lib" path="/home/daniel/Downloads/JFoenix-master.zip"/>
 	<classpathentry kind="lib" path="/home/daniel/Downloads/jsoup-1.11.1.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
