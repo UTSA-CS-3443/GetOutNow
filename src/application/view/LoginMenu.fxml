@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.effect.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+
+<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+  <children>
+    <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="700.0" style="-fx-background-color: black;" VBox.vgrow="ALWAYS">
+      <children>
+            <ImageView fitHeight="425.0" fitWidth="687.0" layoutX="6.0" layoutY="7.0" opacity="0.65" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../images/Forest%20Background.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="40.0" layoutY="24.0" text="Welcome to Get Out Now" textFill="#f2f2f2" underline="true">
+               <font>
+                  <Font name="MT Extra" size="22.0" />
+               </font>
+            </Label>
+            <Label layoutX="38.0" layoutY="213.0" prefHeight="173.0" prefWidth="252.0" text="A cutting-edge technology that will make you more productive than ever! Get out and sieze the day now!" textFill="#ebe9e9" wrapText="true">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Button layoutX="38.0" layoutY="340.0" mnemonicParsing="false" opacity="0.82" prefHeight="25.0" prefWidth="125.0" text="Sign Up" underline="true">
+               <cursor>
+                  <Cursor fx:constant="DEFAULT" />
+               </cursor>
+               <effect>
+                  <Blend mode="SOFT_LIGHT" />
+               </effect>
+            </Button>
+            <AnchorPane layoutX="350.0" layoutY="36.0" opacity="0.85" prefHeight="329.0" prefWidth="298.0">
+               <children>
+                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="122.0" layoutY="26.0" text="Sign In" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <TextField layoutX="36.0" layoutY="79.0" prefHeight="25.0" prefWidth="227.0" promptText="Username/Email" style="-fx-background-color: black;">
+                     <effect>
+                        <ColorAdjust brightness="0.19" contrast="0.51" />
+                     </effect>
+                     <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                     </cursor>
+                  </TextField>
+                  <TextField layoutX="36.0" layoutY="127.0" prefHeight="25.0" prefWidth="227.0" promptText="Password" style="-fx-background-color: black;">
+                     <effect>
+                        <ColorAdjust brightness="0.19" contrast="0.51" />
+                     </effect>
+                     <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                     </cursor>
+                  </TextField>
+                  <Button layoutX="36.0" layoutY="196.0" mnemonicParsing="false" opacity="0.82" prefHeight="25.0" prefWidth="227.0" text="Login" underline="true">
+                     <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                     </cursor>
+                     <effect>
+                        <Blend mode="SOFT_LIGHT" />
+                     </effect>
+                  </Button>
+                  <Hyperlink layoutX="98.0" layoutY="262.0" text="Forgot Password?" textFill="#ebe9e9" underline="true" />
+               </children>
+            </AnchorPane>
+      </children>
+    </AnchorPane>
+  </children>
+</VBox>
