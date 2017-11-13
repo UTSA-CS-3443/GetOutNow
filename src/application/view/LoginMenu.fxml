@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.effect.*?>
@@ -44,22 +45,6 @@
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <TextField layoutX="36.0" layoutY="79.0" prefHeight="25.0" prefWidth="227.0" promptText="Username/Email" style="-fx-background-color: black;">
-                     <effect>
-                        <ColorAdjust brightness="0.19" contrast="0.51" />
-                     </effect>
-                     <cursor>
-                        <Cursor fx:constant="DEFAULT" />
-                     </cursor>
-                  </TextField>
-                  <TextField layoutX="36.0" layoutY="127.0" prefHeight="25.0" prefWidth="227.0" promptText="Password" style="-fx-background-color: black;">
-                     <effect>
-                        <ColorAdjust brightness="0.19" contrast="0.51" />
-                     </effect>
-                     <cursor>
-                        <Cursor fx:constant="DEFAULT" />
-                     </cursor>
-                  </TextField>
                   <Button layoutX="36.0" layoutY="196.0" mnemonicParsing="false" opacity="0.82" prefHeight="25.0" prefWidth="227.0" text="Login" underline="true">
                      <cursor>
                         <Cursor fx:constant="DEFAULT" />
@@ -69,6 +54,8 @@
                      </effect>
                   </Button>
                   <Hyperlink layoutX="98.0" layoutY="262.0" text="Forgot Password?" textFill="#ebe9e9" underline="true" />
+                  <JFXTextField focusColor="WHITE" layoutX="36.0" layoutY="67.0" prefHeight="25.0" prefWidth="227.0" promptText="Username/Email" style="-fx-background-color: black;" unFocusColor="#0d0d0d" />
+                  <JFXPasswordField focusColor="WHITE" layoutX="36.0" layoutY="140.0" prefHeight="25.0" prefWidth="227.0" promptText="Password" style="-fx-background-color: black;" unFocusColor="#0d0d0d" />
                </children>
             </AnchorPane>
       </children>
