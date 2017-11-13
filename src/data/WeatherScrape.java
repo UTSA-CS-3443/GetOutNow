@@ -9,14 +9,14 @@ import org.jsoup.select.Elements;
 
 /**
  * Class to scrape weather data from the web.
- * @author Daniel Ghazvini dib952
+ * @author Daniel Ghazvini, dib952
  *
  */
 public class WeatherScrape {
 		
 /**
  * Class to retrieve weather information from webpage.
- * @return String
+ * @return The current weather in San Antonio, TX.
  * @throws IOException
  */
 	public static String Valhalla() throws IOException {
