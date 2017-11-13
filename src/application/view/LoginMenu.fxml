@@ -11,7 +11,7 @@
 <?import javafx.scene.paint.*?>
 <?import javafx.scene.text.*?>
 
-<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.GetOutController">
   <children>
     <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="700.0" style="-fx-background-color: black;" VBox.vgrow="ALWAYS">
       <children>
@@ -30,7 +30,7 @@
                   <Font size="15.0" />
                </font>
             </Label>
-            <Button layoutX="38.0" layoutY="340.0" mnemonicParsing="false" opacity="0.82" prefHeight="25.0" prefWidth="125.0" text="Sign Up" underline="true">
+            <Button fx:id="signUpButton" layoutX="38.0" layoutY="340.0" mnemonicParsing="false" onAction="#signUpHandle" opacity="0.82" prefHeight="25.0" prefWidth="125.0" text="Sign Up" underline="true">
                <cursor>
                   <Cursor fx:constant="DEFAULT" />
                </cursor>
@@ -45,7 +45,7 @@
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Button layoutX="36.0" layoutY="196.0" mnemonicParsing="false" opacity="0.82" prefHeight="25.0" prefWidth="227.0" text="Login" underline="true">
+                  <Button fx:id="loginButton" layoutX="36.0" layoutY="196.0" mnemonicParsing="false" onAction="#loginHandle" opacity="0.82" prefHeight="25.0" prefWidth="227.0" text="Login" underline="true">
                      <cursor>
                         <Cursor fx:constant="DEFAULT" />
                      </cursor>
@@ -53,7 +53,7 @@
                         <Blend mode="SOFT_LIGHT" />
                      </effect>
                   </Button>
-                  <Hyperlink layoutX="98.0" layoutY="262.0" text="Forgot Password?" textFill="#ebe9e9" underline="true" />
+                  <Hyperlink fx:id="forgotPasswordHyperLink" layoutX="98.0" layoutY="262.0" onAction="#forgotPasswordHandle" text="Forgot Password?" textFill="#ebe9e9" underline="true" />
                   <JFXTextField focusColor="WHITE" layoutX="36.0" layoutY="67.0" prefHeight="25.0" prefWidth="227.0" promptText="Username/Email" style="-fx-background-color: black;" unFocusColor="#0d0d0d" />
                   <JFXPasswordField focusColor="WHITE" layoutX="36.0" layoutY="140.0" prefHeight="25.0" prefWidth="227.0" promptText="Password" style="-fx-background-color: black;" unFocusColor="#0d0d0d" />
                </children>

@@ -23,4 +23,16 @@ public class GetOutController implements EventHandler<ActionEvent> {
 		System.out.println("It worked!");
 	}
 	
+	public void loginHandle(ActionEvent event) {
+		System.out.println("Login pressed.");
+	}
+	
+	public void signUpHandle(ActionEvent event) {
+		System.out.println("Signup pressed.");
+	}
+	
+    public void forgotPasswordHandle(ActionEvent event) {
+    	System.out.println("Hyperlink pressed.");
+    }
+	
 }
