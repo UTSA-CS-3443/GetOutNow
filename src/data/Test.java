@@ -21,5 +21,8 @@ public class Test {
 		Movies movieObj = new Movies();
 		System.out.println(MoviesScrape.Mercuryblast(movieObj.getAnswer()));
 		
+		Location test = new Restaurant("Test");
+		
+		
 	}
 }
