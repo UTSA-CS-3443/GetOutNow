@@ -34,7 +34,24 @@ public class MoviesScrape {
 		{
 			System.out.println("I will look for Action movies!");
 			
-			htmlString = "test";
+			Document doc = Jsoup.connect("https://www.flicks.co.nz/now-playing/action/").get();
+			Elements results = doc.getElementsContainingText(".");
+			htmlString = results.toString();
+
+			Pattern pattern1 = Pattern.compile(">1. (.*)</a>");
+			Matcher matcher1 = pattern1.matcher(htmlString);
+			if (matcher1.find())
+			    movie1 = matcher1.group(1);
+			
+			Pattern pattern2 = Pattern.compile(">2. (.*)</a>");
+			Matcher matcher2 = pattern2.matcher(htmlString);
+			if (matcher2.find())
+			    movie2 = matcher2.group(1);		
+			
+			Pattern pattern3 = Pattern.compile(">3. (.*)</a>");
+			Matcher matcher3 = pattern3.matcher(htmlString);
+			if (matcher3.find())
+			    movie3 = matcher3.group(1);		
 		}
 		else if(input == 'B') 
 		{			
@@ -55,15 +72,30 @@ public class MoviesScrape {
 			Pattern pattern3 = Pattern.compile(">3. (.*)</a>");
 			Matcher matcher3 = pattern3.matcher(htmlString);
 			if (matcher3.find())
-			    movie3 = matcher3.group(1);	
-			
+			    movie3 = matcher3.group(1);		
 		}
 		else if(input == 'C') 
-		{
-			System.out.println("I will look for Comedy movies!");
+		{		
+			Document doc = Jsoup.connect("https://www.flicks.co.nz/now-playing/comedy/").get();
+			Elements results = doc.getElementsContainingText(".");
+			htmlString = results.toString();
 			
-			htmlString = "test";
+			Pattern pattern1 = Pattern.compile(">1. (.*)</a>");
+			Matcher matcher1 = pattern1.matcher(htmlString);
+			if (matcher1.find())
+			    movie1 = matcher1.group(1);
+			
+			Pattern pattern2 = Pattern.compile(">2. (.*)</a>");
+			Matcher matcher2 = pattern2.matcher(htmlString);
+			if (matcher2.find())
+			    movie2 = matcher2.group(1);		
+			
+			Pattern pattern3 = Pattern.compile(">3. (.*)</a>");
+			Matcher matcher3 = pattern3.matcher(htmlString);
+			if (matcher3.find())
+			    movie3 = matcher3.group(1);		
 		}
+		///movie/(.*?)/
 		
 		System.out.println("Here are some movies playing that you might like!");
 		return movie1 + "\n" + movie2 + "\n" + movie3 + "\n";
