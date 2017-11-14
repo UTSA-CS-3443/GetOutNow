@@ -23,6 +23,8 @@ public class GetOutMain extends Application {
 			//Parent root = FXMLLoader.load(getClass().getResource("view/GetOutView.fxml"));		// test page
 			//Parent root = FXMLLoader.load(getClass().getResource("view/GetOutNowHomepage.fxml"));	// test homepage
 			Parent root = FXMLLoader.load(getClass().getResource("view/LoginMenu.fxml"));			// to load login menu
+			primaryStage.setTitle("Login");
+			primaryStage.setOnCloseRequest(e -> primaryStage.close());		// secure close 
 
 			primaryStage.setScene(new Scene(root, 700, 400));		// set to 700 by 400 for log in menu pixels
 			primaryStage.show();
