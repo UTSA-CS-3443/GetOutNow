@@ -23,6 +23,9 @@ public class Test {
 		
 		Location test = new Restaurant("Test");
 		
+		// Create a sports object.
+		Sports sportObj = new Sports();
+		//System.out.println();
 		
 	}
 }
