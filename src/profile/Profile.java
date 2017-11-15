@@ -1,83 +1,122 @@
 package profile;
 
-import java.util.ArrayList;
-import java.util.Collections;
-
 /*
-    TODO
-    Make UI for profile creation
-
-
+ * TODO:
+ * 11/14/17
+ * Patched to standards.
+ * 
  */
 
+/*
+ * Patch Notes:
+ * 	 11/14/17 - Changes to Profile class:
+ * 	- removed int "age"
+ * 	- removed "friendsList", "interestList"
+ *  - fixed variable formatting
+ *  - removed friends list methods 
+ *  - removed "compareTo" method
+ *  - Removed "Comparable" implementation
+ * 
+ */
+
+/**
+ * 
+ * Profile.java stores the user's information and will be manipulated 
+ * for any changes via the Settings.java file.
+ * 
+ * @author Clarence Bumanglag
+ * @author Christian San Juan
+ *
+ */
 //make a friend class that extends this?
-public class Profile implements Comparable<Profile>{
+public class Profile {
 
-    private String _firstName;      //first name
-    private String _lastName;       //last name
-    private String _email;          //email
-    private int _age;               //used to filter appropiate
-    //location?
-
-
-    private ArrayList<Profile> friendsList  = new ArrayList<Profile>();
-    private ArrayList<Interest> interestList = new ArrayList<Interest>();
-
-    //constructor
-    public Profile(String firstName, String lastName, String email, int age){
-        this._firstName = firstName;
-        this._lastName = lastName;
-        this._email = email;
-        this._age = age;
-    }
-
-    /*friendsList methods*/
-    public void addFriend(Profile newFriend){
-        this.friendsList.add(newFriend);
-        Collections.sort(this.friendsList);
-    }
-
-    public void removeFriend(Profile badFriend){
-        this.friendsList.remove(badFriend);
-    }
-
-
-    /*compareTo
-        compares Profiles by name
-        Meant to sort friend's list
-        @returns: -1 this preceeds other
-            1 this follows other
-            0 both names are the same
+    private String firstName;		//first name
+    private String lastName;		//last name
+    private String email;			//email
+    private String username;		//username
+    private String name;			//first name and last name combined
+    
+    /*
+     * Constructor
+     * Creates Profile object
      */
-    public int compareTo(Profile other){
-        final int LAST_NAME = (this._lastName.compareTo(other._lastName));
-        final int FIRST_NAME = (this._firstName.compareTo(other._firstName));
-
-        int nameCompare = LAST_NAME;
-
-        if(LAST_NAME == 0){
-            nameCompare = FIRST_NAME;
-        }
-
-        if(nameCompare < 0)
-            return -1;
-        else if(nameCompare > 0)
-            return 1;
-        else
-            return 0;
+    public Profile(String firstName, String lastName, String email, String username) {
+    	
+        this.name = this.firstName + " " + this.lastName;
+        
     }
 
 
+    public String getFirstName() {
+		return firstName;
+	}
 
-    //getters & setters
-    public String getName(){
-        return this._firstName + " " + this._lastName;
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+	/**
+	 * Returns the profile's email
+	 * 
+	 * @return email
+	 */
+	public String getEmail() {
+		return email;
+	}
+	
+	/**
+	 * Sets the email of the profile
+	 * @param email
+	 */
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	/**
+	 * Returns the username of the profile
+	 * @return
+	 */
+	public String getUsername() {
+		return username;
+	}
+
+	/**
+	 *  Sets the username of the profile
+	 * @param username
+	 */
+	public void setUsername(String username) {
+		this.username = username;
+	}
+	
+	/**
+	 * Returns the name (first and last) of the user profile
+	 * 
+	 * @param name
+	 * @return Name of current profile
+	 */
+	public String getName() {
+		return name;
     }
-    public void setName(String s){
-        this._firstName = s;
-    }
-
-    public int getAge(){ return this._age;}
-    public void setAge(int x){ this._age = x;}
-
+	
+	/**
+	 * toString for a specific "Profile" object.
+	 * @return profile details in String form
+	 * 
+	 */
+	public String toString() {
+		String retString = "Username: " + username + "\nName :" 
+				+ name + "\nEmail: " + email + "\n\n";
+		
+		return retString;
+	}
 }

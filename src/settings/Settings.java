@@ -1,22 +1,38 @@
-/**
- * 
- */
 package settings;
+import profile.Profile;
+import java.io.File;
+import java.util.Scanner;
+
 
 /**
- * Settings.java is a section of the main GUI that navigates the user into
- * changing the application's settings. It will call other java classes that
- * will change seperate parts of the GUI.
+ * Settings.java will be take the user's profile information to 
+ * access their settings preferences. Settings should overwrite 
+ * data within the text file that has all the user's data. 
  * 
- * @author Clarence Bumanglag / pao952
- *
+ * @author Clarence Bumanglag
  */
-public abstract class Settings {
+public class Settings {
 
-	// <<<constructor>>>
-	public Settings (/* Planning on fixing params*/) {
-		/*
-		 * Insert variables here. This should be a abstract class.
-		 */
+	private Scanner fileRead;
+	private String email;
+	private String username;
+	private Profile profileHandler;
+	
+	/*
+	 * Constructor for if they are returning users and are accessing
+	 * GetOutNow via the Login page
+	 * 
+	 */
+	public Settings (String email, String username) {
+		this.email = email;
+		this.username = username;
 	}
+	
+	/*
+	 * Constructor for if they are creating/deleting a profile
+	 */
+	public Settings (Profile profileHandler) {
+		this.profileHandler = profileHandler;
+	}
+	
 }
