@@ -31,9 +31,7 @@ public class MoviesScrape {
 		String htmlString = null;
 		
 		if(input == 'A') 
-		{
-			System.out.println("I will look for Action movies!");
-			
+		{			
 			Document doc = Jsoup.connect("https://www.flicks.co.nz/now-playing/action/").get();
 			Elements results = doc.getElementsContainingText(".");
 			htmlString = results.toString();
