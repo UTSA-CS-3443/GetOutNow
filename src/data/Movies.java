@@ -33,9 +33,6 @@ public class Movies {
 		}
 		
 		this.answer = input;
-					
-		// Close the scanner.
-		scan.close();
 	}
 	
 	public char getAnswer() {
