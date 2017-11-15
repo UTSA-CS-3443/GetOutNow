@@ -19,6 +19,8 @@ package profile;
  *  - removed friends list methods 
  *  - removed "compareTo" method
  *  - Removed "Comparable" implementation
+ *	11/15/17
+ *	- 
  * 
  */
 
@@ -31,15 +33,19 @@ package profile;
  * @author Christian San Juan
  *
  */
-//make a friend class that extends this?
+
 public class Profile {
 
     private String firstName;		//first name
     private String lastName;		//last name
-    private String email;			//email
+    private String email;		//email
     private String username;		//username
-    private String name;			//first name and last name combined
+    private String name;		//first name and last name combined
+    //City (String)
+    //zip code (int)
+
     
+
     /*
      * Constructor
      * Creates Profile object
@@ -53,21 +59,49 @@ public class Profile {
         this.name = this.firstName + " " + this.lastName;
         
     }
-
-
-    public String getFirstName() {
-		return firstName;
+	
+         /**
+	 * toString for a specific "Profile" object.
+	 * @return profile details in String form
+	 * 
+	 */
+	public String toString() {
+		String retString = "Username:" + username + "\nName:" 
+				+ name + "\nEmail:" + email + "\n\n";
+		
+		return retString;
 	}
 
+	/**
+	* Returns the profile's firstName
+     	* 
+     	* @return email
+    	*/
+    	public String getFirstName() {
+		return firstName;
+	}
+         /**
+	 * Returns the profile's firstName
+	 * 
+	 * @param firstName
+	 */
 	public void setFirstName(String firstName) {
 		this.firstName = firstName;
 	}
-
+	/**
+	 * Returns the profile's last name
+	 * 
+	 * @return lastName
+	 */
 	public String getLastName() {
 		return lastName;
 	}
 
-	
+	/**
+	 * Sets the profile's last name
+	 * 
+	 * @param lastName
+	 */
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
@@ -115,15 +149,5 @@ public class Profile {
 		return name;
     }
 	
-	/**
-	 * toString for a specific "Profile" object.
-	 * @return profile details in String form
-	 * 
-	 */
-	public String toString() {
-		String retString = "Username:" + username + "\nName:" 
-				+ name + "\nEmail:" + email + "\n\n";
-		
-		return retString;
-	}
+	
 }
