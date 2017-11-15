@@ -5,7 +5,9 @@ package data;
  *
  */
 public class Coffee extends Location {
+	
 	private String [] coffeeShops;
+	
 	
 	public Coffee(String Restaurant) {
 		super(Restaurant);

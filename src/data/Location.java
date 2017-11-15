@@ -12,22 +12,18 @@ package data;
 
 /**
  * 
- * Class for Location Recommendations 
+ * Class for Location Recommendations
  * 
  * @author Manuel Ben Bravo pfa698 
  */
 
 
 public abstract class Location {
-	public final String[] stateArray = {/*State strings*/};
-	public final String[] stateAbrrevArray = {/*State abbreviations*/};
 	
-	private String Location;
-	private String _address;	//will follow US address format (concatenate State, city, zip, etc)
-	private String _city;
-	private int _zip;
-	private String _state;
+	private String Location; //Name of commercial location
 	
+	boolean coffee; // User wants CoffeeShop recommendations 
+	boolean restaurant; //User wants restaurant recommendations
 	
 	public Location(String Location) {
 		this.Location = Location;
