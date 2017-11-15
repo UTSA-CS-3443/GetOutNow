@@ -4,9 +4,8 @@ package profile;
  * TODO:
  * 
  * Need Javadocs
+ * Profile GUI 
  * 
- * 11/14/17
- * Patched to standards.
  * 
  */
 
@@ -36,13 +35,14 @@ package profile;
 
 public class Profile {
 
-    private String firstName;		//first name
-    private String lastName;		//last name
-    private String email;		//email
-    private String username;		//username
-    private String name;		//first name and last name combined
-    //City (String)
-    //zip code (int)
+    private String _firstName;		//first name
+    private String _lastName;		//last name
+    private String _email;		//email
+    private String _username;		//username
+    private String _password;		//password
+    private String _fullName;		//first name and last name combined
+   //location variable here
+   //Interest list
 
     
 
@@ -52,102 +52,109 @@ public class Profile {
      */
     public Profile(String firstName, String lastName, String email, String username) {
     	
-    	this.firstName = firstName;
-    	this.lastName = lastName;
-    	this.email = email;
-    	this.username = username;
-        this.name = this.firstName + " " + this.lastName;
+    	this._firstName = firstName;
+    	this._lastName = lastName;
+    	this._email = email;
+    	this._username = username;
+        this._fullName = this._firstName + " " + this._lastName;
         
     }
 	
-         /**
+     /**
 	 * toString for a specific "Profile" object.
 	 * @return profile details in String form
 	 * 
 	 */
 	public String toString() {
-		String retString = "Username:" + username + "\nName:" 
-				+ name + "\nEmail:" + email + "\n\n";
+		String retString = "username:" + _username + "\nName:" 
+				+ _fullName + "\nEmail:" + _email + "\n\n";
 		
 		return retString;
 	}
 
 	/**
-	* Returns the profile's firstName
+	* Returns the profile's _firstName
      	* 
-     	* @return email
+     	* @return _email
     	*/
-    	public String getFirstName() {
-		return firstName;
+    	public String getfirstName() {
+		return _firstName;
 	}
          /**
-	 * Returns the profile's firstName
+	 * Returns the profile's _firstName
 	 * 
-	 * @param firstName
+	 * @param _firstName
 	 */
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
+	public void setfirstName(String firstName) {
+		this._firstName = _firstName;
 	}
 	/**
 	 * Returns the profile's last name
 	 * 
-	 * @return lastName
+	 * @return _lastName
 	 */
 	public String getLastName() {
-		return lastName;
+		return _lastName;
 	}
 
 	/**
-	 * Sets the profile's last name
+	 * Sets the profile's last _name
 	 * 
-	 * @param lastName
+	 * @param _lastName
 	 */
 	public void setLastName(String lastName) {
-		this.lastName = lastName;
+		this._lastName = _lastName;
 	}
 
 	/**
-	 * Returns the profile's email
+	 * Returns the profile's _email
 	 * 
-	 * @return email
+	 * @return _email
 	 */
 	public String getEmail() {
-		return email;
+		return _email;
 	}
 	
 	/**
-	 * Sets the email of the profile
-	 * @param email
+	 * Sets the _email of the profile
+	 * @param _email
 	 */
 	public void setEmail(String email) {
-		this.email = email;
+		this._email = _email;
 	}
 
 	/**
-	 * Returns the username of the profile
+	 * Returns the _username of the profile
 	 * @return
 	 */
 	public String getUsername() {
-		return username;
+		return _username;
 	}
 
 	/**
-	 *  Sets the username of the profile
-	 * @param username
+	 *  Sets the _username of the profile
+	 * @param _username
 	 */
-	public void setUsername(String username) {
-		this.username = username;
+	public void setUsername(String _username) {
+		this._username = _username;
 	}
 	
 	/**
-	 * Returns the name (first and last) of the user profile
+	 * Returns the _name (first and last) of the user profile
 	 * 
-	 * @param name
-	 * @return Name of current profile
+	 * @return _name of current profile
 	 */
-	public String getName() {
-		return name;
-    }
+	public String getFullName() {
+		return _fullName;
+        }
 	
+	/**
+	 * Sets the full name of the user profile
+	 * 
+	 * @return _name of current profile
+	 */
+	public void setFullName(String firstName, String lastName){
+		this._fullName = this._firstName + " " + this._lastName; 	
+	}
 	
 }
