@@ -5,10 +5,8 @@ import java.util.ArrayList;
  * TODO:
  * 
  * Need Javadocs
+ * Profile GUI 
  * 
- * 11/14/17
- * Patched to standards.
- * 		Clarence
  */
 
 /*
@@ -20,9 +18,7 @@ import java.util.ArrayList;
  *  - removed friends list methods 
  *  - removed "compareTo" method
  *  - Removed "Comparable" implementation
- * 		
- * 		Clarence
- */
+*/
 
 /**
  * 
@@ -33,16 +29,16 @@ import java.util.ArrayList;
  * @author Christian San Juan
  *
  */
-//make a friend class that extends this?
+
 public class Profile {
 
-    private String firstName;		//first name
+	private String firstName;		//first name
     private String lastName;		//last name
     private String email;			//email
     private String username;		//username
     private String name;			//first name and last name combined
     private String password;		//password
-    
+
     /*
      * Constructor
      * Creates Profile object
@@ -55,7 +51,6 @@ public class Profile {
     	this.username = username;
         this.name = this.firstName + " " + this.lastName;
         this.password = password;
-        
     }
     
     /*
@@ -68,6 +63,39 @@ public class Profile {
     	this.password = userInfo.get(2);
     	this.name = userInfo.get(3);
     }
+    
+
+    public String getLastName() {
+		return lastName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
     
     public String getPassword() {
     	return this.password;
@@ -85,67 +113,16 @@ public class Profile {
 		this.firstName = firstName;
 	}
 
-	public String getLastName() {
-		return lastName;
-	}
-
-	
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
-
-	/**
-	 * Returns the profile's email
-	 * 
-	 * @return email
-	 */
-	public String getEmail() {
-		return email;
-	}
-	
-	/**
-	 * Sets the email of the profile
-	 * @param email
-	 */
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	/**
-	 * Returns the username of the profile
-	 * @return
-	 */
-	public String getUsername() {
-		return username;
-	}
-
-	/**
-	 *  Sets the username of the profile
-	 * @param username
-	 */
-	public void setUsername(String username) {
-		this.username = username;
-	}
-	
-	/**
-	 * Returns the name (first and last) of the user profile
-	 * 
-	 * @param name
-	 * @return Name of current profile
-	 */
-	public String getName() {
-		return name;
-    }
-	
-	/**
+     /**
 	 * toString for a specific "Profile" object.
 	 * @return profile details in String form
 	 * 
 	 */
 	public String toString() {
+		
 		String retString = "Username:" + username + ":Email:" 
 				+ email + ":Password:" + password + ":Name:" + name + "\n";
-		
+
 		return retString;
 	}
 }
