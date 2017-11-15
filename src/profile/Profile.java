@@ -1,5 +1,6 @@
 package profile;
 
+import java.util.ArrayList;
 /*
  * TODO:
  * 
@@ -7,7 +8,7 @@ package profile;
  * 
  * 11/14/17
  * Patched to standards.
- * 
+ * 		Clarence
  */
 
 /*
@@ -19,7 +20,8 @@ package profile;
  *  - removed friends list methods 
  *  - removed "compareTo" method
  *  - Removed "Comparable" implementation
- * 
+ * 		
+ * 		Clarence
  */
 
 /**
@@ -39,22 +41,42 @@ public class Profile {
     private String email;			//email
     private String username;		//username
     private String name;			//first name and last name combined
+    private String password;		//password
     
     /*
      * Constructor
      * Creates Profile object
      */
-    public Profile(String firstName, String lastName, String email, String username) {
+    public Profile(String firstName, String lastName, String email, String username, String password) {
     	
     	this.firstName = firstName;
     	this.lastName = lastName;
     	this.email = email;
     	this.username = username;
         this.name = this.firstName + " " + this.lastName;
+        this.password = password;
         
     }
-
-
+    
+    /*
+     * Secondary Constructor
+     */
+    public Profile (ArrayList<String> userInfo) {
+    	//String[] buffer = new String[2];
+    	this.username = userInfo.get(0);
+    	this.email = userInfo.get(1);
+    	this.password = userInfo.get(2);
+    	this.name = userInfo.get(3);
+    }
+    
+    public String getPassword() {
+    	return this.password;
+    }
+    
+    public void setPassword(String password) {
+    	this.password = password;
+    }
+    
     public String getFirstName() {
 		return firstName;
 	}
@@ -121,8 +143,8 @@ public class Profile {
 	 * 
 	 */
 	public String toString() {
-		String retString = "Username:" + username + "\nName:" 
-				+ name + "\nEmail:" + email + "\n\n";
+		String retString = "Username:" + username + ":Email:" 
+				+ email + ":Password:" + password + ":Name:" + name + "\n";
 		
 		return retString;
 	}
