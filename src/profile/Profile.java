@@ -57,7 +57,6 @@ public class Profile {
      * Secondary Constructor
      */
     public Profile (ArrayList<String> userInfo) {
-    	//String[] buffer = new String[2];
     	this.username = userInfo.get(0);
     	this.email = userInfo.get(1);
     	this.password = userInfo.get(2);

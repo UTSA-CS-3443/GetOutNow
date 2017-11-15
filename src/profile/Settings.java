@@ -47,7 +47,7 @@ public class Settings {
 	 */
 	public ArrayList<String> getInfo(){
 		String filename = "profiledata.txt";
-		ArrayList<String> tester = null;
+		ArrayList<String> tester = new ArrayList<String>();
 		try {
 			String line;
 			in = new BufferedReader(new FileReader(filename));
@@ -67,18 +67,10 @@ public class Settings {
 					 */
 					if ((email_username.equals(buffer[1]) || email_username.equals(buffer[3])) 
 							&& password.equals(buffer[5])) {
-						System.out.println(line);
-						int i = 0;
-						for (String s : buffer) {
-							System.out.println("buffer["+i+"] = " + s);
-							i++;
-						}
-						i = 0;
-						tester.add(buffer[1]); tester.add(buffer[3]); 
-						tester.add(buffer[5]); tester.add(buffer[7]);
-						for (i = 0; i < tester.size(); i++) {
-							System.out.println("tester("+i+") = " + tester.get(i));
-						}
+						tester.add(buffer[1]); 
+						tester.add(buffer[3]); 
+						tester.add(buffer[5]); 
+						tester.add(buffer[7]);
 						in.close();
 						break;
 					}
@@ -93,8 +85,4 @@ public class Settings {
 		}
 		return tester;
 	}
-	
-	//public abstract 
-	
-	
 }
