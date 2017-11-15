@@ -26,7 +26,7 @@ public class Settings {
 		this.email_username = email_username;
 		this.password = password;
 		setUserInfo();
-		this.profileHandler = new Profile(userInfo);
+		//this.profileHandler = new Profile(userInfo);
 	}
 	
 	
@@ -47,19 +47,16 @@ public class Settings {
 	 */
 	public ArrayList<String> getInfo(){
 		String filename = "profiledata.txt";
+		ArrayList<String> tester = null;
 		try {
 			String line;
 			in = new BufferedReader(new FileReader(filename));
 			while ((line = in.readLine()) != null) {
-				System.out.println(line);
-				String[] buffer = new String[8];
+				String[] buffer = new String[50];
 				if (line.startsWith("U")) {
 					
 					//splits the line by colons
 					buffer = line.split(":");
-					for (String s : buffer) {
-						System.out.println(s);
-					}
 					/*
 					 * Tests to see if email_username is equal to the current line's
 					 * username or email and if password is equal to the current line's
@@ -70,8 +67,18 @@ public class Settings {
 					 */
 					if ((email_username.equals(buffer[1]) || email_username.equals(buffer[3])) 
 							&& password.equals(buffer[5])) {
-						userInfo.set(0, buffer[1]); userInfo.set(1, buffer[3]); 
-						userInfo.set(2, buffer[5]); userInfo.set(3, buffer[7]);
+						System.out.println(line);
+						int i = 0;
+						for (String s : buffer) {
+							System.out.println("buffer["+i+"] = " + s);
+							i++;
+						}
+						i = 0;
+						tester.add(buffer[1]); tester.add(buffer[3]); 
+						tester.add(buffer[5]); tester.add(buffer[7]);
+						for (i = 0; i < tester.size(); i++) {
+							System.out.println("tester("+i+") = " + tester.get(i));
+						}
 						in.close();
 						break;
 					}
@@ -84,7 +91,7 @@ public class Settings {
 			System.err.println("Cannot read \""+filename+"\"");
 			System.exit(-1);
 		}
-		return userInfo;
+		return tester;
 	}
 	
 	//public abstract 
