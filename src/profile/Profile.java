@@ -46,6 +46,10 @@ public class Profile {
      */
     public Profile(String firstName, String lastName, String email, String username) {
     	
+    	this.firstName = firstName;
+    	this.lastName = lastName;
+    	this.email = email;
+    	this.username = username;
         this.name = this.firstName + " " + this.lastName;
         
     }
@@ -117,8 +121,8 @@ public class Profile {
 	 * 
 	 */
 	public String toString() {
-		String retString = "Username: " + username + "\nName :" 
-				+ name + "\nEmail: " + email + "\n\n";
+		String retString = "Username:" + username + "\nName:" 
+				+ name + "\nEmail:" + email + "\n\n";
 		
 		return retString;
 	}

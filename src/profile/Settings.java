@@ -18,20 +18,12 @@ public class Settings {
 	private Profile profileHandler;
 	
 	/*
-	 * Constructor for if they are returning users and are accessing
-	 * GetOutNow via the Login page
-	 * 
-	 */
-	public Settings (String email, String username) {
-		this.email = email;
-		this.username = username;
-	}
-	
-	/*
-	 * Constructor for if they are creating/deleting a profile
+	 * Constructor
 	 */
 	public Settings (Profile profileHandler) {
 		this.profileHandler = profileHandler;
 	}
+	
+	
 	
 }
