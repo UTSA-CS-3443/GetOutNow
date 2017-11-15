@@ -6,11 +6,35 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
+import javafx.scene.layout.AnchorPane;
 
 public class GetOutController implements EventHandler<ActionEvent> {
 
 	private GetOutModel model;
+	
+    @FXML
+    private AnchorPane signInPage;
+
+    @FXML
+    private Button signUpButton;
+
+    @FXML
+    private Button loginButton;
+
+    @FXML
+    private Hyperlink forgotPasswordHyperLink;
+
+    @FXML
+    private AnchorPane signUpPage;
+
+    @FXML
+    private Button SignInButton;
+
+    @FXML
+    private Button registerButton;
+    
 	
 	public GetOutController() {
 		super();
@@ -23,16 +47,28 @@ public class GetOutController implements EventHandler<ActionEvent> {
 		System.out.println("It worked!");
 	}
 	
-	public void loginHandle(ActionEvent event) {
-		System.out.println("Login pressed.");
-	}
-	
-	public void signUpHandle(ActionEvent event) {
-		System.out.println("Signup pressed.");
-	}
-	
+    @FXML
     public void forgotPasswordHandle(ActionEvent event) {
-    	System.out.println("Hyperlink pressed.");
+    	System.out.println("Forgot password pressed");
+    }
+
+    @FXML
+    public void handleButtonAction(ActionEvent event) {
+    	if(event.getSource () == SignInButton)
+    	{
+    		signInPage.toFront();
+    		
+    	} else if (event.getSource() == signUpButton) {
+    		signUpPage.toFront();
+    		
+    	} else if (event.getSource() == loginButton) {
+    		System.out.println("Login pressed");
+    
+    	} else if (event.getSource() == registerButton) {
+    		System.out.println("Register pressed");
+    
+    	}
+    	
     }
 	
 }

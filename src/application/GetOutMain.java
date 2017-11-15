@@ -23,7 +23,9 @@ public class GetOutMain extends Application {
 			//Parent root = FXMLLoader.load(getClass().getResource("view/GetOutView.fxml"));		// test page
 			//Parent root = FXMLLoader.load(getClass().getResource("view/GetOutNowHomepage.fxml"));	// test homepage
 			Parent root = FXMLLoader.load(getClass().getResource("view/LoginMenu.fxml"));			// to load login menu
-			primaryStage.setTitle("Login");
+			primaryStage.resizableProperty().setValue(Boolean.FALSE);
+			primaryStage.setTitle("Login/SignUp");
+			
 			primaryStage.setOnCloseRequest(e -> {
 				primaryStage.close();
 				System.out.println("Window closed."); 	// print to console confirmation
