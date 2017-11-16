@@ -22,7 +22,7 @@
                <children>
                   <ImageView fitHeight="425.0" fitWidth="687.0" layoutX="6.0" layoutY="7.0" opacity="0.65" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../images/Forest%20Background.png" />
+                        <Image url="@../../images/Forest%20Background.png" />
                      </image>
                   </ImageView>
                   <Label layoutX="40.0" layoutY="24.0" text="Welcome to Get Out Now" textFill="#f2f2f2" underline="true">

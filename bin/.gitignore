@@ -1,7 +1,2 @@
-/application/
-/applicationController/
-/applicationModel/
-/applicationView/
 /data/
-/profile/
-/testing/
+/applicationView/
