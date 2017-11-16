@@ -1,7 +1,7 @@
 package profile;
 import java.io.*;
 import java.util.ArrayList;
-import java.util.Scanner;
+//import java.util.Scanner;
 
 /**
  * Settings.java will be take the user's profile information to 
@@ -23,9 +23,12 @@ public class Settings {
 		this.email_username = email_username;
 		this.password = password;
 		this.userInfo = getInfo();
-		//this.profileHandler = new Profile(userInfo);
+		this.profileHandler = new Profile(userInfo);
 	}
 	
+	public Profile getProfileHandler() {
+		return this.profileHandler;
+	}
 	/**
 	 * sets userInfo to the specified paramater
 	 * 
@@ -67,7 +70,7 @@ public class Settings {
 		String line;
 		
 		try {
-			BufferedReader in = new BufferedReader(new FileReader(filename));
+			in = new BufferedReader(new FileReader(filename));
 			while ((line = in.readLine()) != null) {
 				String[] buffer = new String[8];
 				if (line.startsWith("U")) {
@@ -111,4 +114,5 @@ public class Settings {
 		//return statement
 		return null;
 	}
+
 }

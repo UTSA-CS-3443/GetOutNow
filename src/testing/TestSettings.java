@@ -56,6 +56,7 @@ public class TestSettings {
 			for (String s: testAL) {
 				System.out.println(s);
 			}
+			System.out.println(test.getProfileHandler());
 			//if testAL is empty
 		} catch (NullPointerException e) {
 			System.err.println("Unable to find information");
