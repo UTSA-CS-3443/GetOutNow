@@ -7,7 +7,7 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Hyperlink;
-import javafx.scene.control.Label;
+//import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 
 public class LoginController implements EventHandler<ActionEvent> {
@@ -36,11 +36,10 @@ public class LoginController implements EventHandler<ActionEvent> {
     private Button registerButton;
     
 	
-	public LoginController() {
-		super();
-		this.model = new LoginModel();
-	}
-	
+    public LoginController() {
+    		super();
+    }
+
     @FXML
     public void forgotPasswordHandle(ActionEvent event) {
     	System.out.println("Forgot password pressed");
@@ -63,6 +62,13 @@ public class LoginController implements EventHandler<ActionEvent> {
     
     	}
     	
+    }
+
+    public void initModel(LoginModel model) {
+        // ensure model is only set once:
+        if (this.model != null) {
+            throw new IllegalStateException("Model can only be initialized once");
+        }
     }
 
 	@Override
