@@ -10,7 +10,7 @@ import java.util.Scanner;
  * @author Clarence Bumanglag
  *
  */
-public class testProfile {
+public class TestProfile {
 
 	@Test
 	public void test() {
@@ -25,11 +25,7 @@ public class testProfile {
 		
 		String test1 = newProf.toString();
 		String test2 = testProf.toString();
-		
-		/*
-		System.out.println("newProf: \n" + newProf);
-		System.out.println("testProf: \n" + testProf);
-		*/
+
 		buffer.close();
 		assertEquals("Output from both object do not equal", test2, test1);
 	}

@@ -12,47 +12,64 @@ import java.util.Scanner;
  */
 public class Settings {
 
-//	private Scanner fileRead;
 	private String email_username;
 	private String password;
 	private Profile profileHandler = null;
 	private ArrayList<String> userInfo = null;
-	protected BufferedReader in = null;
+	private BufferedReader in = null;
 	
-	/*
-	 * Constructor
-	 */
+	//<<<< CONSTRUCTOR >>>>
 	public Settings (String email_username, String password) {
 		this.email_username = email_username;
 		this.password = password;
-		setUserInfo();
+		this.userInfo = getInfo();
 		//this.profileHandler = new Profile(userInfo);
 	}
 	
-	
-	public void setUserInfo() {
-		this.userInfo = getInfo();
+	/**
+	 * sets userInfo to the specified paramater
+	 * 
+	 * @param arraylist
+	 */
+	public void setUserInfo(ArrayList<String> arraylist) {
+		this.userInfo = arraylist;
 	}
 	
+	/**
+	 * Returns an arraylist that hold the user's information
+	 * @return
+	 */
 	public ArrayList<String> getUserInfo() {
 		return userInfo;
 	}
+	
 	/**
+	 * getInfo opens that data file "pofiledata.txt" and tests to see if the
+	 * a line contains a user's username/email and password. If a line does contain
+	 * the user's username/email and password, the arraylist takes the line and saves the
+	 * line's information. From index 0 to 3, the arraylist should contain the following
+	 * (0) = username
+	 * (1) = email
+	 * (2) = password
+	 * (3) = Name (First, Last)
 	 * 
-	 * @param email_username
-	 * @param password
-	 * @param in
-	 * 
-	 * @return ArrayList<String> that has the user's information.
+	 * @return an arraylist with the user's data (tempList)
 	 */
 	public ArrayList<String> getInfo(){
+		
+		// filename saves the name of the data file
 		String filename = "profiledata.txt";
-		ArrayList<String> tester = new ArrayList<String>();
+		
+		// a local arraylist is created for testing
+		ArrayList<String> tempList = null;
+		
+		// line buffer for the file
+		String line;
+		
 		try {
-			String line;
-			in = new BufferedReader(new FileReader(filename));
+			BufferedReader in = new BufferedReader(new FileReader(filename));
 			while ((line = in.readLine()) != null) {
-				String[] buffer = new String[50];
+				String[] buffer = new String[8];
 				if (line.startsWith("U")) {
 					
 					//splits the line by colons
@@ -65,24 +82,33 @@ public class Settings {
 					 * 
 					 * 	username , email , password , name
 					 */
-					if ((email_username.equals(buffer[1]) || email_username.equals(buffer[3])) 
+					if ((email_username.equals(buffer[1]) || email_username.equalsIgnoreCase(buffer[3])) 
 							&& password.equals(buffer[5])) {
-						tester.add(buffer[1]); 
-						tester.add(buffer[3]); 
-						tester.add(buffer[5]); 
-						tester.add(buffer[7]);
+						tempList = new ArrayList<String>();
+						tempList.add(buffer[1]); //username
+						tempList.add(buffer[3]); //email
+						tempList.add(buffer[5]); //password
+						tempList.add(buffer[7]); //fullname
 						in.close();
-						break;
+						return tempList;
 					}
 				}
 			}
+		/*
+		 * Catches exception in the event that the file was not found
+		 */
 		} catch (FileNotFoundException e) {
 			System.err.println("File \""+filename+"\" not found");
 			System.exit(-1);
+		/*
+		 * Catches exception in the event that the file was not readable
+		 */
 		} catch (IOException e) {
 			System.err.println("Cannot read \""+filename+"\"");
 			System.exit(-1);
 		}
-		return tester;
+		
+		//return statement
+		return null;
 	}
 }
