@@ -1,7 +1,7 @@
 package application;
 
-import application.controller.LoginController;
-import application.model.LoginModel;
+import applicationController.LoginController;
+import applicationModel.LoginModel;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 //import javafx.scene.Parent;
@@ -26,7 +26,7 @@ public class Main extends Application {
 			//Parent root = FXMLLoader.load(getClass().getResource("view/LoginMenu.fxml"));			// to load login menu
 
 			BorderPane root = new BorderPane();
-			FXMLLoader loginLoader =	new FXMLLoader(getClass().getResource("view/LoginMenu.fxml"));
+			FXMLLoader loginLoader = new FXMLLoader(getClass().getResource("/applicationView/LoginMenu.fxml"));
 			root.setCenter(loginLoader.load());
 			LoginController loginController = loginLoader.getController();
 

@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="638.0" prefWidth="683.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.LoginController">
+<VBox prefHeight="638.0" prefWidth="683.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="applicationController.LoginController">
   <children>
       <Pane prefHeight="400.0" prefWidth="700.0">
          <children>
@@ -69,7 +69,7 @@
             <children>
                   <ImageView fitHeight="425.0" fitWidth="687.0" layoutX="6.0" layoutY="7.0" opacity="0.65" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../images/Forest%20Background.png" />
+                        <Image url="@../../images/Forest%20Background.png" />
                      </image>
                   </ImageView>
                   <Label layoutX="40.0" layoutY="24.0" text="Welcome to Get Out Now" textFill="#f2f2f2" underline="true">

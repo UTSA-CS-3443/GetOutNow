@@ -1,6 +1,6 @@
-package application.controller;
+package applicationController;
 
-import application.model.LoginModel;
+import applicationModel.LoginModel;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 
