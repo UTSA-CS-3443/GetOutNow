@@ -16,6 +16,10 @@ public class Test {
 
 	public static void main(String[] args) throws IOException {
 				
+		// Location Scrape 
+		System.out.println("Restaurant Scrape: " + LocationScrape.scrapeRestaurant());
+		System.out.println("Coffee Scrape: " + LocationScrape.scrapeCoffeeShop());
+		
 		// Weather converion test.
 		System.out.println("Please enter a weather");
 		Scanner in = new Scanner(System.in);
@@ -30,6 +34,8 @@ public class Test {
 		System.out.println(MoviesScrape.Mercuryblast(movieObj.getAnswer()));
 		
 		Location test = new Restaurant("Test");
+		
+		
 		
 		// Create a sports object.
 		Sports sportObj = new Sports();
