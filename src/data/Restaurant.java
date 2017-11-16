@@ -1,28 +1,21 @@
 package data;
 
+import java.util.ArrayList;
+
 /**
  * Restaurant class that extends Location 
- * Contains string[] with list of recommendations
+ * Contains ArrayList of String recommendations
  * of standard lunch/dinner locations 
  * 
  * @author Manuel Ben Bravo 
  */
 public class Restaurant extends Location {
 	
-	private String [] Restaurants;
 	
-	public Restaurant(String Restaurant) {
-		super(Restaurant);
+	public Restaurant(ArrayList<String>Locations) {
+		super(Locations);
 	}
 	
-	
-	
-	public String getLocation(int index) {
-
-		return this.Restaurants[index];
-	}
-
-
 
 	@Override
 	public double getWeather() {
@@ -38,5 +31,5 @@ public class Restaurant extends Location {
 		return null;
 	}
 
-	
+
 }

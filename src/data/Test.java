@@ -1,5 +1,6 @@
 package data;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Scanner;
 /*
  * Patches:
@@ -16,9 +17,18 @@ public class Test {
 
 	public static void main(String[] args) throws IOException {
 				
-		// Location Scrape 
-		System.out.println("Restaurant Scrape: " + LocationScrape.scrapeRestaurant());
-		System.out.println("Coffee Scrape: " + LocationScrape.scrapeCoffeeShop());
+		
+		Restaurant rObj = new Restaurant(LocationScrape.scrapeRestaurant());
+		Coffee cObj = new Coffee(LocationScrape.scrapeCoffeeShop());
+		
+		for(int i = 0; i < rObj.getSize(); i++){
+			System.out.println(i+". Restaurant Scrape: " + rObj.getLocation(i));
+
+		}
+		for(int i = 0; i < cObj.getSize(); i++){
+			System.out.println(i +". Coffee Scrape: " + cObj.getLocation(i));
+
+		}
 		
 		// Weather converion test.
 		System.out.println("Please enter a weather");
@@ -32,8 +42,6 @@ public class Test {
 		// Create a movies object.
 		Movies movieObj = new Movies();
 		System.out.println(MoviesScrape.Mercuryblast(movieObj.getAnswer()));
-		
-		Location test = new Restaurant("Test");
 		
 		
 		

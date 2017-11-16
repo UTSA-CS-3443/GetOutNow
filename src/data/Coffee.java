@@ -1,25 +1,21 @@
 package data;
+
+import java.util.ArrayList;
+
 /**
- * 
- * @author Manue Ben Bravo
+ * Coffee class extends Location
+ * contains ArrayList of coffeeShops with
+ * coffeeShops recommendations
+ * @author Manuel Ben Bravo
  *
  */
 public class Coffee extends Location {
+		
 	
-	private String [] coffeeShops;
-	
-	
-	public Coffee(String Restaurant) {
-		super(Restaurant);
+	public Coffee(ArrayList <String> Location) {
+		super(Location);
 	}
 	
-	
-	
-	public String getLocation(int index) {
-
-		return this.coffeeShops[index];
-	}
-
 
 
 	@Override
@@ -36,8 +32,6 @@ public class Coffee extends Location {
 		return null;
 	}
 
-
-	
 }
 
 

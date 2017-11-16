@@ -1,5 +1,7 @@
 package data;
 
+import java.util.ArrayList;
+
 /*
  * Patch Notes:
  * 	 11/15/17 - 
@@ -20,16 +22,21 @@ package data;
 
 public abstract class Location {
 	
-	private String Location; //Name of commercial location
+	private ArrayList <String> Location; //Name of commercial location
 	
 	boolean coffee; // User wants CoffeeShop recommendations 
 	boolean restaurant; //User wants restaurant recommendations
 	
-	public Location(String Location) {
-		this.Location = Location;
+	public Location(ArrayList <String> Location) {
+		this.Location = new ArrayList<String>(Location.size());
+		for(String s: Location) {
+			this.Location.add(s);
+		}
 	}
 		
-	public abstract String getLocation(int index);
+	public String getLocation(int index) {
+		return this.Location.get(index);
+	}
 	
 	/*
 	 * Get Weather Data
@@ -41,4 +48,7 @@ public abstract class Location {
 	 */
 	public abstract String getMovie();
 	
+	public int getSize() {
+		return this.Location.size();
+	}
 }
