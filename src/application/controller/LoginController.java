@@ -1,7 +1,7 @@
 package application.controller;
 
 
-import application.model.GetOutModel;
+import application.model.LoginModel;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -10,9 +10,9 @@ import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 
-public class GetOutController implements EventHandler<ActionEvent> {
+public class LoginController implements EventHandler<ActionEvent> {
 
-	private GetOutModel model;
+	private LoginModel model;
 	
     @FXML
     private AnchorPane signInPage;
@@ -36,15 +36,9 @@ public class GetOutController implements EventHandler<ActionEvent> {
     private Button registerButton;
     
 	
-	public GetOutController() {
+	public LoginController() {
 		super();
-		this.model = new GetOutModel();
-	}
-	
-	@Override
-	public void handle(ActionEvent event) {
-		// TODO Auto-generated method stub
-		System.out.println("It worked!");
+		this.model = new LoginModel();
 	}
 	
     @FXML
@@ -70,5 +64,11 @@ public class GetOutController implements EventHandler<ActionEvent> {
     	}
     	
     }
+
+	@Override
+	public void handle(ActionEvent event) {
+		// TODO Auto-generated method stub
+		
+	}
 	
 }

@@ -13,7 +13,7 @@ import javafx.stage.Stage;
  * 
  *
  */
-public class GetOutMain extends Application {
+public class Main extends Application {
 	Stage stage;
 	@Override
 	public void start(Stage primaryStage) throws Exception {

@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="638.0" prefWidth="683.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.GetOutController">
+<VBox prefHeight="638.0" prefWidth="683.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.LoginController">
   <children>
       <Pane prefHeight="400.0" prefWidth="700.0">
          <children>
@@ -59,8 +59,8 @@
                            </effect>
                         </Button>
                         <JFXTextField focusColor="BLACK" layoutX="36.0" layoutY="67.0" prefHeight="25.0" prefWidth="227.0" promptText="Username/Email" style="-fx-background-color: white;" unFocusColor="WHITE" />
-                        <JFXTextField focusColor="BLACK" layoutX="36.0" layoutY="119.0" prefHeight="25.0" prefWidth="227.0" promptText="Password" style="-fx-background-color: white;" unFocusColor="WHITE" />
-                        <JFXTextField focusColor="BLACK" layoutX="36.0" layoutY="165.0" prefHeight="25.0" prefWidth="227.0" promptText="Confirm Password" style="-fx-background-color: white;" unFocusColor="WHITE" />
+                        <JFXPasswordField focusColor="BLACK" layoutX="36.0" layoutY="119.0" prefHeight="25.0" prefWidth="227.0" promptText="Password" style="-fx-background-color: white;" unFocusColor="WHITE" />
+                        <JFXPasswordField focusColor="BLACK" layoutX="36.0" layoutY="165.0" prefHeight="25.0" prefWidth="227.0" promptText="Confirm Password" style="-fx-background-color: white;" unFocusColor="WHITE" />
                      </children>
                   </AnchorPane>
                </children>

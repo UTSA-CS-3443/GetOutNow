@@ -1,6 +1,6 @@
 package application.controller;
 
-import application.model.GetOutModel;
+import application.model.LoginModel;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 
@@ -11,11 +11,11 @@ import javafx.event.EventHandler;
  */
 public class ProfileController implements EventHandler<ActionEvent> {
 	
-	private GetOutModel model;
+	private LoginModel model;
 	
 	public ProfileController() {
 		super();
-		this.model = new GetOutModel();
+		this.model = new LoginModel();
 	}
 
 	@Override
