@@ -27,9 +27,9 @@ public class Interest {
 	 * Interest Constructor initializes Scanner for user input
 	 * and HashMap to store <Preference, True/False> as [key,value] pairs
 	 */
-	public Interest() {
-		this.input = new Scanner(System.in);
-		this.interestToValue = new HashMap<String, String>();
+	public Interest(Scanner input, HashMap<String, String> interestToValue) {
+		this.input = input;
+		this.interestToValue = interestToValue;
 	}
 	
 	/**
@@ -50,6 +50,22 @@ public class Interest {
 		} else {
 			return false;
 		}
+	}
+
+	/**
+	 * 
+	 * @return 'input' Scanner from Interest object
+	 */
+	public Scanner getInput() {
+		return input;
+	}
+	
+	public String getBoolFromKey(String key) {
+		return this.interestToValue.get(key);
+	}
+	
+	public void setKeyPair(String key, String bool) {
+		this.interestToValue.put(key,  bool);
 	}
 	
 }
