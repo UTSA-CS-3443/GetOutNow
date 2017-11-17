@@ -26,12 +26,13 @@ public class MoviesScrape {
 	 * @return
 	 * @throws IOException
 	 */
-	public static String Mercuryblast(char input) throws IOException {
+	public static String Mercuryblast(char input) {
 		
 		String htmlString = null;
 		
 		if(input == 'A') 
 		{			
+			try {
 			Document doc = Jsoup.connect("https://www.flicks.co.nz/now-playing/action/").get();
 			Elements results = doc.getElementsContainingText(".");
 			htmlString = results.toString();
@@ -49,10 +50,15 @@ public class MoviesScrape {
 			Pattern pattern3 = Pattern.compile(">3. (.*)</a>");
 			Matcher matcher3 = pattern3.matcher(htmlString);
 			if (matcher3.find())
-			    movie3 = matcher3.group(1);		
+			    movie3 = matcher3.group(1);	
+			
+			} catch (IOException e){
+				e.printStackTrace();
+			}
 		}
 		else if(input == 'B') 
-		{			
+		{
+			try {
 			Document doc = Jsoup.connect("https://www.flicks.co.nz/now-playing/science-fiction/").get();
 			Elements results = doc.getElementsContainingText(".");
 			htmlString = results.toString();
@@ -70,10 +76,15 @@ public class MoviesScrape {
 			Pattern pattern3 = Pattern.compile(">3. (.*)</a>");
 			Matcher matcher3 = pattern3.matcher(htmlString);
 			if (matcher3.find())
-			    movie3 = matcher3.group(1);		
+			    movie3 = matcher3.group(1);	
+			
+			} catch (IOException e){
+				e.printStackTrace();
+			}
 		}
 		else if(input == 'C') 
 		{		
+			try {
 			Document doc = Jsoup.connect("https://www.flicks.co.nz/now-playing/comedy/").get();
 			Elements results = doc.getElementsContainingText(".");
 			htmlString = results.toString();
@@ -91,7 +102,11 @@ public class MoviesScrape {
 			Pattern pattern3 = Pattern.compile(">3. (.*)</a>");
 			Matcher matcher3 = pattern3.matcher(htmlString);
 			if (matcher3.find())
-			    movie3 = matcher3.group(1);		
+			    movie3 = matcher3.group(1);	
+			
+			} catch (IOException e){
+				e.printStackTrace();
+			}
 		}
 		///movie/(.*?)/
 		

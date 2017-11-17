@@ -19,7 +19,9 @@ public class WeatherScrape {
  * @return The current weather in San Antonio, TX.
  * @throws IOException
  */
-	public static String Valhalla() throws IOException {
+	public static String Valhalla() {
+		
+		try {
 		
 		// Webpage used to gather weather information in San Antonio.
 		Document doc = Jsoup.connect("http://forecast.weather.gov/MapClick.php?lat=29.46&lon=-98.5/").get();
@@ -35,6 +37,11 @@ public class WeatherScrape {
 		    htmlString = matcher.group(1);
 	
 		return htmlString;
+		
+		} catch (IOException e){
+			e.printStackTrace();
+			return null;
+		}
 		
 	}
 }

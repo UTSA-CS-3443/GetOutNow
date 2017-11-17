@@ -17,7 +17,7 @@ public class Test {
 
 	public static void main(String[] args) throws IOException {
 				
-		
+	/*	
 		Restaurant rObj = new Restaurant(LocationScrape.scrapeRestaurant());
 		Coffee cObj = new Coffee(LocationScrape.scrapeCoffeeShop());
 		
@@ -28,13 +28,13 @@ public class Test {
 		for(int i = 0; i < cObj.getSize(); i++){
 			System.out.println(i +". Coffee Scrape: " + cObj.getLocation(i));
 
-		}
+		}*/
 		
 		// Weather converion test.
-		System.out.println("Please enter a weather");
+		System.out.print("Please enter the weather in Fahrenheit: ");
 		Scanner in = new Scanner(System.in);
 		Weather weatherObj = new Weather(in.nextDouble());
-		System.out.println(weatherObj.getTemp());
+		System.out.printf("The weather is Celsius is %d\n", (int)weatherObj.toCelsius(weatherObj.getTemp()));
 		
 		// Prints out the current weather in San Antonio.
 		System.out.println("The current weather is " + WeatherScrape.Valhalla() + " in San Antonio, TX.");
