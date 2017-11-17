@@ -58,6 +58,26 @@ public class LocationScrape {
 		}
 		return locations;
 	}	
+	
+	public static ArrayList<String> scrapeBars(){
+		Document doc = null;
+		Elements results = null;
+		try {
+			doc = Jsoup.connect("https://www.yellowpages.com/search?search_terms=bars+and+clubs&geo_location_terms=78249").get();
+			 results = doc.getElementsByClass("n");
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		ArrayList <String> locations = new ArrayList<String>();
 		
+		Matcher m = Pattern.compile("\"name\">(.*)</span>").matcher(results.toString());
+	
+		while(m.find()) {
+			locations.add(m.group(1));
+		}
+		return locations;
+		
+	}
 }
 
