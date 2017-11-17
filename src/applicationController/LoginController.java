@@ -17,6 +17,11 @@ import javafx.scene.control.Hyperlink;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
+/**
+ * @author Erwin Herrera
+ * @author Julian Chan / xmp183
+ *
+ */
 public class LoginController implements EventHandler<ActionEvent> {
 
 	private LoginModel model;
@@ -71,10 +76,19 @@ public class LoginController implements EventHandler<ActionEvent> {
 			Stage.hide();
 			Stage.setScene(homePageScene);
 			Stage.show();
-
-		} else if (event.getSource() == registerButton) {
+			
+		} else if (event.getSource() == registerButton) {  
+			// When register button is clicked, the Register.fxml is loaded 
+			// and a new stage is set ------>
 			System.out.println("Register pressed");
-
+			FXMLLoader registerLoader = new FXMLLoader(getClass().getResource("/applicationView/Register.fxml"));
+			Parent registerParent = registerLoader.load();
+			Scene registerScene = new Scene(registerParent);
+			Stage Stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+			Stage.setTitle("Register Window");
+			Stage.hide();
+			Stage.setScene(registerScene);
+			Stage.show();
 		}
 
 	}
