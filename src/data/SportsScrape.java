@@ -26,11 +26,12 @@ public class SportsScrape {
 	private static String game2team2;
 	private static String game2time;
 	
-//	private static String game3team1;
-//	private static String game3team2;
+	private static String game3team1;
+	private static String game3team2;
+	private static String game3time;
 	
 	/**
-	 * Will return 3 sports game play times depending on what sport you like.
+	 * Will return 3 sports game play times depending on what sport the user likes.
 	 * @throws IOException 
 	 */
 	public static String CorellianAle (char input)
@@ -64,89 +65,90 @@ public class SportsScrape {
 				
 				retString = "The " + game1team1 + " are playing the defending " + game1team2 + " at " + game1time + ".\n";
 				
-				Pattern pattern2 = Pattern.compile("/en-us/sports/nba/(.*)-at-(.*)/game-center.*>(.*)</a>");
-				Matcher matcher2 = pattern2.matcher(htmlString);
-				
-				if (matcher2.find())
+				if (matcher1.find())
 				{
 				    game2team1 = matcher1.group(1);
 				    game2team2 = matcher1.group(2);
-				    game2team1 = game1team1.replace("-", " ");
-					game2team2 = game1team2.replace("-", " ");
-				    game2team1 = WordUtils.capitalize(game1team1);
-					game2team2 = WordUtils.capitalize(game1team2);
+				    game2team1 = game2team1.replace("-", " ");
+					game2team2 = game2team2.replace("-", " ");
+				    game2team1 = WordUtils.capitalize(game2team1);
+					game2team2 = WordUtils.capitalize(game2team2);
 					game2time = matcher1.group(3);
 				}
 				
 				retString += "The " + game2team1 + " are playing the defending " + game2team2 + " at " + game2time + ".\n";
-			/*	
-				Pattern pattern3 = Pattern.compile("/name/.*>(.*)</a>.*");
-				Matcher matcher3 = pattern3.matcher(htmlString);
+			
 				if (matcher1.find())
-				    game2team1 = matcher1.group(1);
+				{
+   				 	game3team1 = matcher1.group(1);
+   				 	game3team2 = matcher1.group(2);
+   				 	game3team1 = game3team1.replace("-", " ");
+   				 	game3team2 = game3team2.replace("-", " ");
+   				 	game3team1 = WordUtils.capitalize(game3team1);
+   				 	game3team2 = WordUtils.capitalize(game3team2);
+   				 	game3time = matcher1.group(3);	
+				}
 				
-				Pattern pattern4 = Pattern.compile("/name/.*>(.*)</a>.*");
-				Matcher matcher4 = pattern4.matcher(htmlString);
-				if (matcher1.find())
-				    game2team2 = matcher1.group(1);
-				
-				retString += "The " + game2team2 + " are playing the defending " + game2team1 + "\n";
-				
-				if (matcher1.find())
-				    game3team1 = matcher1.group(1);
-				
-				if (matcher1.find())
-				    game3team2 = matcher1.group(1);
-				
-				retString += "The " + game3team2 + " are playing the defending " + game3team1 + "\n";
-			*/		
+				retString += "The " + game3team1 + " are playing the defending " + game3team2 + " at " + game3time + ".\n";
+		
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
 		}
 		// Football
 		else if(input == 'B') 
-		{/*
+		{
 			try {
-				Document doc = Jsoup.connect("http://www.espn.com/nfl/schedule").get();
-				Elements results = doc.getElementsContainingText(".");
+				Document doc = Jsoup.connect("https://www.msn.com/en-us/sports/nfl/schedule").get();
+				Elements results = doc.getAllElements();
 				htmlString = results.toString();
 				
-				Pattern pattern1 = Pattern.compile("/name/.*>(.*)</a>.*");
+				Pattern pattern1 = Pattern.compile("/en-us/sports/nfl/(.*)-at-(.*)/game-center.*>(.*)</a>");
 				Matcher matcher1 = pattern1.matcher(htmlString);
+
+				// Method is marked as deprecated - Need to change soon.
 				if (matcher1.find())
+				{
 				    game1team1 = matcher1.group(1);
+				    game1team2 = matcher1.group(2);
+				    game1team1 = game1team1.replace("-", " ");
+					game1team2 = game1team2.replace("-", " ");
+				    game1team1 = WordUtils.capitalize(game1team1);
+					game1team2 = WordUtils.capitalize(game1team2);
+					game1time = matcher1.group(3);
+				}	
 				
-				Pattern pattern2 = Pattern.compile("/name/.*>(.*)</a>.*");
-				Matcher matcher2 = pattern2.matcher(htmlString);
+				retString = "The " + game1team1 + " are playing the defending " + game1team2 + " on " + game1time + ".\n";
+				
 				if (matcher1.find())
-				    game1team2 = matcher1.group(1);
-				
-				retString = "The " + game1team2 + " are playing the defending " + game1team1 + "\n";
-				
-				Pattern pattern3 = Pattern.compile("/name/.*>(.*)</a>.*");
-				Matcher matcher3 = pattern3.matcher(htmlString);
-				if (matcher1.find())
+				{
 				    game2team1 = matcher1.group(1);
+				    game2team2 = matcher1.group(2);
+				    game2team1 = game2team1.replace("-", " ");
+					game2team2 = game2team2.replace("-", " ");
+				    game2team1 = WordUtils.capitalize(game2team1);
+					game2team2 = WordUtils.capitalize(game2team2);
+					game2time = matcher1.group(3);
+				}
 				
-				Pattern pattern4 = Pattern.compile("/name/.*>(.*)</a>.*");
-				Matcher matcher4 = pattern4.matcher(htmlString);
+				retString += "The " + game2team1 + " are playing the defending " + game2team2 + " on " + game2time + ".\n";
+	
 				if (matcher1.find())
-				    game2team2 = matcher1.group(1);
-				
-				retString += "The " + game2team2 + " are playing the defending " + game2team1 + "\n";
-				
-				if (matcher1.find())
+				{
 				    game3team1 = matcher1.group(1);
+				    game3team2 = matcher1.group(2);
+				    game3team1 = game3team1.replace("-", " ");
+					game3team2 = game3team2.replace("-", " ");
+				    game3team1 = WordUtils.capitalize(game3team1);
+					game3team2 = WordUtils.capitalize(game3team2);
+					game3time = matcher1.group(3);
+				}
 				
-				if (matcher1.find())
-				    game3team2 = matcher1.group(1);
-				
-				retString += "The " + game3team2 + " are playing the defending " + game3team1 + "\n";
-					
+				retString += "The " + game3team1 + " are playing the defending " + game3team2 + " on " + game3time + ".\n";
+		
 			} catch (IOException e) {
 				e.printStackTrace();
-			}*/
+			}
 		}
 		// Baseball (This won't work right now since the season is over).
 		else if(input == 'C')
