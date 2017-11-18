@@ -18,6 +18,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Hyperlink;
+import javafx.scene.control.Label;
 //import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
@@ -33,31 +34,46 @@ public class LoginController implements EventHandler<ActionEvent> {
 	private LoginModel model;
 
 	@FXML
-	private AnchorPane signInPage;
-	
-	@FXML
-	private Button signUpButton;
-	
-	@FXML
-	private Button loginButton;
-	
-	@FXML
-	private Hyperlink forgotPasswordHyperLink;
-	
-	@FXML
 	private AnchorPane signUpPage;
-	
+
 	@FXML
 	private Button SignInButton;
-	
+
 	@FXML
 	private Button registerButton;
-	
+
 	@FXML
-    private JFXTextField signInUserEmail;
-	
+	private JFXTextField registerEmail;
+
+	@FXML
+	private JFXTextField registerPassword;
+
+	@FXML
+	private JFXTextField confirmPassword;
+
+	@FXML
+	private AnchorPane signInPage;
+
+	@FXML
+	private Button signUpButton;
+
+	@FXML
+	private Button loginButton;
+
+	@FXML
+	private Hyperlink forgotPasswordHyperLink;
+
+	@FXML
+	private JFXTextField signInUserEmail;
+
 	@FXML
 	private JFXPasswordField password;
+
+	@FXML
+	private Label userEmailError;
+
+	@FXML
+	private Label passwordError;
 	
 	private String email_username;
 	private String passwordSave;
@@ -72,6 +88,8 @@ public class LoginController implements EventHandler<ActionEvent> {
 //		this.account = new Account(email_username, passwordSave);
     	signInUserEmail = new JFXTextField();
     	password = new JFXPasswordField();
+		userEmailError = new Label();
+		passwordError = new Label();
 	}
 
 	/**
@@ -101,14 +119,57 @@ public class LoginController implements EventHandler<ActionEvent> {
 			signUpPage.toFront();
 
 		} else if (event.getSource() == loginButton) {
-			System.out.println("Login pressed");
-    		email_username = signInUserEmail.getText();
-    		passwordSave = password.getText();
-    		
-    		System.out.println("Email: " + email_username);
-    		System.out.println("Password: " + passwordSave);
-    		//this.account.getInfo();
-			
+
+
+			if ((signInUserEmail.getText() == null || signInUserEmail.getText().trim().isEmpty() 
+					&& (password.getText() == null || password.getText().trim().isEmpty()))){
+				userEmailError.setVisible(true);
+				passwordError.setVisible(true);
+
+			} else if (signInUserEmail.getText() == null || signInUserEmail.getText().trim().isEmpty()) {
+
+				passwordError.setVisible(false);
+				userEmailError.setVisible(true);
+				System.out.println("No email");
+
+			} else if (password.getText() == null || password.getText().trim().isEmpty()) {
+
+				userEmailError.setVisible(false);
+				passwordError.setVisible(true);
+				System.out.println("No password");
+
+			}else {
+
+				System.out.println("Login pressed");
+
+				email_username = signInUserEmail.getText();
+				passwordSave = password.getText();
+
+				System.out.println("Email: " + email_username);
+				System.out.println("Password: " + passwordSave);
+				//this.account.getInfo();
+
+
+				FXMLLoader loginLoader = new FXMLLoader(getClass().getResource("/applicationView/GetOutNowHomePage.fxml"));
+				Parent homePageParent = loginLoader.load();
+				Scene homePageScene = new Scene (homePageParent);
+				Stage Stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+				FadeTransition ft = new FadeTransition(Duration.millis(1500));
+				ft.setNode(homePageParent);
+				ft.setFromValue(0.1);
+				ft.setToValue(1);
+				ft.setCycleCount(1);
+				ft.setAutoReverse(false);
+				Stage.hide();
+				Stage.setTitle("Homepage");
+				Stage.setScene(homePageScene);
+				Stage.show();
+				ft.play();
+			}
+
+		} else if (event.getSource() == registerButton) {
+			System.out.println("Register pressed");
+
 			FXMLLoader loginLoader = new FXMLLoader(getClass().getResource("/applicationView/GetOutNowHomePage.fxml"));
 			Parent homePageParent = loginLoader.load();
 			Scene homePageScene = new Scene (homePageParent);
@@ -124,19 +185,7 @@ public class LoginController implements EventHandler<ActionEvent> {
 			Stage.setScene(homePageScene);
 			Stage.show();
 			ft.play();
-			
-		} else if (event.getSource() == registerButton) {  
-			// When register button is clicked, the Register.fxml is loaded 
-			// and a new stage is set ------>
-			System.out.println("Register pressed");
-			FXMLLoader registerLoader = new FXMLLoader(getClass().getResource("/applicationView/Register.fxml"));
-			Parent registerParent = registerLoader.load();
-			Scene registerScene = new Scene(registerParent);
-			Stage Stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-			Stage.hide();
-			Stage.setTitle("Register Window");
-			Stage.setScene(registerScene);
-			Stage.show();
+
 		}
 
 	}
