@@ -1,5 +1,9 @@
 package profile;
 
+import java.io.BufferedWriter;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
@@ -21,7 +25,8 @@ public class Interest {
 	
 	// store values here
 	private Scanner input;    // Scanner for user input
-	private Map<String, String> interestToValue;     // HashMap to store preferences and boolean
+	private Map<String, String> interestToValue;     //  HashMap to store preferences and boolean
+	private final String INTERESTFILE = "interest.txt";    // Text file to store Interest preferences
 	
 	/**
 	 * Interest Constructor initializes Scanner for user input
@@ -33,7 +38,7 @@ public class Interest {
 	}
 	
 	/**
-	 * checkInput takes in a Scanner and String to prompt the user
+	 * checkInput() takes in a Scanner and String to prompt the user
 	 * 		IE: "Do you like basketball?"
 	 * 		If yes -> return true;
 	 * 			no -> return false;
@@ -49,6 +54,32 @@ public class Interest {
 			return true;
 		} else {
 			return false;
+		}
+	}
+	
+	/**
+	 * writeToFile() will write the keys and values from the HashMap to interest.txt
+	 */
+	public void writeToFile() {
+		try {
+			// attempt to initialize FileWriter and BufferedWriter objects
+			FileWriter outFile = new FileWriter(INTERESTFILE);
+			BufferedWriter outBuffer = new BufferedWriter(outFile);
+			// for loop to write [key,value] pairs from HashMap in the format:
+			//       key:value
+			//       basketball:true
+			//       coffee:false
+			for (String str: interestToValue.keySet()) {
+				outBuffer.write(str + ":" + this.getBoolFromKey(str) + "\n");
+			}
+			outBuffer.close();           // close BufferedWriter
+			outFile.close();             // close FileWriter
+		} catch (FileNotFoundException e) {        // exit when error: file not found
+			System.err.println("File not found");
+			System.exit(-1);
+		} catch (IOException e) {                   // exit when error: file cannot be read
+			System.err.println("File cannot be read");
+			System.exit(-1);
 		}
 	}
 

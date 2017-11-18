@@ -28,14 +28,27 @@ public class TestInterest {
 		 * 		"Do you like basketball?"
 		 * 		if yes -> return true and add [key,value] pair to HashMap
 		 */
+		//  Test case 1: Basketball
 		if (testInterest.checkInput(testInterest.getInput(), "Do you like basketball?") == true) {
-			System.out.println("Returned true");
+			System.out.println("Basketball returned true");
 			testInterest.setKeyPair("basketball", "true");
 		} else {
-			System.out.println("Returned false");
+			System.out.println("Basketball returned false");
+			testInterest.setKeyPair("basketball", "false");
+		}
+		//  Test case 2: Coffee
+		if (testInterest.checkInput(testInterest.getInput(), "Do you like coffee?") == true) {
+			System.out.println("coffee returned true");
+			testInterest.setKeyPair("coffee", "true");
+		} else {
+			System.out.println("coffee returned false");
+			testInterest.setKeyPair("coffee", "false");
 		}
 		// Print boolean value from key: "basketball"
 		System.out.println("Value from key is " + testInterest.getBoolFromKey("basketball"));
+		
+		// Write all entries from HashMap to file
+		testInterest.writeToFile();
 	}
 
 }
