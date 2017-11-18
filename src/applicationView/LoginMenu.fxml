@@ -10,13 +10,12 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
 <VBox prefHeight="400.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="applicationController.LoginController">
   <children>
-      <Pane prefHeight="400.0" prefWidth="700.0">
+      <AnchorPane prefHeight="200.0" prefWidth="200.0">
          <children>
             <AnchorPane fx:id="signUpPage" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="700.0" style="-fx-background-color: black;">
                <children>
@@ -59,8 +58,8 @@
                            </effect>
                         </Button>
                         <JFXTextField focusColor="BLACK" layoutX="36.0" layoutY="67.0" prefHeight="25.0" prefWidth="227.0" promptText="Email" style="-fx-background-color: white;" unFocusColor="WHITE" />
-                        <JFXPasswordField focusColor="BLACK" layoutX="36.0" layoutY="119.0" prefHeight="25.0" prefWidth="227.0" promptText="Password" style="-fx-background-color: white;" unFocusColor="WHITE" />
-                        <JFXPasswordField focusColor="BLACK" layoutX="36.0" layoutY="165.0" prefHeight="25.0" prefWidth="227.0" promptText="Confirm Password" style="-fx-background-color: white;" unFocusColor="WHITE" />
+                        <JFXTextField focusColor="BLACK" layoutX="36.0" layoutY="119.0" prefHeight="25.0" prefWidth="227.0" promptText="Password" style="-fx-background-color: white;" unFocusColor="WHITE" />
+                        <JFXTextField focusColor="BLACK" layoutX="36.0" layoutY="165.0" prefHeight="25.0" prefWidth="227.0" promptText="Confirm Password" style="-fx-background-color: white;" unFocusColor="WHITE" />
                      </children>
                   </AnchorPane>
                </children>
@@ -106,13 +105,13 @@
                            </effect>
                         </Button>
                         <Hyperlink fx:id="forgotPasswordHyperLink" layoutX="98.0" layoutY="262.0" onAction="#forgotPasswordHandle" text="Forgot Password?" textFill="#ebe9e9" underline="true" />
-                        <JFXTextField focusColor="WHITE" layoutX="36.0" layoutY="67.0" prefHeight="25.0" prefWidth="227.0" promptText="Username/Email" style="-fx-background-color: black;" unFocusColor="#0d0d0d" />
-                        <JFXPasswordField focusColor="WHITE" layoutX="36.0" layoutY="140.0" prefHeight="25.0" prefWidth="227.0" promptText="Password" style="-fx-background-color: black;" unFocusColor="#0d0d0d" />
+                        <JFXTextField fx:id="signInUserEmail" focusColor="WHITE" layoutX="36.0" layoutY="67.0" prefHeight="25.0" prefWidth="227.0" promptText="Username/Email" style="-fx-background-color: black;" unFocusColor="#0d0d0d" />
+                        <JFXPasswordField fx:id="password" focusColor="WHITE" layoutX="36.0" layoutY="140.0" prefHeight="25.0" prefWidth="227.0" promptText="Password" style="-fx-background-color: black;" unFocusColor="#0d0d0d" />
                      </children>
                   </AnchorPane>
             </children>
           </AnchorPane>
          </children>
-      </Pane>
+      </AnchorPane>
   </children>
 </VBox>
