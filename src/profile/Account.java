@@ -1,7 +1,7 @@
 package profile;
 import java.io.*;
 import java.util.ArrayList;
-//import java.util.Scanner;
+
 
 /**
  * Settings.java will be take the user's profile information to 
@@ -38,7 +38,7 @@ public class Account {
 		return this.profile;
 	}
 	/**
-	 * sets userInfo to the specified paramater
+	 * sets userInfo to the specified parameter
 	 * 
 	 * @param arraylist
 	 */
@@ -125,19 +125,80 @@ public class Account {
 		profile.setName(newInfo);
 		editFile();
 	}
+	/**
+	 * 
+	 * @param newInfo
+	 */
+	public void changeEmail(String newInfo) {
+		oldProBuff = profile.toString();
+		profile.setEmail(newInfo);
+		editFile();
+	}
 	
 	/**
+	 * 
+	 * @param newInfo
+	 */
+	public void changePassword(String newInfo) {
+		oldProBuff = profile.toString();
+		profile.setPassword(newInfo);
+		editFile();
+	}
+	
+	/**
+	 * 
+	 * @param newInfo
+	 */
+	public void changeUsername(String newInfo) {
+		oldProBuff = profile.toString();
+		profile.setUsername(newInfo);
+		editFile();
+	}
+	//public void change
+	
+	
+	/**
+	 * Notes: 
+	 * 		- editFile() will ALWAYS be called after a changeUsername(), changeName(),
+	 * 		changePassword(), or changeEmail() is called.
+	 *  
+	 *  Class variables used: 
+	 *  	- tempList (ArrayList<String>)
+	 *  	- filein (FileReader)
+	 *  	- in (BufferedReader)
+	 *  	- profile (Profile)
+	 *  	- fileout (FileWriter)
+	 *  	- out (BufferedWriter)
+	 *  	- oldProBuff (String)
+	 *  	
+	 * 	About:
+	 * 	This method reads and overwrites data in "profiledata.txt". While
+	 * 	reading the file, it will test if a line equals the old data prior to
+	 * 	the changes. If the line does happen to equal the old information, 
+	 * 	the new Profile information will be saved into the ArrayList tempList. If
+	 * 	the line does not match with the old data, that current line read will
+	 * 	be saved into tempList. After the read process, "profiledata.txt" will 
+	 * 	be overwritten with new information stored in tempList. For every
+	 * 	string stored in tempList, "profiledata.txt" will be overwritten
+	 *  by the strings stored in tempList. After the write process, the file is 
+	 *  closed. 
 	 * 
 	 */
 	public void editFile() {
 		
+		//flushes tempList just in case there is stuff in it
 		tempList = null;
 		tempList = new ArrayList<String>();
 		
 		try {
+			// file read buffer
 			filein = new FileReader(FILENAME);
 			in = new BufferedReader(filein);
+			
+			// while file is not empty
 			while((line = in.readLine()) != null) {
+				
+				//compares the two
 				if(line.trim().equals(oldProBuff.trim())) {
 					System.out.println("Found old data");
 					tempList.add(profile.toString().trim());
@@ -160,5 +221,12 @@ public class Account {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+	}
+	
+	public void deleteProfile() {
+		
+	}
+	public void createProfile(String username, String password, String confirmPassword) {
+		
 	}
 }

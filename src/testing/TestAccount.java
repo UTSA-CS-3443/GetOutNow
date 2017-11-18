@@ -52,10 +52,6 @@ public class TestAccount {
 		//tests to see if the username and password is in the data file.
 		try {
 			set = new Account(username, password);
-			testAL = set.getUserInfo();
-			for (String s: testAL) {
-				System.out.println(s);
-			}
 			//if testAL is empty
 		} catch (NullPointerException e) {
 			System.err.println("Unable to find information");
@@ -66,10 +62,7 @@ public class TestAccount {
 	}
 	
 	public void settingModule() {
-	
-		command = in.nextLine();
-		/*
-		//command = in.nextLine();
+
 		System.out.println("Would you like to make any changes to your account?");
 		System.out.println("Type one of the following commands:");
 		System.out.println("a - change name");
@@ -77,11 +70,7 @@ public class TestAccount {
 		System.out.println("c - change password");
 		System.out.println("d - change email");
 		System.out.println("exit - exit program");
-		
-		
-		in = new Scanner(System.in);
-		String command = in.nextLine();
-		/*
+
 		while(true) {
 			command = in.nextLine();
 			if (!(command.equalsIgnoreCase("a") || command.equalsIgnoreCase("b") || 
@@ -92,8 +81,8 @@ public class TestAccount {
 				break;
 			}
 		}
-		*/
+
 		in.close();
-		System.out.println("The path has been broken!");
+		System.exit(0);
 	}
 }
