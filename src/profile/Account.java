@@ -1,3 +1,12 @@
+/*
+ * 
+ * TODO:
+ * 
+ * Create second constructor for createProfile() and deleteProfile().
+ * Should be:
+ * 
+ * public Account (String email, String password, String confirmPassword)
+ */
 package profile;
 import java.io.*;
 import java.util.ArrayList;
@@ -201,10 +210,10 @@ public class Account {
 				//compares the two
 				if(line.trim().equals(oldProBuff.trim())) {
 					System.out.println("Found old data");
-					tempList.add(profile.toString().trim());
+					tempList.add(profile.toString());
 				} else {
 					System.out.println("Data does not match");
-					tempList.add(line.trim());
+					tempList.add(line + "\n");
 				}
 			}
 			in.close();
@@ -214,8 +223,8 @@ public class Account {
 			for (String str: tempList) {
 				out.write(str);
 			}
-			fileout.close();
 			out.close();
+			fileout.close();
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
@@ -223,10 +232,11 @@ public class Account {
 		}
 	}
 	
-	public void deleteProfile() {
+	public static void deleteProfile() {
 		
 	}
-	public void createProfile(String username, String password, String confirmPassword) {
-		
+	
+	public static int createProfile(String username, String password, String confirmPassword) {
+		return 0;
 	}
 }

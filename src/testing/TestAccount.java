@@ -14,9 +14,10 @@ import org.junit.Test;
 public class TestAccount {
 
 	private Account set = null;
-	private ArrayList<String> testAL = null;
+//	private ArrayList<String> testAL = null;
 	private Scanner in = new Scanner(System.in);
 	private String command;
+	private String infoBuff;
 	
 	/**
 	 * main objective is to test if a username and password (entered through console)
@@ -81,8 +82,89 @@ public class TestAccount {
 				break;
 			}
 		}
-
+		if (command.equals("a")) {
+			System.out.println("Please enter the new name you would like to use.");
+			infoBuff = in.nextLine();
+			System.out.println("Are you sure you want to change '" 
+					+ set.getProfile().getName() + "' to '" + infoBuff +"'?" );
+			System.out.println("Please enter yes or no");
+			while(true) {
+				command = in.nextLine();
+				if (command.equals("yes")) {
+					set.changeName(infoBuff);
+					break;
+				} else if (command.equals("no")) {
+					System.out.println("Going back to main menu...");
+					settingModule();
+				} else {
+					System.out.println("Invalid command");
+				}
+			}
+		} else if (command.equals("b")) {
+				System.out.println("Please enter the new username you would like to use.");
+				infoBuff = in.nextLine();
+				System.out.println("Are you sure you want to change '" 
+						+ set.getProfile().getUsername() + "' to '" + infoBuff +"'?" );
+				System.out.println("Please enter yes or no");
+				while(true) {
+					command = in.nextLine();
+					if (command.equals("yes")) {
+						set.changeUsername(infoBuff);
+						break;
+					} else if (command.equals("no")) {
+						System.out.println("Going back to main menu...");
+						settingModule();
+					} else {
+						System.out.println("Invalid command");
+					}
+				}
+			} else if (command.equals("c")) {
+				System.out.println("Please enter the new name you would like to use.");
+				infoBuff = in.nextLine();
+				System.out.println("Are you sure you want to change '" 
+						+ set.getProfile().getPassword() + "' to '" + infoBuff +"'?" );
+				System.out.println("Please enter yes or no");
+				while(true) {
+					command = in.nextLine();
+					if (command.equals("yes")) {
+						set.changePassword(infoBuff);
+						break;
+					} else if (command.equals("no")) {
+						System.out.println("Going back to main menu...");
+						settingModule();
+					} else {
+						System.out.println("Invalid command");
+					}
+				}
+			} else if (command.equals("d")) {
+				System.out.println("Please enter the new name you would like to use.");
+				infoBuff = in.nextLine();
+				System.out.println("Are you sure you want to change '" 
+						+ set.getProfile().getEmail() + "' to '" + infoBuff +"'?" );
+				System.out.println("Please enter yes or no");
+				while(true) {
+					command = in.nextLine();
+					if (command.equals("yes")) {
+						set.changeEmail(infoBuff);
+						break;
+					} else if (command.equals("no")) {
+						System.out.println("Going back to main menu...");
+						settingModule();
+					} else {
+						System.out.println("Invalid command");
+					}
+				}
+			} else {
+				System.out.println("Now exiting program...");
+				in.close();
+				return;
+				/*
+				assertEquals(true, true);
+				in.close();
+				System.exit(0);
+				*/
+			}
+		System.out.println("Done! Your information has been updated");
 		in.close();
-		System.exit(0);
 	}
 }
