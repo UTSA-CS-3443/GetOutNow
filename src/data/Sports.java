@@ -25,16 +25,17 @@ public class Sports {
 		input = scan.next().charAt(0);
 		input = Character.toUpperCase(input);
 			
-		while(input != 'A' && input != 'B' && input != 'C') 
+		while(input != 'A' && input != 'B') 
 		{
 			System.out.println("Incorrect submission, please enter A, B, or C.");
+			if(input == 'C')
+				System.out.println("Baseball season is actually over right now, so you won't be able to choose it!");
 			input = scan.next().charAt(0);	
 			input = Character.toUpperCase(input);
 		}
 		
 		this.answer = input;
 		
-		scan.close();
 	}
 	
 	public char getAnswer() {

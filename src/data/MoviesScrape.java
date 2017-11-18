@@ -26,7 +26,7 @@ public class MoviesScrape {
 	 * @return
 	 * @throws IOException
 	 */
-	public static String Mercuryblast(char input) {
+	public static String MercuryBlast(char input) {
 		
 		String htmlString = null;
 		
@@ -111,7 +111,7 @@ public class MoviesScrape {
 		///movie/(.*?)/
 		
 		System.out.println("Here are some movies playing that you might like!");
-		return movie1 + "\n" + movie2 + "\n" + movie3 + "\n";
+		return movie1 + "\n" + movie2 + "\n" + movie3;
 
 	}
 
