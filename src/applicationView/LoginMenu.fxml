@@ -58,7 +58,7 @@
                               <Blend mode="SOFT_LIGHT" />
                            </effect>
                         </Button>
-                        <JFXTextField focusColor="BLACK" layoutX="36.0" layoutY="67.0" prefHeight="25.0" prefWidth="227.0" promptText="Username/Email" style="-fx-background-color: white;" unFocusColor="WHITE" />
+                        <JFXTextField focusColor="BLACK" layoutX="36.0" layoutY="67.0" prefHeight="25.0" prefWidth="227.0" promptText="Email" style="-fx-background-color: white;" unFocusColor="WHITE" />
                         <JFXPasswordField focusColor="BLACK" layoutX="36.0" layoutY="119.0" prefHeight="25.0" prefWidth="227.0" promptText="Password" style="-fx-background-color: white;" unFocusColor="WHITE" />
                         <JFXPasswordField focusColor="BLACK" layoutX="36.0" layoutY="165.0" prefHeight="25.0" prefWidth="227.0" promptText="Confirm Password" style="-fx-background-color: white;" unFocusColor="WHITE" />
                      </children>

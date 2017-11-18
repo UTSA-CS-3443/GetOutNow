@@ -1,6 +1,9 @@
 package applicationController;
 
 import java.io.IOException;
+
+import com.jfoenix.controls.JFXButton;
+
 import applicationModel.LoginModel;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -15,18 +18,18 @@ import javafx.stage.Stage;
 /**
  * 
  * @author Julian Chan / xmp183
- * ProfileController is paired with Register.fxml which contains a 'next'
+ * RegisterController is paired with Register.fxml which contains a 'next'
  * button that will load the Homepage
  *
  */
-public class ProfileController implements EventHandler<ActionEvent> {
+public class RegisterController implements EventHandler<ActionEvent> {
 	
 	private LoginModel model;
 	
 	@FXML
-	private Button next;      // next button
+	private JFXButton next;      // next button
 	
-	public ProfileController() {
+	public RegisterController() {
 		super();
 		this.model = new LoginModel();
 	}
