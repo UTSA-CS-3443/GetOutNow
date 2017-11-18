@@ -1,8 +1,7 @@
 package testing;
-import profile.Settings;
+import profile.Account;
 import java.util.ArrayList;
 import java.util.Scanner;
-
 import static org.junit.Assert.*;
 
 import org.junit.Test;
@@ -12,11 +11,12 @@ import org.junit.Test;
  * 
  * @author Clarence Bumanglag
  */
-public class TestSettings {
+public class TestAccount {
 
-	private Settings test = null;
+	private Account set = null;
 	private ArrayList<String> testAL = null;
 	private Scanner in = new Scanner(System.in);
+	private String command;
 	
 	/**
 	 * main objective is to test if a username and password (entered through console)
@@ -51,19 +51,49 @@ public class TestSettings {
 
 		//tests to see if the username and password is in the data file.
 		try {
-			test = new Settings(username, password);
-			testAL = test.getUserInfo();
+			set = new Account(username, password);
+			testAL = set.getUserInfo();
 			for (String s: testAL) {
 				System.out.println(s);
 			}
-			System.out.println(test.getProfileHandler());
 			//if testAL is empty
 		} catch (NullPointerException e) {
 			System.err.println("Unable to find information");
 			test();
 		} finally {
-			in.close();
+			settingModule();
 		}
 	}
-
+	
+	public void settingModule() {
+	
+		command = in.nextLine();
+		/*
+		//command = in.nextLine();
+		System.out.println("Would you like to make any changes to your account?");
+		System.out.println("Type one of the following commands:");
+		System.out.println("a - change name");
+		System.out.println("b - change username");
+		System.out.println("c - change password");
+		System.out.println("d - change email");
+		System.out.println("exit - exit program");
+		
+		
+		in = new Scanner(System.in);
+		String command = in.nextLine();
+		/*
+		while(true) {
+			command = in.nextLine();
+			if (!(command.equalsIgnoreCase("a") || command.equalsIgnoreCase("b") || 
+					command.equalsIgnoreCase("c") || command.equalsIgnoreCase("d") || 
+					command.equalsIgnoreCase("exit"))) {
+				System.out.println("Incorrect value has been entered: " + command);
+			} else {
+				break;
+			}
+		}
+		*/
+		in.close();
+		System.out.println("The path has been broken!");
+	}
 }

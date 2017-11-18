@@ -10,24 +10,32 @@ import java.util.ArrayList;
  * 
  * @author Clarence Bumanglag
  */
-public class Settings {
+public class Account {
 
 	private String email_username;
 	private String password;
-	private Profile profileHandler = null;
-	private ArrayList<String> userInfo = null;
-	private BufferedReader in = null;
+	private Profile profile;
+	private ArrayList<String> userInfo;
+	private ArrayList<String> tempList;
+	private BufferedReader in;
+	private BufferedWriter out;
+	private FileReader filein;
+	private FileWriter fileout;
+	private String oldProBuff;
+	private String line;
+	
+	private final String FILENAME = "profiledata.txt";
 	
 	//<<<< CONSTRUCTOR >>>>
-	public Settings (String email_username, String password) {
+	public Account (String email_username, String password) {
 		this.email_username = email_username;
 		this.password = password;
 		this.userInfo = getInfo();
-		this.profileHandler = new Profile(userInfo);
+		this.profile = new Profile(userInfo);
 	}
 	
-	public Profile getProfileHandler() {
-		return this.profileHandler;
+	public Profile getProfile() {
+		return this.profile;
 	}
 	/**
 	 * sets userInfo to the specified paramater
@@ -59,18 +67,9 @@ public class Settings {
 	 * @return an arraylist with the user's data (tempList)
 	 */
 	public ArrayList<String> getInfo(){
-		
-		// filename saves the name of the data file
-		String filename = "profiledata.txt";
-		
-		// a local arraylist is created for testing
-		ArrayList<String> tempList = null;
-		
-		// line buffer for the file
-		String line;
-		
 		try {
-			in = new BufferedReader(new FileReader(filename));
+			filein = new FileReader(FILENAME);
+			in = new BufferedReader(filein);
 			while ((line = in.readLine()) != null) {
 				String[] buffer = new String[8];
 				if (line.startsWith("U")) {
@@ -93,6 +92,7 @@ public class Settings {
 						tempList.add(buffer[5]); //password
 						tempList.add(buffer[7]); //fullname
 						in.close();
+						filein.close();
 						return tempList;
 					}
 				}
@@ -101,18 +101,64 @@ public class Settings {
 		 * Catches exception in the event that the file was not found
 		 */
 		} catch (FileNotFoundException e) {
-			System.err.println("File \""+filename+"\" not found");
+			System.err.println("File \""+FILENAME+"\" not found");
 			System.exit(-1);
 		/*
 		 * Catches exception in the event that the file was not readable
 		 */
 		} catch (IOException e) {
-			System.err.println("Cannot read \""+filename+"\"");
+			System.err.println("Cannot read \""+FILENAME+"\"");
 			System.exit(-1);
 		}
-		
 		//return statement
 		return null;
 	}
-
+	
+	/**
+	 * Pseudo-setter for newProBuff. newProBuff will contain the new name
+	 * for user info testing.
+	 * 
+	 * @param newInfo
+	 */
+	public void changeName(String newInfo) {
+		oldProBuff = profile.toString();
+		profile.setName(newInfo);
+		editFile();
+	}
+	
+	/**
+	 * 
+	 */
+	public void editFile() {
+		
+		tempList = null;
+		tempList = new ArrayList<String>();
+		
+		try {
+			filein = new FileReader(FILENAME);
+			in = new BufferedReader(filein);
+			while((line = in.readLine()) != null) {
+				if(line.trim().equals(oldProBuff.trim())) {
+					System.out.println("Found old data");
+					tempList.add(profile.toString().trim());
+				} else {
+					System.out.println("Data does not match");
+					tempList.add(line.trim());
+				}
+			}
+			in.close();
+			filein.close();
+			fileout = new FileWriter(FILENAME);
+			out = new BufferedWriter(fileout);
+			for (String str: tempList) {
+				out.write(str);
+			}
+			fileout.close();
+			out.close();
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
 }
