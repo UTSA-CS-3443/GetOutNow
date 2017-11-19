@@ -1,6 +1,6 @@
 package testing;
 import profile.Account;
-import java.util.ArrayList;
+//import java.util.ArrayList;
 import java.util.Scanner;
 import static org.junit.Assert.*;
 
@@ -137,7 +137,7 @@ public class TestAccount {
 					}
 				}
 			} else if (command.equals("d")) {
-				System.out.println("Please enter the new name you would like to use.");
+				System.out.println("Please enter the new email you would like to use.");
 				infoBuff = in.nextLine();
 				System.out.println("Are you sure you want to change '" 
 						+ set.getProfile().getEmail() + "' to '" + infoBuff +"'?" );
