@@ -381,7 +381,8 @@ public class Account {
 	 * @return 0 if successful in making the new profile, 1 if the profile already exists, 
 	 * 		and -1 if there was an issue with writing into the data file.
 	 */
-	public static int createProfile(String firstName, String lastName, String email, String username, String password) {
+	public static int createProfile(String firstName, String lastName, 
+			String email, String username, String password, String confirmPassword) {
 		
 		try {
 			

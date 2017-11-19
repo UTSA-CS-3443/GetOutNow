@@ -23,6 +23,7 @@ public class create_deleteProfile {
 	private String s3;
 	private String s4;
 	private String s5;
+	private String s6;
 	
 	/**
 	 * Test method for {@link profile.Account#deleteProfile()}.
@@ -48,15 +49,16 @@ public class create_deleteProfile {
 	@Test
 	public void testCreateProfile() {
 		System.out.println("Enter a first name, last name, "
-				+ "email, username, and password for creating");
+				+ "email, username, and password twice for creating");
 		s1 = in.nextLine();
 		s2 = in.nextLine();
 		s3 = in.nextLine();
 		s4 = in.nextLine();
 		s5 = in.nextLine();
+		s6 = in.nextLine();
 		
 		//For successful addition
-		assertEquals(0, Account.createProfile(s1, s2, s3, s4, s5));
+		assertEquals(0, Account.createProfile(s1, s2, s3, s4, s5, s6));
 		//assertEquals(1, Account.createProfile(s1, s2, s3, s4, s5));
 	}
 
