@@ -430,6 +430,9 @@ public class Account {
 			e.printStackTrace();
 			return -1;
 		}
+		
+		// successful creation of profile
+		System.out.println("Profile has been successfully created");
 		return 0;
 	}
 }
