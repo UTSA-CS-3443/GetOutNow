@@ -2,11 +2,12 @@ package applicationController;
 
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
 
-//import applicationModel.Login;
 import applicationModel.LoginModel;
 import javafx.animation.FadeTransition;
 import javafx.animation.PauseTransition;
@@ -21,7 +22,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
-//import javafx.scene.control.Label;
+import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
@@ -102,19 +103,19 @@ public class LoginController implements EventHandler<ActionEvent> {
 	 */
 	public LoginController() {
 		super();
-		//    	this.account = new Account(email_username, passwordSave);
-		signInUserEmail = new JFXTextField();
-		password = new JFXPasswordField();
-		userEmailError = new Label();
-		passwordError = new Label();
-		registerEmail = new JFXTextField();
-		registerPassword = new JFXPasswordField();
-		confirmPassword = new JFXPasswordField();
-		registerEmailError = new Label();
-		registerPasswordError = new Label();
-		confirmPasswordError = new Label();	
-		loading = new ImageView();
-		loading2 = new ImageView();
+		email_username = new String();
+		passwordSave = new String();
+	}
+	
+	/**
+	 * This method initializes FXML variables to be used
+	 * and sets the values of the variables accordingly.
+	 * @param location
+	 * @param resources
+	 */
+	public void initialize(URL location, ResourceBundle resources) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 	/**
