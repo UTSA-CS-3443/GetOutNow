@@ -9,6 +9,7 @@ import com.jfoenix.controls.JFXTextField;
 //import applicationModel.Login;
 import applicationModel.LoginModel;
 import javafx.animation.FadeTransition;
+import javafx.animation.PauseTransition;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -19,6 +20,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
 //import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
@@ -32,7 +34,7 @@ import javafx.util.Duration;
 public class LoginController implements EventHandler<ActionEvent> {
 
 	private LoginModel model;
-
+	
 	@FXML
 	private AnchorPane signUpPage;
 
@@ -46,16 +48,25 @@ public class LoginController implements EventHandler<ActionEvent> {
 	private JFXTextField registerEmail;
 
 	@FXML
-	private JFXTextField registerPassword;
+	private ImageView loading2;
 
 	@FXML
-	private JFXTextField confirmPassword;
+	private Label registerEmailError;
+
+	@FXML
+	private Label registerPasswordError;
+
+	@FXML
+	private JFXPasswordField registerPassword;
+
+	@FXML
+	private JFXPasswordField confirmPassword;
+
+	@FXML
+	private Label confirmPasswordError;
 
 	@FXML
 	private AnchorPane signInPage;
-
-	@FXML
-	private Button signUpButton;
 
 	@FXML
 	private Button loginButton;
@@ -68,6 +79,12 @@ public class LoginController implements EventHandler<ActionEvent> {
 
 	@FXML
 	private JFXPasswordField password;
+
+	@FXML
+	private ImageView loading;
+
+	@FXML
+	private Button signUpButton;
 
 	@FXML
 	private Label userEmailError;
@@ -85,111 +102,21 @@ public class LoginController implements EventHandler<ActionEvent> {
 	 */
 	public LoginController() {
 		super();
-//		this.account = new Account(email_username, passwordSave);
-    	signInUserEmail = new JFXTextField();
-    	password = new JFXPasswordField();
+		//    	this.account = new Account(email_username, passwordSave);
+		signInUserEmail = new JFXTextField();
+		password = new JFXPasswordField();
 		userEmailError = new Label();
 		passwordError = new Label();
+		registerEmail = new JFXTextField();
+		registerPassword = new JFXPasswordField();
+		confirmPassword = new JFXPasswordField();
+		registerEmailError = new Label();
+		registerPasswordError = new Label();
+		confirmPasswordError = new Label();	
+		loading = new ImageView();
+		loading2 = new ImageView();
 	}
-
-	/**
-	 * This method manages the event when the 
-	 * Forgot Password hyper link is pressed.
-	 * @param event
-	 */
-	@FXML
-	public void forgotPasswordHandle(ActionEvent event) {
-		System.out.println("Forgot password pressed");
-	}
-
-	/**
-	 * This method handles most, if not all of the buttons
-	 * when they are pressed and depending on the type of button
-	 * executes specific pieces of code.
-	 * @param event
-	 * @throws IOException
-	 */
-	@FXML
-	public void handleButtonAction(ActionEvent event) throws IOException {
-		if(event.getSource () == SignInButton)
-		{
-			signInPage.toFront();
-
-		} else if (event.getSource() == signUpButton) {
-			signUpPage.toFront();
-
-		} else if (event.getSource() == loginButton) {
-
-
-			if ((signInUserEmail.getText() == null || signInUserEmail.getText().trim().isEmpty() 
-					&& (password.getText() == null || password.getText().trim().isEmpty()))){
-				userEmailError.setVisible(true);
-				passwordError.setVisible(true);
-
-			} else if (signInUserEmail.getText() == null || signInUserEmail.getText().trim().isEmpty()) {
-
-				passwordError.setVisible(false);
-				userEmailError.setVisible(true);
-				System.out.println("No email");
-
-			} else if (password.getText() == null || password.getText().trim().isEmpty()) {
-
-				userEmailError.setVisible(false);
-				passwordError.setVisible(true);
-				System.out.println("No password");
-
-			}else {
-
-				System.out.println("Login pressed");
-
-				email_username = signInUserEmail.getText();
-				passwordSave = password.getText();
-
-				System.out.println("Email: " + email_username);
-				System.out.println("Password: " + passwordSave);
-				//this.account.getInfo();
-
-
-				FXMLLoader loginLoader = new FXMLLoader(getClass().getResource("/applicationView/GetOutNowHomePage.fxml"));
-				Parent homePageParent = loginLoader.load();
-				Scene homePageScene = new Scene (homePageParent);
-				Stage Stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-				FadeTransition ft = new FadeTransition(Duration.millis(1500));
-				ft.setNode(homePageParent);
-				ft.setFromValue(0.1);
-				ft.setToValue(1);
-				ft.setCycleCount(1);
-				ft.setAutoReverse(false);
-				Stage.hide();
-				Stage.setTitle("Homepage");
-				Stage.setScene(homePageScene);
-				Stage.show();
-				ft.play();
-			}
-
-		} else if (event.getSource() == registerButton) {
-			System.out.println("Register pressed");
-
-			FXMLLoader loginLoader = new FXMLLoader(getClass().getResource("/applicationView/GetOutNowHomePage.fxml"));
-			Parent homePageParent = loginLoader.load();
-			Scene homePageScene = new Scene (homePageParent);
-			Stage Stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-			FadeTransition ft = new FadeTransition(Duration.millis(1500));
-			ft.setNode(homePageParent);
-			ft.setFromValue(0.1);
-			ft.setToValue(1);
-			ft.setCycleCount(1);
-			ft.setAutoReverse(false);
-			Stage.hide();
-			Stage.setTitle("Homepage");
-			Stage.setScene(homePageScene);
-			Stage.show();
-			ft.play();
-
-		}
-
-	}
-
+	
 	/**
 	 * This method ensures that the model of the login is only
 	 * initialized once.
@@ -212,5 +139,183 @@ public class LoginController implements EventHandler<ActionEvent> {
 		// TODO Auto-generated method stub
 
 	}
+	
+	/**
+	 * This method manages the event when the 
+	 * Forgot Password hyper link is pressed.
+	 * @param event
+	 */
+	@FXML
+	public void forgotPasswordHandle(ActionEvent event) {
+		System.out.println("Forgot password pressed");
+	}
 
+	/**
+	 * This method handles most, if not all of the buttons
+	 * when they are pressed and depending on the type of button
+	 * executes specific pieces of code.
+	 * @param event
+	 * @throws IOException
+	 */
+	@FXML
+	public void handleButtonAction(ActionEvent event) throws IOException {
+
+		if(event.getSource () == SignInButton)
+		{
+			userEmailError.setVisible(false);
+			passwordError.setVisible(false);
+			signInPage.toFront();
+
+		} else if (event.getSource() == signUpButton) {
+			
+			registerEmailError.setVisible(false);
+			registerPasswordError.setVisible(false);
+			confirmPasswordError.setVisible(false);
+			signUpPage.toFront();
+
+		} else if (event.getSource() == loginButton) {
+
+			if ((signInUserEmail.getText() == null || signInUserEmail.getText().trim().isEmpty() 
+					&& (password.getText() == null || password.getText().trim().isEmpty()))){
+				userEmailError.setVisible(true);
+				passwordError.setVisible(true);
+
+			} else if (signInUserEmail.getText() == null || signInUserEmail.getText().trim().isEmpty()) {
+
+				passwordError.setVisible(false);
+				userEmailError.setVisible(true);
+				System.out.println("No email");
+
+			} else if (password.getText() == null || password.getText().trim().isEmpty()) {
+
+				userEmailError.setVisible(false);
+				passwordError.setVisible(true);
+				System.out.println("No password");
+
+			}else {
+
+				userEmailError.setVisible(false);
+				passwordError.setVisible(false);
+				
+				System.out.println("Login pressed");
+
+				email_username = signInUserEmail.getText();
+				passwordSave = password.getText();
+
+				System.out.println("Email: " + email_username);
+				System.out.println("Password: " + passwordSave);
+				//this.account.getInfo();
+
+				loading.setVisible(true);	// show loading
+				PauseTransition pt = new PauseTransition();		// animation
+				pt.setDuration(Duration.seconds(3));	// animation duration set to 3 seconds
+				pt.setOnFinished(ev -> {
+					System.out.println("Login Successful");		// after animation done, print
+
+
+					FXMLLoader loginLoader = new FXMLLoader(getClass().getResource("/applicationView/HomePage.fxml"));
+					Parent homePageParent = null;
+					try {
+						homePageParent = loginLoader.load();
+					} catch (IOException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+					Scene homePageScene = new Scene (homePageParent);
+					Stage Stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+					FadeTransition ft = new FadeTransition(Duration.millis(1500));
+					ft.setNode(homePageParent);
+					ft.setFromValue(0.1);
+					ft.setToValue(1);
+					ft.setCycleCount(1);
+					ft.setAutoReverse(false);
+					Stage.hide();
+					Stage.setTitle("Homepage");
+					Stage.setScene(homePageScene);
+					Stage.show();
+					ft.play();
+				});
+				pt.play();		// play animation
+			}
+
+		} else if (event.getSource() == registerButton) {
+			
+			if ((registerEmail.getText() == null || registerEmail.getText().trim().isEmpty())
+					&& (registerPassword.getText() == null || registerPassword.getText().trim().isEmpty())) {
+
+				registerEmailError.setVisible(true);
+				registerPasswordError.setVisible(true);
+				confirmPasswordError.setVisible(false);
+				System.out.println("No email and password");	
+				
+			} else if (registerEmail.getText() == null || registerEmail.getText().trim().isEmpty()) {
+
+				registerEmailError.setVisible(true);
+				registerPasswordError.setVisible(false);
+				confirmPasswordError.setVisible(false);
+				System.out.println("No email");
+
+			} else if (registerPassword.getText() == null || registerPassword.getText().trim().isEmpty()) {
+
+				registerEmailError.setVisible(false);
+				registerPasswordError.setVisible(true);
+				confirmPasswordError.setVisible(false);
+				System.out.println("No password");
+
+
+			} else if (confirmPassword.getText() == null || confirmPassword.getText().trim().isEmpty()) {
+
+				registerEmailError.setVisible(false);
+				registerPasswordError.setVisible(false);
+				confirmPasswordError.setVisible(true);
+				System.out.println("Confirm password");
+
+			} else {
+
+				registerEmailError.setVisible(false);
+				registerPasswordError.setVisible(false);
+				confirmPasswordError.setVisible(false);
+				
+				System.out.println("Register pressed");
+
+				email_username = registerEmail.getText();
+				passwordSave = registerPassword.getText();
+
+				System.out.println("Email: " + email_username);
+				System.out.println("Password: " + passwordSave);
+				//this.account.getInfo();
+
+				loading2.setVisible(true);	// show loading
+				PauseTransition pt2 = new PauseTransition();		// animation
+				pt2.setDuration(Duration.seconds(3));	// animation duration set to 3 seconds
+				pt2.setOnFinished(ev -> {
+					System.out.println("Login Successful");		// after animation done, print
+
+
+					FXMLLoader loginLoader2 = new FXMLLoader(getClass().getResource("/applicationView/Register.fxml"));
+					Parent homePageParent2 = null;
+					try {
+						homePageParent2 = loginLoader2.load();
+					} catch (IOException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+					Scene homePageScene2 = new Scene (homePageParent2);
+					Stage Stage2 = (Stage) ((Node)event.getSource()).getScene().getWindow();
+					FadeTransition ft2 = new FadeTransition(Duration.millis(1500));
+					ft2.setNode(homePageParent2);
+					ft2.setFromValue(0.1);
+					ft2.setToValue(1);
+					ft2.setCycleCount(1);
+					ft2.setAutoReverse(false);
+					Stage2.hide();
+					Stage2.setTitle("Register");
+					Stage2.setScene(homePageScene2);
+					Stage2.show();
+					ft2.play();
+				});
+				pt2.play();		// play animation
+			}
+		}
+	}
 }
