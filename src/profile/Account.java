@@ -378,11 +378,17 @@ public class Account {
 	 * @param username
 	 * @param password
 	 * 
-	 * @return 0 if successful in making the new profile, 1 if the profile already exists, 
-	 * 		and -1 if there was an issue with writing into the data file.
+	 * @return 0 if successful in making the new profile, 1 if the profile already exists,
+	 * 		2 if passwords don't match, and -1 if there was an issue with writing into the data file.
 	 */
 	public static int createProfile(String firstName, String lastName, 
 			String email, String username, String password, String confirmPassword) {
+		
+		//tests to see if the passwords match
+		if (!password.equals(confirmPassword)) {
+			System.out.println("Passwords do not match: " + password + " " + confirmPassword);
+			return 2;
+		}
 		
 		try {
 			
