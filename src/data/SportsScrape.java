@@ -61,9 +61,14 @@ public class SportsScrape {
 				    game1team1 = WordUtils.capitalize(game1team1);
 					game1team2 = WordUtils.capitalize(game1team2);
 					game1time = matcher1.group(3);
+					if(game1time.equals("Live"))
+						game1time = "right now";
 				}	
 				
-				retString = "The " + game1team1 + " are playing the defending " + game1team2 + " at " + game1time + ".\n";
+				if(game1time.equals("right now"))
+					retString = "The " + game1team1 + " are playing the defending " + game1team2  + " " + game1time + "!\n";
+				else
+					retString = "The " + game1team1 + " are playing the defending " + game1team2 + " at " + game1time + ".\n";
 				
 				if (matcher1.find())
 				{
@@ -74,10 +79,15 @@ public class SportsScrape {
 				    game2team1 = WordUtils.capitalize(game2team1);
 					game2team2 = WordUtils.capitalize(game2team2);
 					game2time = matcher1.group(3);
+					if(game2time.equals("Live"))
+						game2time = "right now";
 				}
 				
-				retString += "The " + game2team1 + " are playing the defending " + game2team2 + " at " + game2time + ".\n";
-			
+				if(game2time.equals("right now"))
+					retString += "The " + game2team1 + " are playing the defending " + game2team2  + " " + game2time + "!\n";
+				else
+					retString += "The " + game2team1 + " are playing the defending " + game2team2 + " at " + game2time + ".\n";
+				
 				if (matcher1.find())
 				{
    				 	game3team1 = matcher1.group(1);
@@ -87,10 +97,15 @@ public class SportsScrape {
    				 	game3team1 = WordUtils.capitalize(game3team1);
    				 	game3team2 = WordUtils.capitalize(game3team2);
    				 	game3time = matcher1.group(3);	
+					if(game3time.equals("Live"))
+						game3time = "right now";
 				}
 				
-				retString += "The " + game3team1 + " are playing the defending " + game3team2 + " at " + game3time + ".\n";
-		
+				if(game3time.equals("right now"))
+					retString += "The " + game3team1 + " are playing the defending " + game3team2  + " " + game3time + "!\n";
+				else
+					retString += "The " + game3team1 + " are playing the defending " + game3team2 + " at " + game3time + ".\n";
+				
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
