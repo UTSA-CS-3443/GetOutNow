@@ -213,7 +213,7 @@ public class LoginController implements EventHandler<ActionEvent> {
 					System.out.println("Login Successful");		// after animation done, print
 
 
-					FXMLLoader loginLoader = new FXMLLoader(getClass().getResource("/applicationView/HomePage.fxml"));
+					FXMLLoader loginLoader = new FXMLLoader(getClass().getResource("/applicationView/GetOutNowHomePage.fxml"));
 					Parent homePageParent = null;
 					try {
 						homePageParent = loginLoader.load();
