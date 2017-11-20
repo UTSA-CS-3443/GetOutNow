@@ -26,6 +26,7 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import profile.Account;
 
 /**
  * @author Erwin Herrera
@@ -95,6 +96,8 @@ public class LoginController implements EventHandler<ActionEvent> {
 	
 	private String email_username;
 	private String passwordSave;
+
+	private Account account;
 //	private Account account;
 
 	/**
@@ -193,8 +196,10 @@ public class LoginController implements EventHandler<ActionEvent> {
 				passwordError.setVisible(true);
 				System.out.println("No password");
 
-			}else {
+			} else {
 
+				boolean working;
+				
 				userEmailError.setVisible(false);
 				passwordError.setVisible(false);
 				
@@ -205,8 +210,18 @@ public class LoginController implements EventHandler<ActionEvent> {
 
 				System.out.println("Email: " + email_username);
 				System.out.println("Password: " + passwordSave);
-				//this.account.getInfo();
-
+					
+				// try catch to verify if login information if valid
+				try {
+					this.account = new Account(email_username, passwordSave);
+					working = true;
+				} catch (Exception e) {
+					System.err.println("Invalid username/password");
+					working = false;
+				}
+				
+				
+				if (working == true) {							// if the account exists, then load the homepage
 				loading.setVisible(true);	// show loading
 				PauseTransition pt = new PauseTransition();		// animation
 				pt.setDuration(Duration.seconds(3));	// animation duration set to 3 seconds
@@ -235,8 +250,9 @@ public class LoginController implements EventHandler<ActionEvent> {
 					Stage.setScene(homePageScene);
 					Stage.show();
 					ft.play();
-				});
+					});
 				pt.play();		// play animation
+				}
 			}
 
 		} else if (event.getSource() == registerButton) {
