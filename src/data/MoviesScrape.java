@@ -22,11 +22,9 @@ public class MoviesScrape {
 	
 	/**
 	 * Will return 3 movie recommendations based on what the user specified they like.
-	 * @param input
-	 * @return
-	 * @throws IOException
+	 * @param input, a character value specifying what type of movies they like.
 	 */
-	public static String MercuryBlast(char input) {
+	public static String MoviesData (char input) {
 		
 		String htmlString = null;
 		

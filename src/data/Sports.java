@@ -21,15 +21,17 @@ public class Sports {
 		System.out.println("A. Basketball");
 		System.out.println("B. Football");
 		System.out.println("C. Baseball");
+		System.out.println("D. Basketball and Football");
 			
 		input = scan.next().charAt(0);
 		input = Character.toUpperCase(input);
 			
-		while(input != 'A' && input != 'B') 
+		while(input != 'A' && input != 'B' && input != 'D') 
 		{
-			System.out.println("Incorrect submission, please enter A, B, or C.");
+			if(input != 'C')
+				System.out.println("Incorrect submission, please enter A, B, C, or D.");
 			if(input == 'C')
-				System.out.println("Baseball season is actually over right now, so you won't be able to choose it!");
+				System.out.println("Baseball season is actually over right now, so you won't be able to choose it! Please choose A, B, or D.");
 			input = scan.next().charAt(0);	
 			input = Character.toUpperCase(input);
 		}

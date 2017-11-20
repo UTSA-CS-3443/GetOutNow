@@ -1,7 +1,7 @@
-package data;
-import java.io.IOException;
-import java.util.ArrayList;
+package testing;
 import java.util.Scanner;
+
+import data.*;
 /*
  * Patches:
  * 11/15/17 
@@ -13,7 +13,7 @@ import java.util.Scanner;
  * @author Daniel Ghazvini dib952
  */
 
-public class Test {
+public class TestData {
 
 	public static void main(String[] args) {
 				
@@ -29,24 +29,23 @@ public class Test {
 			System.out.println(i +". Coffee Scrape: " + cObj.getLocation(i));
 
 		}
-		
-		// Weather converion test.
+	*/	
+	/*	// Weather conversion test.
 		System.out.print("Please enter the weather in Fahrenheit: ");
 		Scanner in = new Scanner(System.in);
 		Weather weatherObj = new Weather(in.nextDouble());
 		System.out.printf("The weather is Celsius is %d\n", (int)weatherObj.toCelsius(weatherObj.getTemp()));
-	*/
+	
 		// Prints out the current weather in San Antonio.
-		System.out.println("The current weather is " + WeatherScrape.Valhalla() + " in San Antonio, TX.");
-	/*	
-		// Create a movies object.
+		System.out.println("The current weather is " + WeatherScrape.WeatherData() + " in San Antonio, TX.");
+	*/	
+	/*	// Create a movies object.
 		Movies movieObj = new Movies();
-		System.out.println(MoviesScrape.MercuryBlast(movieObj.getAnswer()));
+		System.out.println(MoviesScrape.MoviesData(movieObj.getAnswer()));
 	*/	
 		// Create a sports object.
 		Sports sportObj = new Sports();
-		System.out.println(SportsScrape.CorellianAle(sportObj.getAnswer()));
-	//	System.out.println("Getter says - " + "");
+		System.out.println(SportsScrape.SportsData(sportObj.getAnswer()));
 	//	in.close();
 	}
 }

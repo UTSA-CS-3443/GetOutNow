@@ -19,7 +19,7 @@ public class WeatherScrape {
  * @return The current weather in San Antonio, TX.
  * @throws IOException
  */
-	public static String Valhalla() {
+	public static String WeatherData() {
 		
 		try {
 		
