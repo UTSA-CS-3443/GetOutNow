@@ -176,4 +176,67 @@ public class SportsScrape {
 		
 		return retString;
 	}
+	
+	/*
+	* Returns the string for passed in game's home team name.
+	*@param gameNumber  Must be 1, 2, or 3
+	*/
+	public String getHomeTeamName(int gameNumber){
+		switch(gameNumber){
+			case 1:
+				return game1team1;
+				break;
+			case 2:
+				return game2team1;
+				break;
+			case 3:
+				return game3team1;
+				break;
+			default: //exit error
+				System.out.println("ERROR: Invalid int passed into getHomeTeamName!");
+				System.exit();
+		}
+	}
+	
+	/*
+	* Returns the string for passed in game's away team name.
+	*@param gameNumber  Must be 1, 2, or 3
+	*/
+	public String getAwayTeamName(int gameNumber){
+		switch(gameNumber){
+			case 1:
+				return game1team2;
+				break;
+			case 2:
+				return game2team2;
+				break;
+			case 3:
+				return game3team2;
+				break;
+			default: //exit error
+				System.out.println("ERROR: Invalid int passed into getAwayTeamName!");
+				System.exit();
+		}
+	}
+	
+	/*
+	* Returns the string for passed in game's time.
+	*@param gameNumber  Must be 1, 2, or 3
+	*/
+	public String getGameTime(int gameNumber){
+		switch(gameNumber){
+			case 1:
+				return game1time;
+				break;
+			case 2:
+				return game2time;
+				break;
+			case 3:
+				return game3time;
+				break;
+			default: //exit error
+				System.out.println("ERROR: Invalid int passed into getGameTime!");
+				System.exit();
+		}
+	}
 }
