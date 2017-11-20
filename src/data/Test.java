@@ -15,7 +15,7 @@ import java.util.Scanner;
 
 public class Test {
 
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) {
 				
 	/*	
 		Restaurant rObj = new Restaurant(LocationScrape.scrapeRestaurant());
@@ -46,6 +46,7 @@ public class Test {
 		// Create a sports object.
 		Sports sportObj = new Sports();
 		System.out.println(SportsScrape.CorellianAle(sportObj.getAnswer()));
+	//	System.out.println("Getter says - " + "");
 	//	in.close();
 	}
 }

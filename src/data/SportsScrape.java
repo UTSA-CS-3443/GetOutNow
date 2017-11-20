@@ -185,17 +185,15 @@ public class SportsScrape {
 		switch(gameNumber){
 			case 1:
 				return game1team1;
-				break;
 			case 2:
 				return game2team1;
-				break;
 			case 3:
 				return game3team1;
-				break;
 			default: //exit error
 				System.out.println("ERROR: Invalid int passed into getHomeTeamName!");
-				System.exit();
+				System.exit(-1);
 		}
+		return null;
 	}
 	
 	/*
@@ -206,17 +204,15 @@ public class SportsScrape {
 		switch(gameNumber){
 			case 1:
 				return game1team2;
-				break;
 			case 2:
 				return game2team2;
-				break;
 			case 3:
 				return game3team2;
-				break;
 			default: //exit error
 				System.out.println("ERROR: Invalid int passed into getAwayTeamName!");
-				System.exit();
+				System.exit(-1);
 		}
+		return null;
 	}
 	
 	/*
@@ -227,16 +223,14 @@ public class SportsScrape {
 		switch(gameNumber){
 			case 1:
 				return game1time;
-				break;
 			case 2:
 				return game2time;
-				break;
 			case 3:
 				return game3time;
-				break;
 			default: //exit error
 				System.out.println("ERROR: Invalid int passed into getGameTime!");
-				System.exit();
+				System.exit(-1);
 		}
+		return null;
 	}
 }
