@@ -40,8 +40,8 @@
                            </effect>
                         </Button>
                         <Hyperlink fx:id="forgotPasswordHyperLink" layoutX="98.0" layoutY="262.0" onAction="#forgotPasswordHandle" text="Forgot Password?" textFill="#ebe9e9" underline="true" />
-                        <JFXTextField fx:id="signInUserEmail" focusColor="WHITE" layoutX="36.0" layoutY="67.0" prefHeight="25.0" prefWidth="227.0" promptText="Username/Email" style="-fx-background-color: black;" unFocusColor="#0d0d0d" />
-                        <JFXPasswordField fx:id="password" focusColor="WHITE" layoutX="36.0" layoutY="140.0" prefHeight="25.0" prefWidth="227.0" promptText="Password" style="-fx-background-color: black;" unFocusColor="#0d0d0d" />
+                        <JFXTextField fx:id="signInUserEmail" focusColor="WHITE" layoutX="36.0" layoutY="67.0" prefHeight="25.0" prefWidth="227.0" promptText="Username/Email" style="-fx-background-color: black; -fx-text-inner-color: white;" unFocusColor="#0d0d0d" />
+                        <JFXPasswordField fx:id="password" focusColor="WHITE" layoutX="36.0" layoutY="140.0" prefHeight="25.0" prefWidth="227.0" promptText="Password" style="-fx-background-color: black; -fx-text-inner-color: white;" unFocusColor="#0d0d0d" />
                         <ImageView fx:id="loading" fitHeight="61.0" fitWidth="55.0" layoutX="122.0" layoutY="285.0" pickOnBounds="true" preserveRatio="true" visible="false">
                            <image>
                               <Image url="@../../images/lg.double-ring-spinner.gif" />

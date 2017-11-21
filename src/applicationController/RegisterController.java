@@ -44,7 +44,7 @@ public class RegisterController implements Initializable {
 	private JFXTextField firstName;
 
 	@FXML
-	private JFXPasswordField registerEmail;
+	private JFXTextField registerEmail;
 
 	@FXML
 	private JFXButton registerBT;
@@ -56,7 +56,7 @@ public class RegisterController implements Initializable {
 	private JFXTextField lastName;
 
 	@FXML
-	private JFXPasswordField userName;
+	private JFXTextField userName;
 
 	@FXML
 	private JFXPasswordField confirmPassword;

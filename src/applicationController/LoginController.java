@@ -119,7 +119,6 @@ public class LoginController implements EventHandler<ActionEvent> {
 	 * @param resources
 	 */
 	public void initialize(URL location, ResourceBundle resources) {
-		// TODO Auto-generated method stub
 
 	}
 
