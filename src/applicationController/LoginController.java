@@ -5,6 +5,8 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import org.controlsfx.control.Notifications;
+
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
 
@@ -15,6 +17,7 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -36,7 +39,7 @@ import profile.Account;
 public class LoginController implements EventHandler<ActionEvent> {
 
 	private LoginModel model;
-	
+
 	@FXML
 	private AnchorPane signUpPage;
 
@@ -93,12 +96,12 @@ public class LoginController implements EventHandler<ActionEvent> {
 
 	@FXML
 	private Label passwordError;
-	
+
 	private String email_username;
 	private String passwordSave;
 
 	private Account account;
-//	private Account account;
+	//	private Account account;
 
 	/**
 	 * Constructor.
@@ -109,7 +112,7 @@ public class LoginController implements EventHandler<ActionEvent> {
 		email_username = new String();
 		passwordSave = new String();
 	}
-	
+
 	/**
 	 * This method initializes FXML variables to be used
 	 * and sets the values of the variables accordingly.
@@ -118,9 +121,9 @@ public class LoginController implements EventHandler<ActionEvent> {
 	 */
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
-		
+
 	}
-	
+
 	/**
 	 * This method ensures that the model of the login is only
 	 * initialized once.
@@ -143,7 +146,7 @@ public class LoginController implements EventHandler<ActionEvent> {
 		// TODO Auto-generated method stub
 
 	}
-	
+
 	/**
 	 * This method manages the event when the 
 	 * Forgot Password hyper link is pressed.
@@ -171,7 +174,7 @@ public class LoginController implements EventHandler<ActionEvent> {
 			signInPage.toFront();
 
 		} else if (event.getSource() == signUpButton) {
-			
+
 			registerEmailError.setVisible(false);
 			registerPasswordError.setVisible(false);
 			confirmPasswordError.setVisible(false);
@@ -199,10 +202,10 @@ public class LoginController implements EventHandler<ActionEvent> {
 			} else {
 
 				boolean working;
-				
+
 				userEmailError.setVisible(false);
 				passwordError.setVisible(false);
-				
+
 				System.out.println("Login pressed");
 
 				email_username = signInUserEmail.getText();
@@ -210,8 +213,7 @@ public class LoginController implements EventHandler<ActionEvent> {
 
 				System.out.println("Email: " + email_username);
 				System.out.println("Password: " + passwordSave);
-					
-				// try catch to verify if login information if valid
+
 				try {
 					this.account = new Account(email_username, passwordSave);
 					working = true;
@@ -219,44 +221,65 @@ public class LoginController implements EventHandler<ActionEvent> {
 					System.err.println("Invalid username/password");
 					working = false;
 				}
-				
-				
-				if (working == true) {							// if the account exists, then load the homepage
-				loading.setVisible(true);	// show loading
-				PauseTransition pt = new PauseTransition();		// animation
-				pt.setDuration(Duration.seconds(3));	// animation duration set to 3 seconds
-				pt.setOnFinished(ev -> {
-					System.out.println("Login Successful");		// after animation done, print
+
+				if (working == true) {
+					loading.setVisible(true);	// show loading
+					PauseTransition pt = new PauseTransition();		// animation
+					pt.setDuration(Duration.seconds(3));	// animation duration set to 3 seconds
+					pt.setOnFinished(ev -> {
+						System.out.println("Login Successful");		// after animation done, print
 
 
-					FXMLLoader loginLoader = new FXMLLoader(getClass().getResource("/applicationView/GetOutNowHomePage.fxml"));
-					Parent homePageParent = null;
-					try {
-						homePageParent = loginLoader.load();
-					} catch (IOException e1) {
-						// TODO Auto-generated catch block
-						e1.printStackTrace();
-					}
-					Scene homePageScene = new Scene (homePageParent);
-					Stage Stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-					FadeTransition ft = new FadeTransition(Duration.millis(1500));
-					ft.setNode(homePageParent);
-					ft.setFromValue(0.1);
-					ft.setToValue(1);
-					ft.setCycleCount(1);
-					ft.setAutoReverse(false);
-					Stage.hide();
-					Stage.setTitle("Homepage");
-					Stage.setScene(homePageScene);
-					Stage.show();
-					ft.play();
+						FXMLLoader loginLoader = new FXMLLoader(getClass().getResource("/applicationView/GetOutNowHomePage.fxml"));
+						Parent homePageParent = null;
+						try {
+							homePageParent = loginLoader.load();
+						} catch (IOException e1) {
+							// TODO Auto-generated catch block
+							e1.printStackTrace();
+						}
+						Scene homePageScene = new Scene (homePageParent);
+						Stage Stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+						FadeTransition ft = new FadeTransition(Duration.millis(1500));
+						ft.setNode(homePageParent);
+						ft.setFromValue(0.1);
+						ft.setToValue(1);
+						ft.setCycleCount(1);
+						ft.setAutoReverse(false);
+						Stage.hide();
+						Stage.setTitle("Homepage");
+						Stage.setScene(homePageScene);
+						Stage.show();
+						ft.play();
 					});
-				pt.play();		// play animation
+					pt.play();		// play animation
+				} else {
+					Notifications notificationBuilder = Notifications.create()
+							.title("Login Error")
+							.text("Incorrect username or password.")
+							.graphic(null) 							// sets graphic to null which gets a defualt image described below when null
+							//.graphic(new ImageView(img))
+							.hideAfter(Duration.seconds(5))
+							.position(Pos.CENTER)
+							.onAction(new EventHandler<ActionEvent>() {
+
+								public void handle(ActionEvent event) {
+									System.out.println("Clicked on Notification");
+								}
+							});
+
+					notificationBuilder.darkStyle();
+					//notificationBuilder.showConfirm();		// shows a questionmark to confirm
+					//notificationBuilder.show();				// regular notification with no icons, just text
+					notificationBuilder.showError();			// shows an x for an error notification
+					//notificationBuilder.showInformation(); 		// shows an i icon for information
+					//notificationBuilder.showWarning();		// shows an exclamation point
+
 				}
 			}
-
-		} else if (event.getSource() == registerButton) {
 			
+		} else if (event.getSource() == registerButton) {
+
 			if ((registerEmail.getText() == null || registerEmail.getText().trim().isEmpty())
 					&& (registerPassword.getText() == null || registerPassword.getText().trim().isEmpty())) {
 
@@ -264,7 +287,7 @@ public class LoginController implements EventHandler<ActionEvent> {
 				registerPasswordError.setVisible(true);
 				confirmPasswordError.setVisible(false);
 				System.out.println("No email and password");	
-				
+
 			} else if (registerEmail.getText() == null || registerEmail.getText().trim().isEmpty()) {
 
 				registerEmailError.setVisible(true);
@@ -292,7 +315,7 @@ public class LoginController implements EventHandler<ActionEvent> {
 				registerEmailError.setVisible(false);
 				registerPasswordError.setVisible(false);
 				confirmPasswordError.setVisible(false);
-				
+
 				System.out.println("Register pressed");
 
 				email_username = registerEmail.getText();
