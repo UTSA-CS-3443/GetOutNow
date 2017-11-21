@@ -17,9 +17,9 @@ public class TestData {
 
 	public static void main(String[] args) {
 				
-	/*	
-		Restaurant rObj = new Restaurant(LocationScrape.scrapeRestaurant());
-		Coffee cObj = new Coffee(LocationScrape.scrapeCoffeeShop());
+	
+		Restaurant rObj = new Restaurant(RestaurantScrape.scrapeRestaurant());
+		Coffee cObj = new Coffee(CoffeeScrape.scrapeCoffeeShop());
 		
 		for(int i = 0; i < rObj.getSize(); i++){
 			System.out.println(i+". Restaurant Scrape: " + rObj.getLocation(i));
@@ -29,7 +29,7 @@ public class TestData {
 			System.out.println(i +". Coffee Scrape: " + cObj.getLocation(i));
 
 		}
-	*/	
+	
 	/*	// Weather conversion test.
 		System.out.print("Please enter the weather in Fahrenheit: ");
 		Scanner in = new Scanner(System.in);
