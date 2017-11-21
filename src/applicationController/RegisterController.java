@@ -37,7 +37,6 @@ public class RegisterController implements Initializable {
 
 	private LoginModel model;
 
-
 	@FXML
 	private AnchorPane parentPane;
 
@@ -255,7 +254,7 @@ public class RegisterController implements Initializable {
 					 System.out.println("Login Successful");		// after animation done, print
 
 
-					 FXMLLoader loginLoader = new FXMLLoader(getClass().getResource("/applicationView/GetOutNowHomePage.fxml"));
+					 FXMLLoader loginLoader = new FXMLLoader(getClass().getResource("/applicationView/GetOutNowHomepage.fxml"));
 					 Parent homePageParent = null;
 					 try {
 						 homePageParent = loginLoader.load();

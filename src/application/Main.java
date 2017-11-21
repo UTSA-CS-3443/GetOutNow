@@ -29,10 +29,6 @@ public class Main extends Application {
 		
 		try {
 
-			//Parent root = FXMLLoader.load(getClass().getResource("view/GetOutView.fxml"));		// test page
-			//Parent root = FXMLLoader.load(getClass().getResource("view/GetOutNowHomepage.fxml"));	// test homepage
-			//Parent root = FXMLLoader.load(getClass().getResource("view/LoginMenu.fxml"));			// to load login menu
-
 			BorderPane root = new BorderPane();
 			FXMLLoader loginLoader = new FXMLLoader(getClass().getResource("/applicationView/LoginMenu.fxml"));
 			root.setCenter(loginLoader.load());

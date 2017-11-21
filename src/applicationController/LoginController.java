@@ -101,7 +101,6 @@ public class LoginController implements EventHandler<ActionEvent> {
 	private String passwordSave;
 
 	private Account account;
-	//	private Account account;
 
 	/**
 	 * Constructor.
@@ -230,7 +229,7 @@ public class LoginController implements EventHandler<ActionEvent> {
 						System.out.println("Login Successful");		// after animation done, print
 
 
-						FXMLLoader loginLoader = new FXMLLoader(getClass().getResource("/applicationView/GetOutNowHomePage.fxml"));
+						FXMLLoader loginLoader = new FXMLLoader(getClass().getResource("/applicationView/GetOutNowHomepage.fxml"));
 						Parent homePageParent = null;
 						try {
 							homePageParent = loginLoader.load();
