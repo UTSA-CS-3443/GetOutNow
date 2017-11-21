@@ -150,10 +150,15 @@ public class Account {
 	 * This method is in charge of changing the current Profile's password
 	 * @param newInfo
 	 */
-	public void changePassword(String newInfo) {
+	public boolean changePassword(String newInfo) {
+		if (checkPassword(newInfo) == false) {
+			System.out.println("Password is invalid");
+			return false;
+		}
 		oldProBuff = profile.toString();
 		profile.setPassword(newInfo);
 		editFile();
+		return true;
 	}
 	
 	/**
@@ -267,7 +272,8 @@ public class Account {
 	 * @param username
 	 * @param password
 	 * @param confirmPassword
-	 * @return
+	 * @return 1 if passwords do not match, 0 for a successful deletion, -1 for any exception 
+	 * catches excluding NullPointerException, -2 if a NullPointerException was caught.
 	 */
 	public static int deleteProfile(String username, String password, String confirmPassword) {
 		
@@ -371,6 +377,8 @@ public class Account {
 	 * If profile already exists, do not append data and return 1
 	 * If profile does not already, append new data into data file and return 0
 	 * If there was an error in appending the file, return -1
+	 * If the passwords did not match, return 2
+	 * If the password is invalid based on our standards, return 3
 	 * 		
 	 * @param firstName
 	 * @param lastName
@@ -390,6 +398,10 @@ public class Account {
 			return 2;
 		}
 		
+		if (checkPassword(password) == false) {
+			System.out.println("Password is invalid");
+			return 3;
+		}
 		try {
 			
 			//open reading tools
@@ -434,5 +446,85 @@ public class Account {
 		// successful creation of profile
 		System.out.println("Profile has been successfully created");
 		return 0;
+	}
+	
+	/**
+	 * Notes:
+	 * This method is called every time changePassword() or 
+	 * createProfile() is called.
+	 * 
+	 * About:
+	 * checkPassword() implements tests to see if the user's password follows 
+	 * the rules implemented in the GUI. The method will print error messages in the
+	 * console and return false if the password is invalid, and will return 
+	 * true if the password is valid.
+	 * 
+	 * @param password
+	 * @return true if the password is valid, false if is not valid
+	 */
+	public static boolean checkPassword(String password) {
+		
+		// Tests to see if the password is within the correct length domain
+		if (password.length() < 8 || password.length() > 26) {
+			System.out.println("Password is either too long or too short (must be within 7 and "
+					+ "26 characters: " + password.length());
+			return false;
+		// Tests to see if the password has illegal characters
+		} else if (password.contains("'") || password.contains(":") || password.contains("*")
+				|| password.contains("&") || password.contains("%") || password.contains("=")
+				|| password.contains(";") || password.contains("~") || password.contains("-")
+				|| password.contains("_") || password.contains(" ") || password.contains("\\t")
+				|| password.contains("+") || password.contains("^") || password.contains("/")
+				|| password.contains("(") || password.contains(")") || password.contains("\\")) {
+			System.out.println("Password cannot contain the following characters:");
+			System.out.println("':*&%=;~-_ \\t+^/()\\");
+			System.out.println(password);
+			return false;
+		}
+		
+		// initialization of local variables for testing
+		char ch;
+	    boolean capitalFlag = false;
+	    boolean lowerCaseFlag = false;
+	    boolean numberFlag = false;
+	    
+	    // Tests to see if the password at certain indexes have the needed characters
+	    for(int i=0;i < password.length();i++) {
+	        ch = password.charAt(i);
+	        
+	        // if the character is a digit
+	        if( Character.isDigit(ch)) {
+	            numberFlag = true;
+	        }
+	        //if the character is an uppercase
+	        else if (Character.isUpperCase(ch)) {
+	            capitalFlag = true;
+	        //if the character is a lowercase
+	        } else if (Character.isLowerCase(ch)) {
+	            lowerCaseFlag = true;
+	        }
+	        
+	        // if all test flags are set to true, will proceed to the next set of tests 
+	        if(numberFlag && capitalFlag && lowerCaseFlag) {
+	        	
+	        	//tests to see if the password has at least one of the needed special characters
+	        	if (!(password.contains("?") || password.contains("!") || password.contains(".")
+	        			|| password.contains(",") || password.contains("|"))) {
+	        		System.out.println("Password needs to have at least 1 lowercase letter, 1 uppercase letter, "
+	        				+ "1 number, and one special character (!?.,|)");
+	        		return false;
+	        	
+	        		//returns true if the tests are valid
+	        	} else {
+	        		System.out.println("The password is valid!");
+	        		return true;
+	        	}
+	        }
+	    }
+	    
+	    // returns false if the tests within the preceding for loop did not test true.
+	    System.out.println("Password needs to have at least 1 lowercase letter, 1 uppercase letter, "
+				+ "1 number, and one special character (!?.,|)");
+	    return false;
 	}
 }
