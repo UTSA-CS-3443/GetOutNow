@@ -71,7 +71,7 @@ public class Planner {
 			// Initialize variables for FILE IO
 			Planner.fileout = new FileWriter(PLANNERFILE);
 			Planner.out = new BufferedWriter(Planner.fileout);
-			Planner.out.write(this.username + "\n");   // write username to file
+			Planner.out.write("Username:" + this.username + "\n");   // write username to file
 			// write list of events to file
 			for (Event event : this.eventList) {
 				Planner.out.write(event + "\n");

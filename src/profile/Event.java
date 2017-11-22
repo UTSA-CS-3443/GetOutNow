@@ -59,6 +59,6 @@ public class Event {
 	 * @return String 
 	 */
 	public String toString() {
-		return this.date + " " + this.eventName;
+		return this.date + ":" + this.eventName;
 	}
 }
