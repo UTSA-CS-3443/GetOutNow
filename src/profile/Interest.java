@@ -1,6 +1,7 @@
 package profile;
 
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -11,6 +12,7 @@ import java.util.Scanner;
 /**
  * 
  * @author Julian Chan / xmp183
+ * @author Manuel Ben Bravo / pfa698
  * Interest Class prompts user and 
  * stores user interests in text file
  * on preferences for:
@@ -98,5 +100,47 @@ public class Interest {
 	public void setKeyPair(String key, String bool) {
 		this.interestToValue.put(key,  bool);
 	}
+	
+	/**
+	 * Passes a Username and a Interest as strings
+	 * if username is found, and interest == true
+	 * then true is found
+	 * @param String: Username 
+	 * @param String: Interest
+	 */
+	public boolean readFromFile(String Username,String Interest) {
+	
+		Scanner in = null;
+		try {
+			in = new Scanner (new File(INTERESTFILE));
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+		String line; // line for file 
+		String [] s; // array to split at delimiter
+		//boolean userFound = false;//user found 
+		/* Loop through file */
+		   while(in.hasNextLine())
+		   {
+			   line = in.nextLine();
+			   s = line.split(":");
+			   
+			   /* Use for when multiple users AND usernames are written to INTERESTFILE */
+			   /*
+			   if(s[0].equals("Username") && s[1].equals(Username)) { //A user name provided
+				   userFound = true;
+			   }
+			   */
+			   
+			   /* if usernames are written to INTERESTFILE include "&& userFound == true " to if statement */
+			  if(s[0].equals(Interest) && s[1].equals("true")) {
+				  return true;
+			  }
+		   }
+		   in.close();
+		   return false;
+
+	}
+	
 	
 }

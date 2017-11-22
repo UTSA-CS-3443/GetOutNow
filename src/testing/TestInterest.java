@@ -49,6 +49,9 @@ public class TestInterest {
 		
 		// Write all entries from HashMap to file
 		testInterest.writeToFile();
+		
+		
+		System.out.println("Read Interest from File : " + testInterest.readFromFile(null, "basketball")); // null for username since not written to file 
 	}
 
 }
