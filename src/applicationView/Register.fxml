@@ -9,53 +9,83 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="parentPane" prefHeight="358.0" prefWidth="585.0" style="-fx-background-color: #020d1e;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="applicationController.RegisterController">
+<AnchorPane fx:id="parentPane" prefHeight="358.0" prefWidth="654.0" style="-fx-background-color: #020d1e;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="applicationController.RegisterController">
    <children>
-      <JFXTextField fx:id="firstName" layoutX="53.0" layoutY="45.0" prefHeight="25.0" prefWidth="207.0" promptText="Enter your first name" style="-fx-background-color: White;" unFocusColor="#a8a8a8" />
-      <JFXButton fx:id="registerBT" layoutX="325.0" layoutY="298.0" onAction="#handleButtonAction" prefHeight="30.0" prefWidth="207.0" style="-fx-background-color: #0e58ce;" text="Register" textFill="WHITE">
+      <JFXTextField fx:id="firstName" layoutX="85.0" layoutY="45.0" prefHeight="25.0" prefWidth="207.0" promptText="Enter your first name" style="-fx-background-color: White;" unFocusColor="#a8a8a8" />
+      <JFXTextField fx:id="lastName" layoutX="390.0" layoutY="45.0" prefHeight="25.0" prefWidth="207.0" promptText="Enter your last name" style="-fx-background-color: White;" unFocusColor="#a8a8a8" />
+      <JFXTextField fx:id="registerEmail" layoutX="85.0" layoutY="121.0" prefHeight="25.0" prefWidth="207.0" promptText="Enter an Email address" style="-fx-background-color: White;" unFocusColor="#a8a8a8" />
+      <JFXTextField fx:id="userName" layoutX="390.0" layoutY="121.0" prefHeight="25.0" prefWidth="207.0" promptText="Enter a Username" style="-fx-background-color: White;" unFocusColor="#a8a8a8" />
+      <JFXPasswordField fx:id="registerPassword" layoutX="85.0" layoutY="197.0" prefHeight="25.0" prefWidth="207.0" promptText="Enter a Password" style="-fx-background-color: White;" unFocusColor="#a7a7a7" />
+      <JFXPasswordField fx:id="confirmPassword" layoutX="390.0" layoutY="197.0" prefHeight="25.0" prefWidth="207.0" promptText="Confirm Password" style="-fx-background-color: White;" unFocusColor="#a7a7a7" />
+      <JFXButton fx:id="registerBT" layoutX="390.0" layoutY="298.0" onAction="#handleButtonAction" prefHeight="30.0" prefWidth="207.0" style="-fx-background-color: #0e58ce;" text="Register" textFill="WHITE">
          <font>
             <Font size="14.0" />
          </font>
       </JFXButton>
-      <JFXPasswordField fx:id="registerPassword" layoutX="53.0" layoutY="197.0" prefHeight="25.0" prefWidth="207.0" promptText="Enter a Password" style="-fx-background-color: White;" unFocusColor="#a7a7a7" />
-      <JFXTextField fx:id="lastName" layoutX="325.0" layoutY="45.0" prefHeight="25.0" prefWidth="207.0" promptText="Enter your last name" style="-fx-background-color: White;" unFocusColor="#a8a8a8" />
-      <JFXPasswordField fx:id="confirmPassword" layoutX="325.0" layoutY="197.0" prefHeight="25.0" prefWidth="207.0" promptText="Confirm Password" style="-fx-background-color: White;" unFocusColor="#a7a7a7" />
-      <ImageView fx:id="loading" fitHeight="80.0" fitWidth="164.0" layoutX="109.0" layoutY="258.0" pickOnBounds="true" preserveRatio="true">
+      <Label fx:id="registerFirstNameError" layoutX="118.0" layoutY="82.0" prefHeight="17.0" prefWidth="207.0" text="Please enter your first name" textFill="#fc0000">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
+      <Label fx:id="registerLastNameError" layoutX="423.0" layoutY="82.0" prefHeight="17.0" prefWidth="207.0" text="Please enter your last name" textFill="#fc0000">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
+      <Label fx:id="registerEmailError" layoutX="118.0" layoutY="160.0" prefHeight="17.0" prefWidth="207.0" text="Please enter a valid Email" textFill="#fc0000">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
+      <Label fx:id="registerUsernameError" layoutX="423.0" layoutY="160.0" prefHeight="17.0" prefWidth="207.0" text="Please enter a Username" textFill="#fc0000">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
+      <Label fx:id="registerPasswordError" layoutX="118.0" layoutY="239.0" prefHeight="17.0" prefWidth="207.0" text="Please enter a valid password" textFill="#fc0000">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
+      <Label fx:id="confirmPasswordError" layoutX="423.0" layoutY="239.0" prefHeight="17.0" prefWidth="207.0" text="Confirm password" textFill="#fc0000">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="6.0" layoutY="48.0" prefHeight="19.0" prefWidth="75.0" text="First Name:" textFill="WHITE">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="314.0" layoutY="48.0" prefHeight="19.0" prefWidth="68.0" text="Last Name:" textFill="WHITE">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="6.0" layoutY="124.0" prefHeight="19.0" prefWidth="68.0" text="Email:" textFill="WHITE">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="314.0" layoutY="124.0" prefHeight="19.0" prefWidth="68.0" text="Username:" textFill="WHITE">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="6.0" layoutY="200.0" prefHeight="19.0" prefWidth="68.0" text="Password:" textFill="WHITE">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="314.0" layoutY="176.0" prefHeight="43.0" prefWidth="57.0" text="Confirm Password:" textFill="WHITE" wrapText="true">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="loading" fitHeight="80.0" fitWidth="164.0" layoutX="295.0" layoutY="258.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../images/loading%20rainbow%20circles.gif" />
          </image>
       </ImageView>
-      <Label fx:id="registerFirstNameError" layoutX="86.0" layoutY="82.0" prefHeight="17.0" prefWidth="207.0" text="Please enter your first name" textFill="#fc0000">
-         <font>
-            <Font size="13.0" />
-         </font>
-      </Label>
-      <Label fx:id="registerLastNameError" layoutX="358.0" layoutY="82.0" prefHeight="17.0" prefWidth="207.0" text="Please enter your last name" textFill="#fc0000">
-         <font>
-            <Font size="13.0" />
-         </font>
-      </Label>
-      <Label fx:id="registerEmailError" layoutX="86.0" layoutY="160.0" prefHeight="17.0" prefWidth="207.0" text="Please enter a valid Email" textFill="#fc0000">
-         <font>
-            <Font size="13.0" />
-         </font>
-      </Label>
-      <Label fx:id="registerUsernameError" layoutX="358.0" layoutY="160.0" prefHeight="17.0" prefWidth="207.0" text="Please enter a Username" textFill="#fc0000">
-         <font>
-            <Font size="13.0" />
-         </font>
-      </Label>
-      <Label fx:id="registerPasswordError" layoutX="86.0" layoutY="239.0" prefHeight="17.0" prefWidth="207.0" text="Please enter a valid password" textFill="#fc0000">
-         <font>
-            <Font size="13.0" />
-         </font>
-      </Label>
-      <Label fx:id="confirmPasswordError" layoutX="358.0" layoutY="239.0" prefHeight="17.0" prefWidth="207.0" text="Confirm password" textFill="#fc0000">
-         <font>
-            <Font size="13.0" />
-         </font>
-      </Label>
-      <JFXTextField fx:id="registerEmail" layoutX="53.0" layoutY="121.0" prefHeight="25.0" prefWidth="207.0" promptText="Enter an Email address" style="-fx-background-color: White;" unFocusColor="#a8a8a8" />
-      <JFXTextField fx:id="userName" layoutX="325.0" layoutY="121.0" prefHeight="25.0" prefWidth="207.0" promptText="Enter a Username" style="-fx-background-color: White;" unFocusColor="#a8a8a8" />
    </children>
 </AnchorPane>
