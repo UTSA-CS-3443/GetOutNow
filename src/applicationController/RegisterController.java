@@ -41,50 +41,50 @@ public class RegisterController implements Initializable {
 
 	private LoginModel model;
 
-    @FXML
-    private AnchorPane parentPane;
+	@FXML
+	private AnchorPane parentPane;
 
-    @FXML
-    private JFXTextField firstName;
+	@FXML
+	private JFXTextField firstName;
 
-    @FXML
-    private JFXTextField lastName;
+	@FXML
+	private JFXTextField lastName;
 
-    @FXML
-    private JFXTextField registerEmail;
+	@FXML
+	private JFXTextField registerEmail;
 
-    @FXML
-    private JFXTextField userName;
+	@FXML
+	private JFXTextField userName;
 
-    @FXML
-    private JFXPasswordField registerPassword;
+	@FXML
+	private JFXPasswordField registerPassword;
 
-    @FXML
-    private JFXPasswordField confirmPassword;
+	@FXML
+	private JFXPasswordField confirmPassword;
 
-    @FXML
-    private JFXButton registerBT;
+	@FXML
+	private JFXButton registerBT;
 
-    @FXML
-    private Label registerFirstNameError;
+	@FXML
+	private Label registerFirstNameError;
 
-    @FXML
-    private Label registerLastNameError;
+	@FXML
+	private Label registerLastNameError;
 
-    @FXML
-    private Label registerEmailError;
+	@FXML
+	private Label registerEmailError;
 
-    @FXML
-    private Label registerUsernameError;
+	@FXML
+	private Label registerUsernameError;
 
-    @FXML
-    private Label registerPasswordError;
+	@FXML
+	private Label registerPasswordError;
 
-    @FXML
-    private Label confirmPasswordError;
+	@FXML
+	private Label confirmPasswordError;
 
-    @FXML
-    private ImageView loading;
+	@FXML
+	private ImageView loading;
 
 	private String nameFirst;
 	private String nameLast;
@@ -127,15 +127,11 @@ public class RegisterController implements Initializable {
 		loading.setVisible(false);
 	}
 
-	public void handle(ActionEvent event) {
-		// TODO Auto-generated method stub
-
-	}
-
 	/**
 	 * handleButtonAction waits for an event
 	 * IE: button to be pressed
-	 * When 'registerBT' is pressed, the Homepage will be loaded
+	 * When 'registerBT' is pressed, the login/signup page will be loaded
+	 * for the newly registered user to log in.
 	 * @param event
 	 * @throws IOException
 	 */
@@ -245,7 +241,6 @@ public class RegisterController implements Initializable {
 				registerPasswordError.setVisible(false);
 				confirmPasswordError.setVisible(false);
 
-
 				System.out.println("Register pressed");
 
 				nameFirst = firstName.getText();
@@ -262,16 +257,20 @@ public class RegisterController implements Initializable {
 				System.out.println("Password: " + passwordSave);
 
 				try {
+
 					if (Account.checkPassword(passwordSave) == true) {
+
 						if (Account.createProfile(nameFirst, nameLast, email, username, passwordSave, passwordConfirm) == 0) {
 							Account.createProfile(nameFirst, nameLast, email, username, passwordSave, passwordConfirm);
 							working = true;
-						} else if (Account.createProfile(nameFirst, nameLast, email, username, passwordSave, passwordConfirm) == 2) {
+
+
+						} else if (Account.createProfile(nameFirst, nameLast, email, username, passwordSave, passwordConfirm) == 1) {
+
 							Notifications notificationBuilder = Notifications.create()
 									.title("Error")
-									.text("Passwords do not match.")
+									.text("Profile already exists.")
 									.graphic(null) 							// sets graphic to null which gets a defualt image described below when null
-									//.graphic(new ImageView(img))
 									.hideAfter(Duration.seconds(5))
 									.position(Pos.CENTER)
 									.onAction(new EventHandler<ActionEvent>() {
@@ -283,38 +282,77 @@ public class RegisterController implements Initializable {
 
 							notificationBuilder.darkStyle();
 							notificationBuilder.showError();			// shows an x for an error notification
+
+						} else if (Account.createProfile(nameFirst, nameLast, email, username, passwordSave, passwordConfirm) == 2) {
+
+							Notifications notificationBuilder = Notifications.create()
+									.title("Error")
+									.text("Passwords do not match.")
+									.graphic(null) 							// sets graphic to null which gets a defualt image described below when null
+									.hideAfter(Duration.seconds(10))
+									.position(Pos.CENTER)
+									.onAction(new EventHandler<ActionEvent>() {
+
+										public void handle(ActionEvent event) {
+											System.out.println("Clicked on Notification");
+										}
+									});
+
+							notificationBuilder.darkStyle();
+							notificationBuilder.showError();			// shows an x for an error notification
 						}
-						
+
 					} else {
-						Notifications notificationBuilder = Notifications.create()
-								.title("Error")
-								.text("Password needs to have at least 1 lowercase letter, 1 uppercase letter, "
-										+ "\n1 number, and one special character (!?.,|)")
-								.graphic(null) 							// sets graphic to null which gets a defualt image described below when null
-								//.graphic(new ImageView(img))
-								.hideAfter(Duration.seconds(5))
-								.position(Pos.CENTER)
-								.onAction(new EventHandler<ActionEvent>() {
 
-									public void handle(ActionEvent event) {
-										System.out.println("Clicked on Notification");
-									}
-								});
+						if (passwordSave.length() < 8 || passwordSave.length() > 26) {
 
-						notificationBuilder.darkStyle();
-						//notificationBuilder.showConfirm();		// shows a questionmark to confirm
-						//notificationBuilder.show();				// regular notification with no icons, just text
-						notificationBuilder.showError();			// shows an x for an error notification
-						//notificationBuilder.showInformation(); 		// shows an i icon for information
-						//notificationBuilder.showWarning();		// shows an exclamation point
+							Notifications notificationBuilder = Notifications.create()
+									.title("Error")
 
+									.text("Password is either too long or too short (must be within 8 and "
+											+ "26 characters). \nLength: " + passwordSave.length())
+									.graphic(null) 							// sets graphic to null which gets a defualt image described below when null
+									.hideAfter(Duration.seconds(10))
+									.position(Pos.CENTER)
+									.onAction(new EventHandler<ActionEvent>() {
+
+										public void handle(ActionEvent event) {
+											System.out.println("Clicked on Notification");
+										}
+									});
+							notificationBuilder.darkStyle();
+							notificationBuilder.showError();			// shows an x for an error notification
+
+						} else {
+
+							Notifications notificationBuilder = Notifications.create()
+									.title("Error")
+
+									.text("Password needs to have at least 1 lowercase letter, 1 uppercase letter, "
+											+ "\n1 number, and one special character (!?.,|)")
+									.graphic(null) 							// sets graphic to null which gets a defualt image described below when null
+									.hideAfter(Duration.seconds(10))
+									.position(Pos.CENTER)
+									.onAction(new EventHandler<ActionEvent>() {
+
+										public void handle(ActionEvent event) {
+											System.out.println("Clicked on Notification");
+										}
+									});
+
+							notificationBuilder.darkStyle();
+							notificationBuilder.showError();			// shows an x for an error notification
+						}
 					}
+
 				} catch (Exception e) {
+
 					System.err.println("Invalid username/password");
 					working = false;
 				}
 
 				if (working == true) {
+
 					loading.setVisible(true);
 					PauseTransition pt = new PauseTransition();		// animation
 					pt.setDuration(Duration.seconds(7));	// animation duration set to 5 seconds
@@ -350,7 +388,6 @@ public class RegisterController implements Initializable {
 							.title("Success")
 							.text("Congratulations, you are now registered for GetOutNow. \nPlease sign in.")
 							.graphic(null) 							// sets graphic to null which gets a defualt image described below when null
-							//.graphic(new ImageView(img))
 							.hideAfter(Duration.seconds(10))
 							.position(Pos.CENTER)
 							.onAction(new EventHandler<ActionEvent>() {

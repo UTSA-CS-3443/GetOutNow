@@ -19,6 +19,8 @@ import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
@@ -37,7 +39,7 @@ public class HomePageController implements Initializable {
 	private FXMLLoader loginLoader;
 
 	@FXML
-	private JFXButton homeBT;
+	private JFXButton plannerBT;
 
 	@FXML
 	private JFXButton whatsNewBT;
@@ -68,8 +70,8 @@ public class HomePageController implements Initializable {
 
 	@FXML
 	private JFXButton sportsBT;
-	
-//	private WeatherScrape weather;
+
+	//	private WeatherScrape weather;
 
 	/**
 	 * This method initializes FXML variables to be used
@@ -111,7 +113,7 @@ public class HomePageController implements Initializable {
 	 * @param event
 	 */
 	@FXML
-	public void handleHomeButton(ActionEvent event) {
+	public void handlePlannerButton(ActionEvent event) {
 
 	}
 
@@ -165,13 +167,13 @@ public class HomePageController implements Initializable {
 	 */
 	@FXML
 	public void handleSportsButton(ActionEvent event) {
-		
+
 		Notifications notificationBuilder = Notifications.create()
 				.title("Sports")
-				.text("The current weather is ") 	// Calls WeatherData and returns weather in Fahrenheit.
+				.text("Insert sports information here ") 	// Calls WeatherData and returns weather in Fahrenheit.
 				.graphic(null) 							// sets graphic to null which gets a defualt image described below when null
 				//.graphic(new ImageView(img))
-				.hideAfter(Duration.seconds(5))
+				.hideAfter(Duration.seconds(8))
 				.position(Pos.CENTER)
 				.onAction(new EventHandler<ActionEvent>() {
 
@@ -179,7 +181,7 @@ public class HomePageController implements Initializable {
 						System.out.println("Clicked on Notification");
 					}
 				});
-		
+
 		notificationBuilder.show();
 
 	}
@@ -190,13 +192,13 @@ public class HomePageController implements Initializable {
 	 */
 	@FXML
 	public void handleWeatherButton(ActionEvent event) {
-				
+
+		Image img = new Image("/images/stillWeather.png");
 		Notifications notificationBuilder = Notifications.create()
 				.title("Weather")
 				.text("The current weather is " + WeatherScrape.WeatherData() + " in San Antonio, TX.") 	// Calls WeatherData and returns weather in Fahrenheit.
-				.graphic(null) 							// sets graphic to null which gets a defualt image described below when null
-				//.graphic(new ImageView(img))
-				.hideAfter(Duration.seconds(5))
+				.graphic(new ImageView(img))
+				.hideAfter(Duration.seconds(8))
 				.position(Pos.CENTER)
 				.onAction(new EventHandler<ActionEvent>() {
 
@@ -204,11 +206,9 @@ public class HomePageController implements Initializable {
 						System.out.println("Clicked on Notification");
 					}
 				});
-		
+
 		notificationBuilder.show();
-
 	}
-
 
 	/**
 	 * 

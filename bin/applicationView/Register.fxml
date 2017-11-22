@@ -84,7 +84,7 @@
       </Label>
       <ImageView fx:id="loading" fitHeight="80.0" fitWidth="164.0" layoutX="295.0" layoutY="258.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../images/loading%20rainbow%20circles.gif" />
+            <Image url="@../images/loading%20rainbow%20circles.gif" />
          </image>
       </ImageView>
    </children>

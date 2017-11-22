@@ -21,7 +21,7 @@
             <children>
                   <ImageView fitHeight="425.0" fitWidth="687.0" layoutX="6.0" layoutY="7.0" opacity="0.65" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../images/Forest%20Background.png" />
+                        <Image url="@../images/Forest%20Background.png" />
                      </image>
                   </ImageView>
                   <AnchorPane layoutX="350.0" layoutY="36.0" opacity="0.85" prefHeight="329.0" prefWidth="298.0">
@@ -44,7 +44,7 @@
                         <JFXPasswordField fx:id="password" focusColor="WHITE" layoutX="36.0" layoutY="140.0" prefHeight="25.0" prefWidth="227.0" promptText="Password" style="-fx-background-color: black; -fx-text-inner-color: white;" unFocusColor="#0d0d0d" />
                         <ImageView fx:id="loading" fitHeight="61.0" fitWidth="55.0" layoutX="122.0" layoutY="285.0" pickOnBounds="true" preserveRatio="true" visible="false">
                            <image>
-                              <Image url="@../../images/lg.double-ring-spinner.gif" />
+                              <Image url="@../images/lg.double-ring-spinner.gif" />
                            </image>
                         </ImageView>
                      </children>
@@ -75,7 +75,7 @@
                <children>
                   <ImageView fitHeight="425.0" fitWidth="687.0" layoutX="6.0" layoutY="7.0" opacity="0.65" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../images/Forest%20Background.png" />
+                        <Image url="@../images/Forest%20Background.png" />
                      </image>
                   </ImageView>
                   <Label layoutX="40.0" layoutY="24.0" text="Welcome to Get Out Now" textFill="#f2f2f2" underline="true">
@@ -114,7 +114,7 @@
                         <JFXTextField fx:id="registerEmail" focusColor="BLACK" layoutX="36.0" layoutY="61.0" prefHeight="25.0" prefWidth="227.0" promptText="Email" style="-fx-background-color: white;" unFocusColor="WHITE" />
                         <ImageView fx:id="loading2" fitHeight="61.0" fitWidth="55.0" layoutX="122.0" layoutY="260.0" pickOnBounds="true" preserveRatio="true" visible="false">
                            <image>
-                              <Image url="@../../images/lg.double-ring-spinner.gif" />
+                              <Image url="@../images/lg.double-ring-spinner.gif" />
                            </image>
                         </ImageView>
                         <Label fx:id="registerEmailError" layoutX="36.0" layoutY="94.0" prefHeight="17.0" prefWidth="227.0" text="Please enter a valid Email" textFill="#fc0000" visible="false" />

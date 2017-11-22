@@ -28,7 +28,7 @@
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </Label>
-                  <JFXButton fx:id="homeBT" layoutY="50.0" onAction="#handleHomeButton" style="-fx-background-color: grey;" text="Home" textFill="WHITE">
+                  <JFXButton fx:id="plannerBT" layoutY="50.0" onAction="#handlePlannerButton" style="-fx-background-color: grey;" text="Planner" textFill="WHITE">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -38,7 +38,7 @@
                         <Font size="14.0" />
                      </font>
                   </JFXButton>
-                  <JFXButton fx:id="accountBT" layoutY="138.0" onAction="#handleAccountBT" prefHeight="30.0" prefWidth="132.0" style="-fx-background-color: grey;" text="Account Settings" textFill="WHITE">
+                  <JFXButton fx:id="accountBT" layoutY="138.0" onAction="#handleAccountBT" prefHeight="30.0" prefWidth="143.0" style="-fx-background-color: grey;" text="Account Settings" textFill="WHITE">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -75,7 +75,7 @@
                      <graphic>
                         <ImageView fitHeight="134.0" fitWidth="144.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../images/weather.gif" />
+                              <Image url="@../images/weather.gif" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -84,7 +84,7 @@
                      <graphic>
                         <ImageView fitHeight="282.0" fitWidth="158.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../images/movieCountdown.gif" />
+                              <Image url="@../images/movieCountdown.gif" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -93,7 +93,7 @@
                      <graphic>
                         <ImageView fitHeight="81.0" fitWidth="163.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../images/hungry.gif" />
+                              <Image url="@../images/hungry.gif" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -102,7 +102,7 @@
                      <graphic>
                         <ImageView fitHeight="123.0" fitWidth="140.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../images/sports.gif" />
+                              <Image url="@../images/sports.gif" />
                            </image>
                         </ImageView>
                      </graphic>
