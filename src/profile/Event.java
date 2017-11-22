@@ -1,18 +1,18 @@
 package profile;
 
 /**
- * Event class to hold Event object
+ * Event class to hold Event object. This will be used by Planner.java.
  * 
  * @author Manuel Ben Bravo, pfa698
  *
  */
 public class Event {
-	
+	// values to store date and event name
 	private String date;
 	private String eventName;
 	
 	/**
-	 * Constructor for Event 
+	 * Constructor for Event object
 	 * @param String: date
 	 * @param String: event
 	 */
@@ -22,7 +22,7 @@ public class Event {
 	}
 	
 	/**
-	 * 
+	 * return the date from Event object
 	 * @return String: date
 	 */
 	public String getDate() {
@@ -30,7 +30,7 @@ public class Event {
 	}
 	
 	/**
-	 * Sets date
+	 * Sets date in Event object
 	 * @param String: date
 	 */
 	public void setDate(String date) {
@@ -38,7 +38,7 @@ public class Event {
 	}
 
 	/**
-	 * getter for eventName
+	 * return the event name from Event object
 	 * @return Sring:eventName
 	 */
 	public String getEventName() {
@@ -46,7 +46,7 @@ public class Event {
 	}
 
 	/**
-	 * Sets eventName
+	 * Set event name in Event object
 	 * @param String Event
 	 */
 	public void setEventName(String eventName) {
@@ -54,15 +54,11 @@ public class Event {
 	}
 	
 	/**
-	 * To String Function
+	 * toString Function for printing
 	 * @param Event e
 	 * @return String 
 	 */
-	public String toString(Event e) {
+	public String toString() {
 		return this.date + " " + this.eventName;
 	}
 }
-
-
-
-

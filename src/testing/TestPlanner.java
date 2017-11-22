@@ -1,6 +1,5 @@
 package testing;
 
-
 import org.junit.Test;
 
 import profile.Planner;
