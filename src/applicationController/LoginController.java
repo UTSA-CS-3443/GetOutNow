@@ -275,7 +275,7 @@ public class LoginController implements EventHandler<ActionEvent> {
 
 				}
 			}
-			
+
 		} else if (event.getSource() == registerButton) {
 
 			if ((registerEmail.getText() == null || registerEmail.getText().trim().isEmpty())

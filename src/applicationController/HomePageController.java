@@ -33,7 +33,13 @@ import javafx.util.Duration;
 public class HomePageController implements Initializable {
 
 	@FXML
-	private Parent homePageParent;
+	private Parent plannerParent;
+
+	@FXML
+	private Parent loginPageParent;
+
+	@FXML
+	private FXMLLoader plannerLoader;
 
 	@FXML
 	private FXMLLoader loginLoader;
@@ -71,8 +77,6 @@ public class HomePageController implements Initializable {
 	@FXML
 	private JFXButton sportsBT;
 
-	//	private WeatherScrape weather;
-
 	/**
 	 * This method initializes FXML variables to be used
 	 * and sets the values of the variables accordingly.
@@ -81,7 +85,9 @@ public class HomePageController implements Initializable {
 	public void initialize(URL arg0, ResourceBundle arg1) {
 
 		loginLoader = new FXMLLoader(getClass().getResource("/applicationView/LoginMenu.fxml"));
-		homePageParent = null;
+		plannerLoader = new FXMLLoader(getClass().getResource("/applicationView/Planner.fxml"));
+		loginPageParent = null;
+		plannerParent = null;
 
 	}
 
@@ -115,6 +121,17 @@ public class HomePageController implements Initializable {
 	@FXML
 	public void handlePlannerButton(ActionEvent event) {
 
+		try {
+			plannerParent = this.plannerLoader.load();
+		} catch (IOException e1) {
+			e1.printStackTrace();
+		}
+
+		Stage secondStage = new Stage();
+		Scene plannerPageScene = new Scene(plannerParent);
+		secondStage.setScene(plannerPageScene);
+		secondStage.setTitle("Planner");
+		secondStage.show();
 	}
 
 	/**
@@ -128,19 +145,28 @@ public class HomePageController implements Initializable {
 		Boolean answer = ConfirmBox.display("Log Out", "Are you sure you want to log out?");
 		if (answer == true) {
 			try {
-				homePageParent = this.loginLoader.load();
+				loginPageParent = this.loginLoader.load();
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 
-			Scene homePageScene = new Scene (homePageParent);
+			Scene loginPageScene = new Scene (loginPageParent);
 			Stage Stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
 			Stage.hide();
 			Stage.setTitle("Login/SignUp");
-			Stage.setScene(homePageScene);
+			Stage.setScene(loginPageScene);
 			Stage.show();
 		}
+	}
+	
+	/**
+	 * 
+	 * @param event
+	 */
+	@FXML
+	public void handleWhatsNewButton(ActionEvent event) {
+
 	}
 
 	/**
@@ -208,14 +234,5 @@ public class HomePageController implements Initializable {
 				});
 
 		notificationBuilder.show();
-	}
-
-	/**
-	 * 
-	 * @param event
-	 */
-	@FXML
-	public void handleWhatsNewButton(ActionEvent event) {
-
 	}
 }
