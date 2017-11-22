@@ -23,12 +23,12 @@ public class Restaurant extends Location {
 	}
 	
 	/**
-	 * Returns the Weather with a Restaurant Recommendation
-	 * @param Weather 
+	 * Returns the WeatherConversion with a Restaurant Recommendation
+	 * @param WeatherConversion 
 	 * @return String
 	 */
 	@Override
-	public String getWeather(Weather temp) {
+	public String getWeather(WeatherConversion temp) {
 		String str;
 		return null;
 	}

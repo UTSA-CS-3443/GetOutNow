@@ -21,12 +21,12 @@ public class Coffee extends Location {
 	}
 
 	/**
-	 * Returns the Weather with a CoffeShop Recommendation
-	 * @param Weather 
+	 * Returns the WeatherConversion with a CoffeShop Recommendation
+	 * @param WeatherConversion 
 	 * @return String
 	 */
 	@Override
-	public String getWeather(Weather temp) {
+	public String getWeather(WeatherConversion temp) {
 		String str;
 		return null;
 	}

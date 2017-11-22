@@ -36,11 +36,11 @@ public abstract class Location {
 	}
 	
 	/** 
-	 * Get Weather Data to recommend pairing with a Location
-	 * @param Weather object
+	 * Get WeatherConversion Data to recommend pairing with a Location
+	 * @param WeatherConversion object
 	 * @return String 
 	 */
-	public abstract String getWeather(Weather temp);
+	public abstract String getWeather(WeatherConversion temp);
 	
 	/**
 	 * Get movie recommendation to pair with a Location

@@ -17,7 +17,7 @@ import java.util.Scanner;
  * 		Sports
  * 		Location
  * 		Movies
- * 		Weather
+ * 		WeatherConversion
  * with a boolean TRUE or FALSE when user answers: [yes, no]
  * 
  */

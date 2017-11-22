@@ -20,12 +20,12 @@ public class Bars extends Location {
 	}
 
 	/**
-	 * Returns the Weather with a Bar Recommendation
-	 * @param Weather 
+	 * Returns the WeatherConversion with a Bar Recommendation
+	 * @param WeatherConversion 
 	 * @return String
 	 */
 	@Override
-	public String getWeather(Weather temp) {
+	public String getWeather(WeatherConversion temp) {
 		String str;
 		
 		return null;

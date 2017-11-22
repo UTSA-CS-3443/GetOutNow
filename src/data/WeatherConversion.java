@@ -5,7 +5,7 @@ package data;
  * @author Daniel Ghazvini, dib952
  *
  */
-public class Weather {
+public class WeatherConversion {
 	
 	private double fahrenheit;
 	private double celsius;
@@ -14,7 +14,7 @@ public class Weather {
 	/**
 	 * Constructor
 	 */
-	public Weather(double input) {
+	public WeatherConversion(double input) {
 		this.fahrenheit = input;
 		this.isFahrenheit = true;
 	}
