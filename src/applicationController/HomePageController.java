@@ -1,17 +1,21 @@
 package applicationController;
-
+import data.WeatherScrape;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import org.controlsfx.control.Notifications;
 
 import com.jfoenix.controls.JFXButton;
 
 import applicationModel.ConfirmBox;
 import javafx.animation.FadeTransition;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -64,6 +68,8 @@ public class HomePageController implements Initializable {
 
 	@FXML
 	private JFXButton sportsBT;
+	
+//	private WeatherScrape weather;
 
 	/**
 	 * This method initializes FXML variables to be used
@@ -154,20 +160,52 @@ public class HomePageController implements Initializable {
 	}
 
 	/**
-	 * 
+	 * Sports button that will print out games playing that the user likes.
 	 * @param event
 	 */
 	@FXML
 	public void handleSportsButton(ActionEvent event) {
+		
+		Notifications notificationBuilder = Notifications.create()
+				.title("Sports")
+				.text("The current weather is ") 	// Calls WeatherData and returns weather in Fahrenheit.
+				.graphic(null) 							// sets graphic to null which gets a defualt image described below when null
+				//.graphic(new ImageView(img))
+				.hideAfter(Duration.seconds(5))
+				.position(Pos.CENTER)
+				.onAction(new EventHandler<ActionEvent>() {
+
+					public void handle(ActionEvent event) {
+						System.out.println("Clicked on Notification");
+					}
+				});
+		
+		notificationBuilder.show();
 
 	}
 
 	/**
-	 * 
+	 * Weather button that will print out the current weather when pressed.
 	 * @param event
 	 */
 	@FXML
 	public void handleWeatherButton(ActionEvent event) {
+				
+		Notifications notificationBuilder = Notifications.create()
+				.title("Weather")
+				.text("The current weather is " + WeatherScrape.WeatherData() + " in San Antonio, TX.") 	// Calls WeatherData and returns weather in Fahrenheit.
+				.graphic(null) 							// sets graphic to null which gets a defualt image described below when null
+				//.graphic(new ImageView(img))
+				.hideAfter(Duration.seconds(5))
+				.position(Pos.CENTER)
+				.onAction(new EventHandler<ActionEvent>() {
+
+					public void handle(ActionEvent event) {
+						System.out.println("Clicked on Notification");
+					}
+				});
+		
+		notificationBuilder.show();
 
 	}
 
