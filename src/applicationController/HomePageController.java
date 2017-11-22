@@ -82,7 +82,7 @@ public class HomePageController implements Initializable {
 	 * @param event
 	 */
 	@FXML
-	void handleAccountBT(ActionEvent event) {
+	public void handleAccountBT(ActionEvent event) {
 
 	}
 
@@ -92,7 +92,7 @@ public class HomePageController implements Initializable {
 	 * @param event
 	 */
 	@FXML
-	void handleExitBT(ActionEvent event) {
+	public void handleExitBT(ActionEvent event) {
 
 		Stage stage = (Stage) exitBT.getScene().getWindow();
 		Boolean answer = ConfirmBox.display("Confirm", "Are you sure you want to exit?");
@@ -105,7 +105,7 @@ public class HomePageController implements Initializable {
 	 * @param event
 	 */
 	@FXML
-	void handleHomeButton(ActionEvent event) {
+	public void handleHomeButton(ActionEvent event) {
 
 	}
 
@@ -115,7 +115,7 @@ public class HomePageController implements Initializable {
 	 * @param event
 	 */
 	@FXML
-	void handleLogOutBT(ActionEvent event) {
+	public void handleLogOutBT(ActionEvent event) {
 
 		Boolean answer = ConfirmBox.display("Log Out", "Are you sure you want to log out?");
 		if (answer == true) {
@@ -140,7 +140,44 @@ public class HomePageController implements Initializable {
 	 * @param event
 	 */
 	@FXML
-	void handleWhatsNewButton(ActionEvent event) {
+	public void handleMoviesButton(ActionEvent event) {
+
+	}
+
+	/**
+	 * 
+	 * @param event
+	 */
+	@FXML
+	public void handleRestaurantButton(ActionEvent event) {
+
+	}
+
+	/**
+	 * 
+	 * @param event
+	 */
+	@FXML
+	public void handleSportsButton(ActionEvent event) {
+
+	}
+
+	/**
+	 * 
+	 * @param event
+	 */
+	@FXML
+	public void handleWeatherButton(ActionEvent event) {
+
+	}
+
+
+	/**
+	 * 
+	 * @param event
+	 */
+	@FXML
+	public void handleWhatsNewButton(ActionEvent event) {
 
 	}
 }

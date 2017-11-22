@@ -71,7 +71,7 @@
          <children>
             <AnchorPane fx:id="home" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="477.0" prefWidth="608.0">
                <children>
-                  <JFXButton fx:id="weatherBT" buttonType="RAISED" contentDisplay="TOP" layoutX="102.0" layoutY="51.0" prefHeight="150.0" prefWidth="150.0" style="-fx-background-color: #162B62;" text="Weather" textFill="WHITE">
+                  <JFXButton fx:id="weatherBT" buttonType="RAISED" contentDisplay="TOP" layoutX="102.0" layoutY="51.0" onAction="#handleWeatherButton" prefHeight="150.0" prefWidth="150.0" style="-fx-background-color: #162B62;" text="Weather" textFill="WHITE">
                      <graphic>
                         <ImageView fitHeight="134.0" fitWidth="144.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -80,7 +80,7 @@
                         </ImageView>
                      </graphic>
                   </JFXButton>
-                  <JFXButton fx:id="moviesBT" buttonType="RAISED" contentDisplay="TOP" layoutX="344.0" layoutY="57.0" prefHeight="150.0" prefWidth="150.0" style="-fx-background-color: #162B62;" text="Movies" textFill="WHITE">
+                  <JFXButton fx:id="moviesBT" buttonType="RAISED" contentDisplay="TOP" layoutX="344.0" layoutY="57.0" onAction="#handleMoviesButton" prefHeight="150.0" prefWidth="150.0" style="-fx-background-color: #162B62;" text="Movies" textFill="WHITE">
                      <graphic>
                         <ImageView fitHeight="282.0" fitWidth="158.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -89,7 +89,7 @@
                         </ImageView>
                      </graphic>
                   </JFXButton>
-                  <JFXButton fx:id="restaurantsBT" buttonType="RAISED" contentDisplay="TOP" layoutX="344.0" layoutY="262.0" prefHeight="150.0" prefWidth="166.0" style="-fx-background-color: #162B62;" text="Restaurants" textFill="WHITE">
+                  <JFXButton fx:id="restaurantsBT" buttonType="RAISED" contentDisplay="TOP" layoutX="344.0" layoutY="262.0" onAction="#handleRestaurantButton" prefHeight="150.0" prefWidth="166.0" style="-fx-background-color: #162B62;" text="Restaurants" textFill="WHITE">
                      <graphic>
                         <ImageView fitHeight="81.0" fitWidth="163.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -98,7 +98,7 @@
                         </ImageView>
                      </graphic>
                   </JFXButton>
-                  <JFXButton fx:id="sportsBT" buttonType="RAISED" contentDisplay="TOP" layoutX="99.0" layoutY="262.0" prefHeight="150.0" prefWidth="150.0" style="-fx-background-color: #162B62;" text="Sports" textFill="WHITE">
+                  <JFXButton fx:id="sportsBT" buttonType="RAISED" contentDisplay="TOP" layoutX="99.0" layoutY="262.0" onAction="#handleSportsButton" prefHeight="150.0" prefWidth="150.0" style="-fx-background-color: #162B62;" text="Sports" textFill="WHITE">
                      <graphic>
                         <ImageView fitHeight="123.0" fitWidth="140.0" pickOnBounds="true" preserveRatio="true">
                            <image>
