@@ -31,11 +31,11 @@ public class TestData {
 		}
 	*/
 		// WeatherConversion conversion test.
-		System.out.print("Please enter the weather in Fahrenheit: ");
+/*		System.out.print("Please enter the weather in Fahrenheit: ");
 		Scanner in = new Scanner(System.in);
 		WeatherConversion weatherObj = new WeatherConversion(in.nextDouble());
 		System.out.printf("The weather is Celsius is %d\n", (int)weatherObj.toCelsius(weatherObj.getTemp()));
-	
+	*/
 		// Prints out the current weather in San Antonio.
 		System.out.println("The current weather is " + WeatherScrape.WeatherData() + " in San Antonio, TX.");
 	/*	

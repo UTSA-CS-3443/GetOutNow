@@ -1,4 +1,5 @@
 package applicationController;
+import data.SportsScrape;
 import data.WeatherScrape;
 import java.io.IOException;
 import java.net.URL;
@@ -196,7 +197,7 @@ public class HomePageController implements Initializable {
 
 		Notifications notificationBuilder = Notifications.create()
 				.title("Sports")
-				.text("Insert sports information here ") 	// Calls WeatherData and returns weather in Fahrenheit.
+				.text("Here are some sports games you may be interested in!\n" + SportsScrape.SportsData('D')) 	// Calls WeatherData and returns weather in Fahrenheit.
 				.graphic(null) 							// sets graphic to null which gets a defualt image described below when null
 				//.graphic(new ImageView(img))
 				.hideAfter(Duration.seconds(8))
