@@ -1,8 +1,8 @@
 package applicationController;
-import data.SportsScrape;
-import data.WeatherScrape;
+
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import org.controlsfx.control.Notifications;
@@ -10,7 +10,12 @@ import org.controlsfx.control.Notifications;
 import com.jfoenix.controls.JFXButton;
 
 import applicationModel.ConfirmBox;
-import javafx.animation.FadeTransition;
+import data.Coffee;
+import data.CoffeeScrape;
+import data.Restaurant;
+import data.RestaurantScrape;
+import data.SportsScrape;
+import data.WeatherScrape;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -34,13 +39,10 @@ import javafx.util.Duration;
 public class HomePageController implements Initializable {
 
 	@FXML
-	private Parent plannerParent;
-
-	@FXML
 	private Parent loginPageParent;
 
 	@FXML
-	private FXMLLoader plannerLoader;
+	private Parent plannerLoader;
 
 	@FXML
 	private FXMLLoader loginLoader;
@@ -86,10 +88,7 @@ public class HomePageController implements Initializable {
 	public void initialize(URL arg0, ResourceBundle arg1) {
 
 		loginLoader = new FXMLLoader(getClass().getResource("/applicationView/LoginMenu.fxml"));
-		plannerLoader = new FXMLLoader(getClass().getResource("/applicationView/Planner.fxml"));
 		loginPageParent = null;
-		plannerParent = null;
-
 	}
 
 	/**
@@ -123,13 +122,13 @@ public class HomePageController implements Initializable {
 	public void handlePlannerButton(ActionEvent event) {
 
 		try {
-			plannerParent = this.plannerLoader.load();
+			plannerLoader = FXMLLoader.load(getClass().getResource("/applicationView/Planner.fxml"));
 		} catch (IOException e1) {
 			e1.printStackTrace();
 		}
 
 		Stage secondStage = new Stage();
-		Scene plannerPageScene = new Scene(plannerParent);
+		Scene plannerPageScene = new Scene(plannerLoader);
 		secondStage.setScene(plannerPageScene);
 		secondStage.setTitle("Planner");
 		secondStage.show();
@@ -160,23 +159,139 @@ public class HomePageController implements Initializable {
 			Stage.show();
 		}
 	}
-	
+
 	/**
-	 * 
+	 * This method displays all of the available buttons' displays at once
+	 * to show the user all information that is new and current when the 
+	 * what's new button is pressed.
 	 * @param event
 	 */
 	@FXML
 	public void handleWhatsNewButton(ActionEvent event) {
 
+		//Weather
+		Image img = new Image("/images/stillWeather.png");
+		Notifications notificationBuilder = Notifications.create()
+				.title("Weather")
+				.text("The current weather is " + WeatherScrape.WeatherData() + " in San Antonio, TX.")
+				.graphic(new ImageView(img))
+				.hideAfter(Duration.seconds(30))
+				.position(Pos.TOP_LEFT)
+				.onAction(new EventHandler<ActionEvent>() {
+
+					public void handle(ActionEvent event) {
+						System.out.println("Clicked on Notification");
+					}
+				});
+
+		notificationBuilder.show();
+
+		//Movies
+		Image img2 = new Image("/images/movieReel.jpg");
+		Notifications notificationBuilder2 = Notifications.create()
+				.title("Movies")
+				.text("Here are some movies you may be interested in seeing!\n") 
+				//				+ "Action\n" + MoviesScrape.MoviesData('A') + "\nScience Fiction\n" 
+				//				+ MoviesScrape.MoviesData('B') + "\nComedy\n" + MoviesScrape.MoviesData('C'))
+				.graphic(new ImageView(img2))
+				.hideAfter(Duration.seconds(30))
+				.position(Pos.TOP_RIGHT)
+				.onAction(new EventHandler<ActionEvent>() {
+
+					public void handle(ActionEvent event) {
+						System.out.println("Clicked on Notification");
+					}
+				});
+
+		notificationBuilder2.show();
+
+		//Sports
+		Image img3 = new Image("/images/sportsStill.jpeg");
+		Notifications notificationBuilder3 = Notifications.create()
+				.title("Sports")
+				.text("Here are some sports games you may be interested in!\n" 
+						+ "\nNBA\n" + SportsScrape.SportsData('A') + "\nNFL\n" + SportsScrape.SportsData('B'))
+				.graphic(new ImageView(img3))
+				.hideAfter(Duration.seconds(30))
+				.position(Pos.BOTTOM_LEFT)
+				.onAction(new EventHandler<ActionEvent>() {
+
+					public void handle(ActionEvent event) {
+						System.out.println("Clicked on Notification");
+					}
+				});
+
+		notificationBuilder3.show();
+
+		//Restaurants
+		// Create ArrayList to store strings
+		ArrayList<String> restaurantLocations = new ArrayList<String>();
+		ArrayList<String> coffeeLocations = new ArrayList<String>();
+
+
+		Restaurant rObj = new Restaurant(RestaurantScrape.scrapeRestaurant());
+		Coffee cObj = new Coffee(CoffeeScrape.scrapeCoffeeShop());
+
+		//for(int i = 0; i < rObj.getSize(); i++){}
+		for(int i = 0; i < 5; i++) {
+			restaurantLocations.add(rObj.getLocation(i));
+		}
+
+		//for(int i = 0; i < rObj.getSize(); i++){}
+		for(int i = 0; i < 5; i++){
+			coffeeLocations.add(cObj.getLocation(i));
+		}
+
+		Image img4 = new Image("/images/coffee.png");
+		Notifications notificationBuilder4 = Notifications.create()
+				.title("Restaurants")
+				.text("Here are some restaurants you might like!\n" 
+						+ restaurantLocations.get(0) + "\n" 
+						+ restaurantLocations.get(1) + "\n"
+						+ restaurantLocations.get(2) + "\n" 
+						+ "\nHere are some coffee shops you might like!\n"
+						+ coffeeLocations.get(0) + "\n"
+						+ coffeeLocations.get(1) + "\n"
+						+ coffeeLocations.get(2) + "\n")
+				.graphic(new ImageView(img4))
+				.hideAfter(Duration.seconds(30))
+				.position(Pos.BOTTOM_RIGHT)
+				.onAction(new EventHandler<ActionEvent>() {
+
+					public void handle(ActionEvent event) {
+						System.out.println("Clicked on Notification");
+					}
+				});
+
+		notificationBuilder4.show();
+
 	}
 
 	/**
-	 * 
+	 * This method displays information about current movies and showtimes
+	 * when the movies button is pressed by the user.
 	 * @param event
 	 */
 	@FXML
 	public void handleMoviesButton(ActionEvent event) {
 
+		Image img = new Image("/images/movieReel.jpg");
+		Notifications notificationBuilder = Notifications.create()
+				.title("Movies")
+				.text("Here are some movies you may be interested in seeing!\n") 
+				//				+ "Action\n" + MoviesScrape.MoviesData('A') + "\nScience Fiction\n" 
+				//				+ MoviesScrape.MoviesData('B') + "\nComedy\n" + MoviesScrape.MoviesData('C'))
+				.graphic(new ImageView(img))
+				.hideAfter(Duration.seconds(20))
+				.position(Pos.CENTER)
+				.onAction(new EventHandler<ActionEvent>() {
+
+					public void handle(ActionEvent event) {
+						System.out.println("Clicked on Notification");
+					}
+				});
+
+		notificationBuilder.show();
 	}
 
 	/**
@@ -186,21 +301,63 @@ public class HomePageController implements Initializable {
 	@FXML
 	public void handleRestaurantButton(ActionEvent event) {
 
+		// Create ArrayList to store strings
+		ArrayList<String> restaurantLocations = new ArrayList<String>();
+		ArrayList<String> coffeeLocations = new ArrayList<String>();
+
+
+		Restaurant rObj = new Restaurant(RestaurantScrape.scrapeRestaurant());
+		Coffee cObj = new Coffee(CoffeeScrape.scrapeCoffeeShop());
+
+		//for(int i = 0; i < rObj.getSize(); i++){}
+		for(int i = 0; i < 5; i++) {
+			restaurantLocations.add(rObj.getLocation(i));
+		}
+
+		//for(int i = 0; i < rObj.getSize(); i++){}
+		for(int i = 0; i < 5; i++){
+			coffeeLocations.add(cObj.getLocation(i));
+		}
+
+		Image img = new Image("/images/coffee.png");
+		Notifications notificationBuilder = Notifications.create()
+				.title("Restaurants")
+				.text("Here are some restaurants you might like!\n" 
+						+ restaurantLocations.get(0) + "\n" 
+						+ restaurantLocations.get(1) + "\n"
+						+ restaurantLocations.get(2) + "\n" 
+						+ "\nHere are some coffee shops you might like!\n"
+						+ coffeeLocations.get(0) + "\n"
+						+ coffeeLocations.get(1) + "\n"
+						+ coffeeLocations.get(2) + "\n")
+				.graphic(new ImageView(img))
+				.hideAfter(Duration.seconds(20))
+				.position(Pos.CENTER)
+				.onAction(new EventHandler<ActionEvent>() {
+
+					public void handle(ActionEvent event) {
+						System.out.println("Clicked on Notification");
+					}
+				});
+
+		notificationBuilder.show();
 	}
 
 	/**
-	 * Sports button that will print out games playing that the user likes.
+	 * This method displays sports games and the times that they are being played
+	 * when the sports button is pressed by the user.
 	 * @param event
 	 */
 	@FXML
 	public void handleSportsButton(ActionEvent event) {
 
+		Image img = new Image("/images/sportsStill.jpeg");
 		Notifications notificationBuilder = Notifications.create()
 				.title("Sports")
-				.text("Here are some sports games you may be interested in!\n" + SportsScrape.SportsData('D')) 	// Calls WeatherData and returns weather in Fahrenheit.
-				.graphic(null) 							// sets graphic to null which gets a defualt image described below when null
-				//.graphic(new ImageView(img))
-				.hideAfter(Duration.seconds(8))
+				.text("Here are some sports games you may be interested in!\n" 
+						+ "\nNBA\n" + SportsScrape.SportsData('A') + "\nNFL\n" + SportsScrape.SportsData('B'))
+				.graphic(new ImageView(img))
+				.hideAfter(Duration.seconds(20))
 				.position(Pos.CENTER)
 				.onAction(new EventHandler<ActionEvent>() {
 
@@ -214,7 +371,7 @@ public class HomePageController implements Initializable {
 	}
 
 	/**
-	 * Weather button that will print out the current weather when pressed.
+	 * This method displays the current weather when the weather button is pressed by the user.
 	 * @param event
 	 */
 	@FXML
@@ -225,7 +382,7 @@ public class HomePageController implements Initializable {
 				.title("Weather")
 				.text("The current weather is " + WeatherScrape.WeatherData() + " in San Antonio, TX.") 	// Calls WeatherData and returns weather in Fahrenheit.
 				.graphic(new ImageView(img))
-				.hideAfter(Duration.seconds(8))
+				.hideAfter(Duration.seconds(10))
 				.position(Pos.CENTER)
 				.onAction(new EventHandler<ActionEvent>() {
 
