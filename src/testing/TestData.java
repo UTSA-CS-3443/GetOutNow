@@ -39,13 +39,13 @@ public class TestData {
 //		// Prints out the current weather in San Antonio.
 //		System.out.println("The current weather is " + WeatherScrape.WeatherData() + " in San Antonio, TX.");
 		
-		// Create a movies object.
-		Movies movieObj = new Movies();
-		System.out.println(MoviesScrape.MoviesData(movieObj.getAnswer()));
+//		// Create a movies object.
+//		Movies movieObj = new Movies();
+//		System.out.println(MoviesScrape.MoviesData(movieObj.getAnswer()));
 		
 		// Create a sports object.
-//		Sports sportObj = new Sports();
-//		System.out.println(SportsScrape.SportsData(sportObj.getAnswer()));
+		Sports sportObj = new Sports();
+		System.out.println(SportsScrape.SportsData(sportObj.getAnswer()));
 	//	in.close();
 	}
 }

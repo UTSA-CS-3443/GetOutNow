@@ -78,7 +78,7 @@ public class SportsScrape {
 						szTime = "right now";
 				}
 				
-				if(szTeam2.equals("right now"))
+				if(szTime.equals("right now"))
 					retString += "The " + szTeam1 + " are playing the defending " + szTeam2  + " " + szTime + "!\n";
 				else
 					retString += "The " + szTeam1 + " are playing the defending " + szTeam2 + " at " + szTime + ".\n";
@@ -221,15 +221,15 @@ public class SportsScrape {
 					szTeam2 = szTeam2.replace("-", " ");
 				    szTeam1 = WordUtils.capitalize(szTeam1);
 					szTeam2 = WordUtils.capitalize(szTeam2);
-					szTeam2 = matcher1.group(3);
-					if(szTeam2.equals("Live"))
-						szTeam2 = "right now";
+					szTime = matcher1.group(3);
+					if(szTime.equals("Live"))
+						szTime = "right now";
 				}
 				
-				if(szTeam2.equals("right now"))
-					retString += "The " + szTeam1 + " are playing the defending " + szTeam2  + " " + szTeam2 + "!\n";
+				if(szTime.equals("right now"))
+					retString += "The " + szTeam1 + " are playing the defending " + szTeam2  + " " + szTime + "!\n";
 				else
-					retString += "The " + szTeam1 + " are playing the defending " + szTeam2 + " at " + szTeam2 + ".\n";
+					retString += "The " + szTeam1 + " are playing the defending " + szTeam2 + " at " + szTime + ".\n";
 				
 				if (matcher1.find())
 				{
