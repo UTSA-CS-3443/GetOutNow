@@ -1,0 +1,10 @@
+package applicationModel.sportsModel;
+
+public class NBAGame extends Game implements GameInterface{
+	
+	//<<Constructor>>
+	public NBAGame(String home, String away, String time, eLeague eParam) {
+		super(home, away, time, eParam);
+		validTeamNameArray = new String[NUMBER_OF_NBA_TEAMS];
+	}
+}
