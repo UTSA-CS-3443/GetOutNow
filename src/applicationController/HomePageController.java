@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import org.controlsfx.control.Notifications;
 
@@ -12,10 +14,13 @@ import com.jfoenix.controls.JFXButton;
 import applicationModel.ConfirmBox;
 import data.Coffee;
 import data.CoffeeScrape;
+import data.MoviesScrape;
 import data.Restaurant;
 import data.RestaurantScrape;
 import data.SportsScrape;
 import data.WeatherScrape;
+import javafx.application.Platform;
+import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -79,6 +84,7 @@ public class HomePageController implements Initializable {
 
 	@FXML
 	private JFXButton sportsBT;
+
 
 	/**
 	 * This method initializes FXML variables to be used
@@ -171,99 +177,130 @@ public class HomePageController implements Initializable {
 
 		//Weather
 		Image img = new Image("/images/stillWeather.png");
-		Notifications notificationBuilder = Notifications.create()
-				.title("Weather")
-				.text("The current weather is " + WeatherScrape.WeatherData() + " in San Antonio, TX.")
-				.graphic(new ImageView(img))
-				.hideAfter(Duration.seconds(30))
-				.position(Pos.TOP_LEFT)
-				.onAction(new EventHandler<ActionEvent>() {
 
-					public void handle(ActionEvent event) {
-						System.out.println("Clicked on Notification");
-					}
-				});
+		Task<Void> task4 = new Task<Void>() {
+			@Override
+			protected Void call() throws Exception {
+				// update message property
+				updateMessage(WeatherScrape.WeatherData());
+				return null;
+			}
+		};
 
-		notificationBuilder.show();
+		// display message changes as notifications
+		task4.messageProperty().addListener((observable, oldMessage, newMessage) ->
+		Notifications.create()
+		.title("Weather")
+		.text("The current weather is " + WeatherScrape.WeatherData() + " in San Antonio, TX.")  // Calls WeatherData and returns weather in Fahrenheit.
+		.graphic(new ImageView(img))
+		.hideAfter(Duration.seconds(15))
+		.position(Pos.TOP_LEFT)
+		.show());
+		// execute long running task on background thread
+		Thread weather = new Thread(task4); 
+		weather.start();
+
+		if(weather.getState()!=Thread.State.TERMINATED){
+			System.out.println("Finished");
+		}
 
 		//Movies
 		Image img2 = new Image("/images/movieReel.jpg");
-		Notifications notificationBuilder2 = Notifications.create()
-				.title("Movies")
-				.text("Here are some movies you may be interested in seeing!\n") 
-				//				+ "Action\n" + MoviesScrape.MoviesData('A') + "\nScience Fiction\n" 
-				//				+ MoviesScrape.MoviesData('B') + "\nComedy\n" + MoviesScrape.MoviesData('C'))
-				.graphic(new ImageView(img2))
-				.hideAfter(Duration.seconds(30))
-				.position(Pos.TOP_RIGHT)
-				.onAction(new EventHandler<ActionEvent>() {
 
-					public void handle(ActionEvent event) {
-						System.out.println("Clicked on Notification");
-					}
-				});
+		Task<Void> task = new Task<Void>() {
+			@Override
+			protected Void call() throws Exception {
+				// update message property
+				updateMessage(MoviesScrape.MoviesData('A'));
+				return null;
+			}
+		};
 
-		notificationBuilder2.show();
+		// display message changes as notifications
+		task.messageProperty().addListener((observable, oldMessage, newMessage) ->
+		Notifications.create()
+		.title("Sports")
+		.text("Here are some movies you may be interested in seeing!\n" 
+				+ "Action\n" + newMessage + "\nScience Fiction\n" 
+				+ MoviesScrape.MoviesData('B') + "\nComedy\n" + MoviesScrape.MoviesData('C'))
+		.graphic(new ImageView(img2))
+		.hideAfter(Duration.seconds(30))
+		.position(Pos.TOP_RIGHT)
+		.show());
+		// execute long running task on background thread
+		Thread movies = new Thread(task); 
+		movies.start();
+
+		if(movies.getState()!=Thread.State.TERMINATED){
+			System.out.println("Finished");
+		}
 
 		//Sports
 		Image img3 = new Image("/images/sportsStill.jpeg");
-		Notifications notificationBuilder3 = Notifications.create()
-				.title("Sports")
-				.text("Here are some sports games you may be interested in!\n" 
-						+ "\nNBA\n" + SportsScrape.SportsData('A') + "\nNFL\n" + SportsScrape.SportsData('B'))
-				.graphic(new ImageView(img3))
-				.hideAfter(Duration.seconds(30))
-				.position(Pos.BOTTOM_LEFT)
-				.onAction(new EventHandler<ActionEvent>() {
 
-					public void handle(ActionEvent event) {
-						System.out.println("Clicked on Notification");
-					}
-				});
+		Task<Void> task3 = new Task<Void>() {
+			@Override
+			protected Void call() throws Exception {
+				// update message property
+				updateMessage(SportsScrape.SportsData('A'));
+				return null;
+			}
+		};
 
-		notificationBuilder3.show();
+		// display message changes as notifications
+		task3.messageProperty().addListener((observable, oldMessage, newMessage) ->
+		Notifications.create()
+		.title("Sports")
+		.text("Here are some sports games you may be interested in!\n" 
+				+ "\nNBA\n" + newMessage + "\nNFL\n" + SportsScrape.SportsData('B'))
+		.graphic(new ImageView(img3))
+		.hideAfter(Duration.seconds(20))
+		.position(Pos.BOTTOM_LEFT)
+		.show());
+		// execute long running task on background thread
+		Thread sports = new Thread(task3); 
+		sports.start();
+
+		if(sports.getState()!=Thread.State.TERMINATED){
+			System.out.println("Finished");
+		}
 
 		//Restaurants
-		// Create ArrayList to store strings
-		ArrayList<String> restaurantLocations = new ArrayList<String>();
-		ArrayList<String> coffeeLocations = new ArrayList<String>();
-
+		Image img4 = new Image("/images/coffee.png");
 
 		Restaurant rObj = new Restaurant(RestaurantScrape.scrapeRestaurant());
 		Coffee cObj = new Coffee(CoffeeScrape.scrapeCoffeeShop());
 
-		//for(int i = 0; i < rObj.getSize(); i++){}
-		for(int i = 0; i < 5; i++) {
-			restaurantLocations.add(rObj.getLocation(i));
+		Thread restaurants = new Thread(new Runnable() {
+
+			private void postMessage(final String message) {
+				Platform.runLater(() -> Notifications.create()
+						.title("Restaurants")
+						.text("Here are some restaurants you might like!\n" 
+								+ message + "\n" 
+								+ rObj.getLocation(6) + "\n"
+								+ rObj.getLocation(7) + "\n" 
+								+ "\nHere are some coffee shops you might like!\n"
+								+ cObj.getLocation(5) + "\n"
+								+ cObj.getLocation(6) + "\n"
+								+ cObj.getLocation(7) + "\n")
+						.graphic(new ImageView(img4))
+						.hideAfter(Duration.seconds(20))
+						.position(Pos.BOTTOM_RIGHT)
+						.show());
+			}
+
+			@Override
+			public void run() {
+				postMessage(rObj.getLocation(5));
+			}
+
+		});
+
+		restaurants.start();
+		if(restaurants.getState()!=Thread.State.TERMINATED){
+			System.out.println("Finished");
 		}
-
-		//for(int i = 0; i < rObj.getSize(); i++){}
-		for(int i = 0; i < 5; i++){
-			coffeeLocations.add(cObj.getLocation(i));
-		}
-
-		Image img4 = new Image("/images/coffee.png");
-		Notifications notificationBuilder4 = Notifications.create()
-				.title("Restaurants")
-				.text("Here are some restaurants you might like!\n" 
-						+ restaurantLocations.get(0) + "\n" 
-						+ restaurantLocations.get(1) + "\n"
-						+ restaurantLocations.get(2) + "\n" 
-						+ "\nHere are some coffee shops you might like!\n"
-						+ coffeeLocations.get(0) + "\n"
-						+ coffeeLocations.get(1) + "\n"
-						+ coffeeLocations.get(2) + "\n")
-				.graphic(new ImageView(img4))
-				.hideAfter(Duration.seconds(30))
-				.position(Pos.BOTTOM_RIGHT)
-				.onAction(new EventHandler<ActionEvent>() {
-
-					public void handle(ActionEvent event) {
-						System.out.println("Clicked on Notification");
-					}
-				});
-
-		notificationBuilder4.show();
 
 	}
 
@@ -276,71 +313,80 @@ public class HomePageController implements Initializable {
 	public void handleMoviesButton(ActionEvent event) {
 
 		Image img = new Image("/images/movieReel.jpg");
-		Notifications notificationBuilder = Notifications.create()
-				.title("Movies")
-				.text("Here are some movies you may be interested in seeing!\n") 
-				//				+ "Action\n" + MoviesScrape.MoviesData('A') + "\nScience Fiction\n" 
-				//				+ MoviesScrape.MoviesData('B') + "\nComedy\n" + MoviesScrape.MoviesData('C'))
-				.graphic(new ImageView(img))
-				.hideAfter(Duration.seconds(20))
-				.position(Pos.CENTER)
-				.onAction(new EventHandler<ActionEvent>() {
 
-					public void handle(ActionEvent event) {
-						System.out.println("Clicked on Notification");
-					}
-				});
+		Task<Void> task = new Task<Void>() {
+			@Override
+			protected Void call() throws Exception {
+				// update message property
+				updateMessage(MoviesScrape.MoviesData('A'));
+				return null;
+			}
+		};
 
-		notificationBuilder.show();
+		// display message changes as notifications
+		task.messageProperty().addListener((observable, oldMessage, newMessage) ->
+		Notifications.create()
+		.title("Sports")
+		.text("Here are some movies you may be interested in seeing!\n" 
+				+ "\nAction:\n" + newMessage + "\n\nScience Fiction:\n" 
+				+ MoviesScrape.MoviesData('B') + "\n\nComedy:\n" + MoviesScrape.MoviesData('C'))
+		.graphic(new ImageView(img))
+		.hideAfter(Duration.seconds(30))
+		.position(Pos.CENTER)
+		.show());
+		// execute long running task on background thread
+		Thread movies = new Thread(task); 
+		movies.start();
+
+		if(movies.getState()!=Thread.State.TERMINATED){
+			System.out.println("Finished");
+		}
 	}
 
 	/**
-	 * 
+	 * This method displays information about nearby restaurants
+	 * that the user might be interested in.
 	 * @param event
 	 */
 	@FXML
 	public void handleRestaurantButton(ActionEvent event) {
 
-		// Create ArrayList to store strings
-		ArrayList<String> restaurantLocations = new ArrayList<String>();
-		ArrayList<String> coffeeLocations = new ArrayList<String>();
-
+		Image img = new Image("/images/coffee.png");
 
 		Restaurant rObj = new Restaurant(RestaurantScrape.scrapeRestaurant());
 		Coffee cObj = new Coffee(CoffeeScrape.scrapeCoffeeShop());
 
-		//for(int i = 0; i < rObj.getSize(); i++){}
-		for(int i = 0; i < 5; i++) {
-			restaurantLocations.add(rObj.getLocation(i));
+		Thread restaurants = new Thread(new Runnable() {
+
+			private void postMessage(final String message) {
+				Platform.runLater(() -> Notifications.create()
+						.title("Restaurants")
+						.text("Here are some restaurants you might like!\n" 
+								+ message + "\n" 
+								+ rObj.getLocation(6) + "\n"
+								+ rObj.getLocation(7) + "\n" 
+								+ "\nHere are some coffee shops you might like!\n"
+								+ cObj.getLocation(5) + "\n"
+								+ cObj.getLocation(6) + "\n"
+								+ cObj.getLocation(7) + "\n")
+						.graphic(new ImageView(img))
+						.hideAfter(Duration.seconds(20))
+						.position(Pos.CENTER)
+						.show());
+			}
+
+			@Override
+			public void run() {
+				postMessage(rObj.getLocation(5));
+			}
+
+		});
+
+		restaurants.start();
+		if(restaurants.getState()!=Thread.State.TERMINATED){
+			System.out.println("Finished");
 		}
 
-		//for(int i = 0; i < rObj.getSize(); i++){}
-		for(int i = 0; i < 5; i++){
-			coffeeLocations.add(cObj.getLocation(i));
-		}
-
-		Image img = new Image("/images/coffee.png");
-		Notifications notificationBuilder = Notifications.create()
-				.title("Restaurants")
-				.text("Here are some restaurants you might like!\n" 
-						+ restaurantLocations.get(0) + "\n" 
-						+ restaurantLocations.get(1) + "\n"
-						+ restaurantLocations.get(2) + "\n" 
-						+ "\nHere are some coffee shops you might like!\n"
-						+ coffeeLocations.get(0) + "\n"
-						+ coffeeLocations.get(1) + "\n"
-						+ coffeeLocations.get(2) + "\n")
-				.graphic(new ImageView(img))
-				.hideAfter(Duration.seconds(20))
-				.position(Pos.CENTER)
-				.onAction(new EventHandler<ActionEvent>() {
-
-					public void handle(ActionEvent event) {
-						System.out.println("Clicked on Notification");
-					}
-				});
-
-		notificationBuilder.show();
 	}
 
 	/**
@@ -352,21 +398,33 @@ public class HomePageController implements Initializable {
 	public void handleSportsButton(ActionEvent event) {
 
 		Image img = new Image("/images/sportsStill.jpeg");
-		Notifications notificationBuilder = Notifications.create()
-				.title("Sports")
-				.text("Here are some sports games you may be interested in!\n" 
-						+ "\nNBA\n" + SportsScrape.SportsData('A') + "\nNFL\n" + SportsScrape.SportsData('B'))
-				.graphic(new ImageView(img))
-				.hideAfter(Duration.seconds(20))
-				.position(Pos.CENTER)
-				.onAction(new EventHandler<ActionEvent>() {
 
-					public void handle(ActionEvent event) {
-						System.out.println("Clicked on Notification");
-					}
-				});
+		Task<Void> task3 = new Task<Void>() {
+			@Override
+			protected Void call() throws Exception {
+				// update message property
+				updateMessage(SportsScrape.SportsData('A'));
+				return null;
+			}
+		};
 
-		notificationBuilder.show();
+		// display message changes as notifications
+		task3.messageProperty().addListener((observable, oldMessage, newMessage) ->
+		Notifications.create()
+		.title("Sports")
+		.text("Here are some sports games you may be interested in!\n" 
+				+ "\nNBA:\n" + newMessage + "\nNFL:\n" + SportsScrape.SportsData('B'))
+		.graphic(new ImageView(img))
+		.hideAfter(Duration.seconds(20))
+		.position(Pos.CENTER)
+		.show());
+		// execute long running task on background thread
+		Thread sports = new Thread(task3); 
+		sports.start();
+
+		if(sports.getState()!=Thread.State.TERMINATED){
+			System.out.println("Finished");
+		}
 
 	}
 
@@ -378,19 +436,31 @@ public class HomePageController implements Initializable {
 	public void handleWeatherButton(ActionEvent event) {
 
 		Image img = new Image("/images/stillWeather.png");
-		Notifications notificationBuilder = Notifications.create()
-				.title("Weather")
-				.text("The current weather is " + WeatherScrape.WeatherData() + " in San Antonio, TX.") 	// Calls WeatherData and returns weather in Fahrenheit.
-				.graphic(new ImageView(img))
-				.hideAfter(Duration.seconds(10))
-				.position(Pos.CENTER)
-				.onAction(new EventHandler<ActionEvent>() {
 
-					public void handle(ActionEvent event) {
-						System.out.println("Clicked on Notification");
-					}
-				});
+		Task<Void> task4 = new Task<Void>() {
+			@Override
+			protected Void call() throws Exception {
+				// update message property
+				updateMessage(WeatherScrape.WeatherData());
+				return null;
+			}
+		};
 
-		notificationBuilder.show();
+		// display message changes as notifications
+		task4.messageProperty().addListener((observable, oldMessage, newMessage) ->
+		Notifications.create()
+		.title("Weather")
+		.text("The current weather is " + WeatherScrape.WeatherData() + " in San Antonio, TX.")  // Calls WeatherData and returns weather in Fahrenheit.
+		.graphic(new ImageView(img))
+		.hideAfter(Duration.seconds(15))
+		.position(Pos.CENTER)
+		.show());
+		// execute long running task on background thread
+		Thread weather = new Thread(task4); 
+		weather.start();
+
+		if(weather.getState()!=Thread.State.TERMINATED){
+			System.out.println("Finished");
+		}
 	}
 }
