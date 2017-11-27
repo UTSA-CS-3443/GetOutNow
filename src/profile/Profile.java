@@ -15,7 +15,6 @@ import java.util.ArrayList;
  * Profile.java stores the user's information and will be manipulated 
  * for any changes via the Settings.java file.
  * 
- * @author Clarence Bumanglag
  *
  */
 
