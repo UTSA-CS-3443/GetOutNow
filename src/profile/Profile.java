@@ -9,16 +9,6 @@ import java.util.ArrayList;
  * 
  */
 
-/*
- * Patch Notes:
- * 	 11/14/17 - Changes to Profile class:
- * 	- removed int "age"
- * 	- removed "friendsList", "interestList"
- *  - fixed variable formatting
- *  - removed friends list methods 
- *  - removed "compareTo" method
- *  - Removed "Comparable" implementation
-*/
 
 /**
  * 
