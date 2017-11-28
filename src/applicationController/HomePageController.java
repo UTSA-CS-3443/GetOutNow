@@ -85,6 +85,30 @@ public class HomePageController implements Initializable {
 	@FXML
 	private JFXButton sportsBT;
 
+	private Restaurant rObj;
+	private Coffee cObj;
+	private String weather;
+	private String basketball;
+	private String football;
+	private String action;
+	private String scienceFiction;
+	private String comedy;
+
+	/**
+	 * Constructor.
+	 * This method is where variables are initialized to be used
+	 * appropriately by the program.
+	 */
+	public HomePageController() {
+		rObj = new Restaurant(RestaurantScrape.scrapeRestaurant());
+		cObj = new Coffee(CoffeeScrape.scrapeCoffeeShop());
+		weather = WeatherScrape.WeatherData();
+		basketball = SportsScrape.SportsData('A');
+		football = SportsScrape.SportsData('B');
+		action = MoviesScrape.MoviesData('A');
+		scienceFiction = MoviesScrape.MoviesData('B');
+		comedy = MoviesScrape.MoviesData('C');
+	}
 
 	/**
 	 * This method initializes FXML variables to be used
@@ -182,7 +206,7 @@ public class HomePageController implements Initializable {
 			@Override
 			protected Void call() throws Exception {
 				// update message property
-				updateMessage(WeatherScrape.WeatherData());
+				updateMessage(weather);
 				return null;
 			}
 		};
@@ -191,7 +215,7 @@ public class HomePageController implements Initializable {
 		task4.messageProperty().addListener((observable, oldMessage, newMessage) ->
 		Notifications.create()
 		.title("Weather")
-		.text("The current weather is " + WeatherScrape.WeatherData() + " in San Antonio, TX.")  // Calls WeatherData and returns weather in Fahrenheit.
+		.text("The current weather is " + newMessage + " in San Antonio, TX.")  // Calls WeatherData and returns weather in Fahrenheit.
 		.graphic(new ImageView(img))
 		.hideAfter(Duration.seconds(15))
 		.position(Pos.TOP_LEFT)
@@ -201,7 +225,7 @@ public class HomePageController implements Initializable {
 		weather.start();
 
 		if(weather.getState()!=Thread.State.TERMINATED){
-			System.out.println("Finished");
+			System.out.println("Weather Finished");
 		}
 
 		//Movies
@@ -211,7 +235,7 @@ public class HomePageController implements Initializable {
 			@Override
 			protected Void call() throws Exception {
 				// update message property
-				updateMessage(MoviesScrape.MoviesData('A'));
+				updateMessage(action);
 				return null;
 			}
 		};
@@ -219,10 +243,10 @@ public class HomePageController implements Initializable {
 		// display message changes as notifications
 		task.messageProperty().addListener((observable, oldMessage, newMessage) ->
 		Notifications.create()
-		.title("Sports")
+		.title("Movies")
 		.text("Here are some movies you may be interested in seeing!\n" 
-				+ "Action\n" + newMessage + "\nScience Fiction\n" 
-				+ MoviesScrape.MoviesData('B') + "\nComedy\n" + MoviesScrape.MoviesData('C'))
+				+ "\nAction:\n" + newMessage + "\n\nScience Fiction:\n" 
+				+ scienceFiction + "\n\nComedy:\n" + comedy)
 		.graphic(new ImageView(img2))
 		.hideAfter(Duration.seconds(30))
 		.position(Pos.TOP_RIGHT)
@@ -232,7 +256,7 @@ public class HomePageController implements Initializable {
 		movies.start();
 
 		if(movies.getState()!=Thread.State.TERMINATED){
-			System.out.println("Finished");
+			System.out.println("Movies Finished");
 		}
 
 		//Sports
@@ -242,7 +266,7 @@ public class HomePageController implements Initializable {
 			@Override
 			protected Void call() throws Exception {
 				// update message property
-				updateMessage(SportsScrape.SportsData('A'));
+				updateMessage(basketball);
 				return null;
 			}
 		};
@@ -252,7 +276,7 @@ public class HomePageController implements Initializable {
 		Notifications.create()
 		.title("Sports")
 		.text("Here are some sports games you may be interested in!\n" 
-				+ "\nNBA\n" + newMessage + "\nNFL\n" + SportsScrape.SportsData('B'))
+				+ "\nNBA:\n" + newMessage + "\nNFL:\n" + football)
 		.graphic(new ImageView(img3))
 		.hideAfter(Duration.seconds(20))
 		.position(Pos.BOTTOM_LEFT)
@@ -262,44 +286,43 @@ public class HomePageController implements Initializable {
 		sports.start();
 
 		if(sports.getState()!=Thread.State.TERMINATED){
-			System.out.println("Finished");
+			System.out.println("Sports Finished");
 		}
 
 		//Restaurants
 		Image img4 = new Image("/images/coffee.png");
 
-		Restaurant rObj = new Restaurant(RestaurantScrape.scrapeRestaurant());
-		Coffee cObj = new Coffee(CoffeeScrape.scrapeCoffeeShop());
-
-		Thread restaurants = new Thread(new Runnable() {
-
-			private void postMessage(final String message) {
-				Platform.runLater(() -> Notifications.create()
-						.title("Restaurants")
-						.text("Here are some restaurants you might like!\n" 
-								+ message + "\n" 
-								+ rObj.getLocation(6) + "\n"
-								+ rObj.getLocation(7) + "\n" 
-								+ "\nHere are some coffee shops you might like!\n"
-								+ cObj.getLocation(5) + "\n"
-								+ cObj.getLocation(6) + "\n"
-								+ cObj.getLocation(7) + "\n")
-						.graphic(new ImageView(img4))
-						.hideAfter(Duration.seconds(20))
-						.position(Pos.BOTTOM_RIGHT)
-						.show());
-			}
-
+		Task<Void> task2 = new Task<Void>() {
 			@Override
-			public void run() {
-				postMessage(rObj.getLocation(5));
+			protected Void call() throws Exception {
+				// update message property
+				updateMessage(rObj.getLocation(1));
+				return null;
 			}
+		};
 
-		});
-
+		// display message changes as notifications
+		task2.messageProperty().addListener((observable, oldMessage, newMessage) ->
+		Notifications.create()
+		.title("Restaurants")
+		.text("Here are some restaurants you might like!\n" 
+				+ newMessage + "\n" 
+				+ rObj.getLocation(2) + "\n"
+				+ rObj.getLocation(3) + "\n" 
+				+ "\nHere are some coffee shops you might like!\n"
+				+ cObj.getLocation(0) + "\n"
+				+ cObj.getLocation(2) + "\n"
+				+ cObj.getLocation(3) + "\n")
+		.graphic(new ImageView(img4))
+		.hideAfter(Duration.seconds(20))
+		.position(Pos.BOTTOM_RIGHT)
+		.show());
+		// execute long running task on background thread
+		Thread restaurants = new Thread(task2); 
 		restaurants.start();
+
 		if(restaurants.getState()!=Thread.State.TERMINATED){
-			System.out.println("Finished");
+			System.out.println("Restaurants Finished");
 		}
 
 	}
@@ -318,7 +341,7 @@ public class HomePageController implements Initializable {
 			@Override
 			protected Void call() throws Exception {
 				// update message property
-				updateMessage(MoviesScrape.MoviesData('A'));
+				updateMessage(action);
 				return null;
 			}
 		};
@@ -326,10 +349,10 @@ public class HomePageController implements Initializable {
 		// display message changes as notifications
 		task.messageProperty().addListener((observable, oldMessage, newMessage) ->
 		Notifications.create()
-		.title("Sports")
+		.title("Movies")
 		.text("Here are some movies you may be interested in seeing!\n" 
 				+ "\nAction:\n" + newMessage + "\n\nScience Fiction:\n" 
-				+ MoviesScrape.MoviesData('B') + "\n\nComedy:\n" + MoviesScrape.MoviesData('C'))
+				+ scienceFiction + "\n\nComedy:\n" + comedy)
 		.graphic(new ImageView(img))
 		.hideAfter(Duration.seconds(30))
 		.position(Pos.CENTER)
@@ -339,7 +362,7 @@ public class HomePageController implements Initializable {
 		movies.start();
 
 		if(movies.getState()!=Thread.State.TERMINATED){
-			System.out.println("Finished");
+			System.out.println("Movies Finished");
 		}
 	}
 
@@ -353,40 +376,38 @@ public class HomePageController implements Initializable {
 
 		Image img = new Image("/images/coffee.png");
 
-		Restaurant rObj = new Restaurant(RestaurantScrape.scrapeRestaurant());
-		Coffee cObj = new Coffee(CoffeeScrape.scrapeCoffeeShop());
-
-		Thread restaurants = new Thread(new Runnable() {
-
-			private void postMessage(final String message) {
-				Platform.runLater(() -> Notifications.create()
-						.title("Restaurants")
-						.text("Here are some restaurants you might like!\n" 
-								+ message + "\n" 
-								+ rObj.getLocation(6) + "\n"
-								+ rObj.getLocation(7) + "\n" 
-								+ "\nHere are some coffee shops you might like!\n"
-								+ cObj.getLocation(5) + "\n"
-								+ cObj.getLocation(6) + "\n"
-								+ cObj.getLocation(7) + "\n")
-						.graphic(new ImageView(img))
-						.hideAfter(Duration.seconds(20))
-						.position(Pos.CENTER)
-						.show());
-			}
-
+		Task<Void> task = new Task<Void>() {
 			@Override
-			public void run() {
-				postMessage(rObj.getLocation(5));
+			protected Void call() throws Exception {
+				// update message property
+				updateMessage(rObj.getLocation(1));
+				return null;
 			}
+		};
 
-		});
-
+		// display message changes as notifications
+		task.messageProperty().addListener((observable, oldMessage, newMessage) ->
+		Notifications.create()
+		.title("Restaurants")
+		.text("Here are some restaurants you might like!\n" 
+				+ newMessage + "\n" 
+				+ rObj.getLocation(2) + "\n"
+				+ rObj.getLocation(3) + "\n" 
+				+ "\nHere are some coffee shops you might like!\n"
+				+ cObj.getLocation(0) + "\n"
+				+ cObj.getLocation(2) + "\n"
+				+ cObj.getLocation(3) + "\n")
+		.graphic(new ImageView(img))
+		.hideAfter(Duration.seconds(20))
+		.position(Pos.CENTER)
+		.show());
+		// execute long running task on background thread
+		Thread restaurants = new Thread(task); 
 		restaurants.start();
-		if(restaurants.getState()!=Thread.State.TERMINATED){
-			System.out.println("Finished");
-		}
 
+		if(restaurants.getState()!=Thread.State.TERMINATED){
+			System.out.println("Restaurants Finished");
+		}
 	}
 
 	/**
@@ -403,7 +424,7 @@ public class HomePageController implements Initializable {
 			@Override
 			protected Void call() throws Exception {
 				// update message property
-				updateMessage(SportsScrape.SportsData('A'));
+				updateMessage(basketball);
 				return null;
 			}
 		};
@@ -413,7 +434,7 @@ public class HomePageController implements Initializable {
 		Notifications.create()
 		.title("Sports")
 		.text("Here are some sports games you may be interested in!\n" 
-				+ "\nNBA:\n" + newMessage + "\nNFL:\n" + SportsScrape.SportsData('B'))
+				+ "\nNBA:\n" + newMessage + "\nNFL:\n" + football)
 		.graphic(new ImageView(img))
 		.hideAfter(Duration.seconds(20))
 		.position(Pos.CENTER)
@@ -423,7 +444,7 @@ public class HomePageController implements Initializable {
 		sports.start();
 
 		if(sports.getState()!=Thread.State.TERMINATED){
-			System.out.println("Finished");
+			System.out.println("Sports Finished");
 		}
 
 	}
@@ -441,7 +462,7 @@ public class HomePageController implements Initializable {
 			@Override
 			protected Void call() throws Exception {
 				// update message property
-				updateMessage(WeatherScrape.WeatherData());
+				updateMessage(weather);
 				return null;
 			}
 		};
@@ -450,7 +471,7 @@ public class HomePageController implements Initializable {
 		task4.messageProperty().addListener((observable, oldMessage, newMessage) ->
 		Notifications.create()
 		.title("Weather")
-		.text("The current weather is " + WeatherScrape.WeatherData() + " in San Antonio, TX.")  // Calls WeatherData and returns weather in Fahrenheit.
+		.text("The current weather is " + newMessage + " in San Antonio, TX.")  // Calls WeatherData and returns weather in Fahrenheit.
 		.graphic(new ImageView(img))
 		.hideAfter(Duration.seconds(15))
 		.position(Pos.CENTER)
@@ -460,7 +481,7 @@ public class HomePageController implements Initializable {
 		weather.start();
 
 		if(weather.getState()!=Thread.State.TERMINATED){
-			System.out.println("Finished");
+			System.out.println("Weather Finished");
 		}
 	}
 }

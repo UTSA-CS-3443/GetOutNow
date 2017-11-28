@@ -1,6 +1,5 @@
 package applicationController;
 
-
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -13,6 +12,7 @@ import com.jfoenix.controls.JFXTextField;
 import applicationModel.LoginModel;
 import javafx.animation.FadeTransition;
 import javafx.animation.PauseTransition;
+import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -221,43 +221,54 @@ public class LoginController implements EventHandler<ActionEvent> {
 				}
 
 				if (working == true) {
+
 					loading.setVisible(true);	// show loading
-					PauseTransition pt = new PauseTransition();		// animation
-					pt.setDuration(Duration.seconds(3));	// animation duration set to 3 seconds
-					pt.setOnFinished(ev -> {
-						System.out.println("Login Successful");		// after animation done, print
 
+					// create task to be done in background
+					Task<Parent> loadTask = new Task<Parent>() {
+						@Override
+						public Parent call() throws IOException, InterruptedException {
 
-						FXMLLoader loginLoader = new FXMLLoader(getClass().getResource("/applicationView/GetOutNowHomepage.fxml"));
-						Parent homePageParent = null;
-						try {
-							homePageParent = loginLoader.load();
-						} catch (IOException e1) {
-							// TODO Auto-generated catch block
-							e1.printStackTrace();
+							FXMLLoader loginLoader = new FXMLLoader(getClass().getResource("/applicationView/GetOutNowHomepage.fxml"));
+							Parent homePageParent = null;
+							try {
+								homePageParent = loginLoader.load();
+							} catch (IOException e1) {
+								e1.printStackTrace();
+							}
+							return homePageParent;
 						}
-						Scene homePageScene = new Scene (homePageParent);
+					};
+
+					// when task has succeeded, show scene on stage
+					loadTask.setOnSucceeded(e -> {
+						Scene homePageScene = new Scene (loadTask.getValue());
 						Stage Stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-						FadeTransition ft = new FadeTransition(Duration.millis(1500));
-						ft.setNode(homePageParent);
+						FadeTransition ft = new FadeTransition(Duration.millis(1000));
+						ft.setNode(loadTask.getValue());
 						ft.setFromValue(0.1);
 						ft.setToValue(1);
 						ft.setCycleCount(1);
 						ft.setAutoReverse(false);
+						System.out.println("Login Successful");
 						Stage.hide();
 						Stage.setTitle("Homepage");
 						Stage.setScene(homePageScene);
 						Stage.show();
 						ft.play();
 					});
-					pt.play();		// play animation
+
+					loadTask.setOnFailed(e -> loadTask.getException().printStackTrace());
+
+					Thread thread = new Thread(loadTask);
+					thread.start();
+
 				} else {
 					Notifications notificationBuilder = Notifications.create()
 							.title("Login Error")
 							.text("Incorrect username or password.")
 							.graphic(null) 							// sets graphic to null which gets a defualt image described below when null
-							//.graphic(new ImageView(img))
-							.hideAfter(Duration.seconds(5))
+							.hideAfter(Duration.seconds(7))
 							.position(Pos.CENTER)
 							.onAction(new EventHandler<ActionEvent>() {
 
@@ -267,12 +278,7 @@ public class LoginController implements EventHandler<ActionEvent> {
 							});
 
 					notificationBuilder.darkStyle();
-					//notificationBuilder.showConfirm();		// shows a questionmark to confirm
-					//notificationBuilder.show();				// regular notification with no icons, just text
 					notificationBuilder.showError();			// shows an x for an error notification
-					//notificationBuilder.showInformation(); 		// shows an i icon for information
-					//notificationBuilder.showWarning();		// shows an exclamation point
-
 				}
 			}
 
