@@ -42,8 +42,10 @@ public class BarsScrape {
 		Matcher m = Pattern.compile("\"name\">(.*)</span>").matcher(results.toString());
 		
 		//Add each Bar into ArrayList
-		while(m.find()) {
+		int count = 1;
+		while(m.find() && count < 5) {
 			locations.add(m.group(1));
+			count ++;
 		}
 		
 		//return ArrayList Locations

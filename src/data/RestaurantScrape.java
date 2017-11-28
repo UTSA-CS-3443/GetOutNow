@@ -42,8 +42,10 @@ public class RestaurantScrape {
 		// Pattern Match for results of Restaurant Names
 		Matcher m = Pattern.compile("<span? itemprop=\"name\">(.*)</span>").matcher(results.toString());
 		//Add each match into ArrayList 
-		while(m.find()) {
+		int count = 1;
+		while(m.find() && count < 5) {
 			locations.add(m.group(1));
+			count++;
 		}
 		
 		//return locations 

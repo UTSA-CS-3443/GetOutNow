@@ -43,10 +43,11 @@ public class CoffeeScrape {
 		
 		//Pattern Match for CoffeeShops
 		Matcher m = Pattern.compile("\"name\">(.*)</span>").matcher(results.toString());
-		
+		int count = 1;
 		//Add each Match into ArrayList
-		while(m.find()) {
+		while(m.find() && count < 5) {
 			locations.add(m.group(1));
+			count ++;
 		}
 		
 		//Return ArrayList
