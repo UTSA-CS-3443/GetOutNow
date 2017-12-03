@@ -31,24 +31,21 @@ public class MoviesScrape {
 		if(input == 'A') 
 		{			
 			try {
-			Document doc = Jsoup.connect("https://www.flicks.co.nz/now-playing/action/").get();
+			Document doc = Jsoup.connect("https://www.showtimes.com/now-playing-movies/action-films/").get();
 			Elements results = doc.getElementsContainingText(".");
 			htmlString = results.toString();
 
-			Pattern pattern1 = Pattern.compile(">1. (.*)</a>");
+			Pattern pattern1 = Pattern.compile("<h3 class=\"movie-title\">.*>(.*)</a>");
 			Matcher matcher1 = pattern1.matcher(htmlString);
+			
 			if (matcher1.find())
 			    movie1 = matcher1.group(1);
 			
-			Pattern pattern2 = Pattern.compile(">2. (.*)</a>");
-			Matcher matcher2 = pattern2.matcher(htmlString);
-			if (matcher2.find())
-			    movie2 = matcher2.group(1);		
+			if (matcher1.find())
+			    movie2 = matcher1.group(1);		
 			
-			Pattern pattern3 = Pattern.compile(">3. (.*)</a>");
-			Matcher matcher3 = pattern3.matcher(htmlString);
-			if (matcher3.find())
-			    movie3 = matcher3.group(1);	
+			if (matcher1.find())
+			    movie3 = matcher1.group(1);	
 			
 			} catch (IOException e){
 				e.printStackTrace();
@@ -57,24 +54,21 @@ public class MoviesScrape {
 		else if(input == 'B') 
 		{
 			try {
-			Document doc = Jsoup.connect("https://www.flicks.co.nz/now-playing/science-fiction/").get();
+			Document doc = Jsoup.connect("https://www.showtimes.com/now-playing-movies/sci-fi-films/").get();
 			Elements results = doc.getElementsContainingText(".");
 			htmlString = results.toString();
 
-			Pattern pattern1 = Pattern.compile(">1. (.*)</a>");
+			Pattern pattern1 = Pattern.compile("<h3 class=\"movie-title\">.*>(.*)</a>");
 			Matcher matcher1 = pattern1.matcher(htmlString);
+			
 			if (matcher1.find())
 			    movie1 = matcher1.group(1);
 			
-			Pattern pattern2 = Pattern.compile(">2. (.*)</a>");
-			Matcher matcher2 = pattern2.matcher(htmlString);
-			if (matcher2.find())
-			    movie2 = matcher2.group(1);		
+			if (matcher1.find())
+			    movie2 = matcher1.group(1);		
 			
-			Pattern pattern3 = Pattern.compile(">3. (.*)</a>");
-			Matcher matcher3 = pattern3.matcher(htmlString);
-			if (matcher3.find())
-			    movie3 = matcher3.group(1);	
+			if (matcher1.find())
+			    movie3 = matcher1.group(1);	
 			
 			} catch (IOException e){
 				e.printStackTrace();
@@ -83,30 +77,26 @@ public class MoviesScrape {
 		else if(input == 'C') 
 		{		
 			try {
-			Document doc = Jsoup.connect("https://www.flicks.co.nz/now-playing/comedy/").get();
+			Document doc = Jsoup.connect("https://www.showtimes.com/now-playing-movies/comedy-films/").get();
 			Elements results = doc.getElementsContainingText(".");
 			htmlString = results.toString();
 			
-			Pattern pattern1 = Pattern.compile(">1. (.*)</a>");
+			Pattern pattern1 = Pattern.compile("<h3 class=\\\"movie-title\\\">.*>(.*)</a>");
 			Matcher matcher1 = pattern1.matcher(htmlString);
+			
 			if (matcher1.find())
 			    movie1 = matcher1.group(1);
 			
-			Pattern pattern2 = Pattern.compile(">2. (.*)</a>");
-			Matcher matcher2 = pattern2.matcher(htmlString);
-			if (matcher2.find())
-			    movie2 = matcher2.group(1);		
+			if (matcher1.find())
+			    movie2 = matcher1.group(1);		
 			
-			Pattern pattern3 = Pattern.compile(">3. (.*)</a>");
-			Matcher matcher3 = pattern3.matcher(htmlString);
-			if (matcher3.find())
-			    movie3 = matcher3.group(1);	
+			if (matcher1.find())
+			    movie3 = matcher1.group(1);	
 			
 			} catch (IOException e){
 				e.printStackTrace();
 			}
 		}
-		///movie/(.*?)/
 		
 		System.out.println("Here are some movies playing that you might like!");
 		return movie1 + "\n" + movie2 + "\n" + movie3;
