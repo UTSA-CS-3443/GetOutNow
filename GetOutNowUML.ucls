@@ -1,364 +1,496 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <class-diagram version="1.2.2" icons="true" always-add-relationships="true" generalizations="true" realizations="true" 
   associations="true" dependencies="true" nesting-relationships="true" router="FAN">  
-  <class id="1" language="java" name="application.Main" project="GetOutNow" file="/GetOutNow/src/application/Main.java" 
-    binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1600" y="6"/>    
+  <class id="1" language="java" name="applicationModel.Profile" project="GetOutNow" 
+    file="/GetOutNow/src/applicationModel/Profile.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="441" width="216" x="965" y="1233"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="2" language="java" name="applicationController.AccountController" project="GetOutNow" 
-    file="/GetOutNow/src/applicationController/AccountController.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="367" y="170"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="3" language="java" name="applicationController.HomePageController" project="GetOutNow" 
-    file="/GetOutNow/src/applicationController/HomePageController.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1396" y="365"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="4" language="java" name="applicationController.LoginController" project="GetOutNow" 
-    file="/GetOutNow/src/applicationController/LoginController.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1065" y="412"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="5" language="java" name="applicationController.PlannerController" project="GetOutNow" 
-    file="/GetOutNow/src/applicationController/PlannerController.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="568" y="206"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="6" language="java" name="applicationController.RegisterController" project="GetOutNow" 
-    file="/GetOutNow/src/applicationController/RegisterController.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="803" y="387"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="7" language="java" name="applicationModel.ConfirmBox" project="GetOutNow" 
-    file="/GetOutNow/src/applicationModel/ConfirmBox.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1148" y="7"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="8" language="java" name="applicationModel.LoginModel" project="GetOutNow" 
+  <class id="2" language="java" name="applicationModel.LoginModel" project="GetOutNow" 
     file="/GetOutNow/src/applicationModel/LoginModel.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="854" y="-27"/>    
+    <position height="81" width="89" x="1502" y="698"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="9" language="java" name="data.Bars" project="GetOutNow" file="/GetOutNow/src/data/Bars.java" binary="false" 
-    corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1498" y="1098"/>    
+  <class id="3" language="java" name="applicationModel.Bars" project="GetOutNow" 
+    file="/GetOutNow/src/applicationModel/Bars.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="117" width="217" x="1921" y="698"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="10" language="java" name="data.BarsScrape" project="GetOutNow" file="/GetOutNow/src/data/BarsScrape.java" 
+  <class id="4" language="java" name="applicationController.HomePageController" project="GetOutNow" 
+    file="/GetOutNow/src/applicationController/HomePageController.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="621" width="232" x="3321" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="5" language="java" name="applicationController.RegisterController" project="GetOutNow" 
+    file="/GetOutNow/src/applicationController/RegisterController.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="495" width="209" x="1490" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="6" language="java" name="applicationModel.Account" project="GetOutNow" 
+    file="/GetOutNow/src/applicationModel/Account.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="495" width="292" x="1170" y="698"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="7" language="java" name="applicationModel.Sports" project="GetOutNow" 
+    file="/GetOutNow/src/applicationModel/Sports.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="117" width="114" x="425" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="8" language="java" name="applicationModel.Restaurant" project="GetOutNow" 
+    file="/GetOutNow/src/applicationModel/Restaurant.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="117" width="217" x="2199" y="698"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="9" language="java" name="applicationController.PlannerController" project="GetOutNow" 
+    file="/GetOutNow/src/applicationController/PlannerController.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="153" width="209" x="41" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="10" language="java" name="applicationModel.Movies" project="GetOutNow" 
+    file="/GetOutNow/src/applicationModel/Movies.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="117" width="114" x="2199" y="1233"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="11" language="java" name="applicationModel.Interest" project="GetOutNow" 
+    file="/GetOutNow/src/applicationModel/Interest.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="243" width="229" x="1631" y="698"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="12" language="java" name="applicationModel.WeatherConversion" project="GetOutNow" 
+    file="/GetOutNow/src/applicationModel/WeatherConversion.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="189" width="162" x="1921" y="1233"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="13" language="java" name="application.Main" project="GetOutNow" file="/GetOutNow/src/application/Main.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1680" y="934"/>    
+    <position height="153" width="123" x="3158" y="37"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="11" language="java" name="data.Coffee" project="GetOutNow" file="/GetOutNow/src/data/Coffee.java" 
-    binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1456" y="796"/>    
+  <class id="14" language="java" name="applicationModel.create_deleteProfile" project="GetOutNow" 
+    file="/GetOutNow/src/applicationModel/create_deleteProfile.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="243" width="140" x="1128" y="37"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="12" language="java" name="data.CoffeeScrape" project="GetOutNow" 
-    file="/GetOutNow/src/data/CoffeeScrape.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1760" y="786"/>    
+  <class id="15" language="java" name="applicationModel.Planner" project="GetOutNow" 
+    file="/GetOutNow/src/applicationModel/Planner.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="225" width="180" x="2734" y="698"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="13" language="java" name="data.Movies" project="GetOutNow" file="/GetOutNow/src/data/Movies.java" 
-    binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1402" y="938"/>    
+  <class id="16" language="java" name="applicationModel.Coffee" project="GetOutNow" 
+    file="/GetOutNow/src/applicationModel/Coffee.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="117" width="217" x="2456" y="698"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="14" language="java" name="data.MoviesScrape" project="GetOutNow" 
-    file="/GetOutNow/src/data/MoviesScrape.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1740" y="564"/>    
+  <class id="17" language="java" name="applicationModel.CoffeeScrape" project="GetOutNow" 
+    file="/GetOutNow/src/applicationModel/CoffeeScrape.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="99" width="214" x="3534" y="698"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="15" language="java" name="data.Notifications" project="GetOutNow" 
-    file="/GetOutNow/src/data/Notifications.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1250" y="1134"/>    
+  <class id="18" language="java" name="applicationModel.TestData" project="GetOutNow" 
+    file="/GetOutNow/src/applicationModel/TestData.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="99" width="113" x="2694" y="37"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="16" language="java" name="data.Restaurant" project="GetOutNow" file="/GetOutNow/src/data/Restaurant.java" 
-    binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1168" y="782"/>    
+  <class id="19" language="java" name="applicationModel.Event" project="GetOutNow" 
+    file="/GetOutNow/src/applicationModel/Event.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="207" width="154" x="2935" y="1233"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="17" language="java" name="data.RestaurantScrape" project="GetOutNow" 
-    file="/GetOutNow/src/data/RestaurantScrape.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1778" y="398"/>    
+  <class id="20" language="java" name="applicationModel.Notifications" project="GetOutNow" 
+    file="/GetOutNow/src/applicationModel/Notifications.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="81" width="95" x="290" y="37"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="18" language="java" name="data.Sports" project="GetOutNow" file="/GetOutNow/src/data/Sports.java" 
-    binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1118" y="1150"/>    
+  <class id="21" language="java" name="applicationModel.SportsScrape" project="GetOutNow" 
+    file="/GetOutNow/src/applicationModel/SportsScrape.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="225" width="141" x="4037" y="698"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="19" language="java" name="data.SportsScrape" project="GetOutNow" 
-    file="/GetOutNow/src/data/SportsScrape.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1800" y="224"/>    
+  <class id="22" language="java" name="applicationModel.TestPlanner" project="GetOutNow" 
+    file="/GetOutNow/src/applicationModel/TestPlanner.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="99" width="92" x="2935" y="37"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="20" language="java" name="data.WeatherConversion" project="GetOutNow" 
-    file="/GetOutNow/src/data/WeatherConversion.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1142" y="970"/>    
+  <class id="23" language="java" name="applicationModel.BarsScrape" project="GetOutNow" 
+    file="/GetOutNow/src/applicationModel/BarsScrape.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="99" width="179" x="746" y="37"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="21" language="java" name="data.WeatherScrape" project="GetOutNow" 
-    file="/GetOutNow/src/data/WeatherScrape.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1628" y="156"/>    
+  <class id="24" language="java" name="applicationModel.MoviesScrape" project="GetOutNow" 
+    file="/GetOutNow/src/applicationModel/MoviesScrape.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="153" width="143" x="2975" y="698"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="22" language="java" name="profile.Account" project="GetOutNow" file="/GetOutNow/src/profile/Account.java" 
-    binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="848" y="982"/>    
+  <class id="25" language="java" name="applicationModel.WeatherScrape" project="GetOutNow" 
+    file="/GetOutNow/src/applicationModel/WeatherScrape.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="99" width="128" x="3366" y="698"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="23" language="java" name="profile.Event" project="GetOutNow" file="/GetOutNow/src/profile/Event.java" 
-    binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="318" y="842"/>    
+  <class id="26" language="java" name="applicationModel.TestProfile" project="GetOutNow" 
+    file="/GetOutNow/src/applicationModel/TestProfile.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="99" width="87" x="857" y="698"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="24" language="java" name="profile.Interest" project="GetOutNow" file="/GetOutNow/src/profile/Interest.java" 
-    binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="142" y="1096"/>    
+  <class id="27" language="java" name="applicationController.LoginController" project="GetOutNow" 
+    file="/GetOutNow/src/applicationController/LoginController.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="549" width="227" x="1739" y="37"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="25" language="java" name="profile.Planner" project="GetOutNow" file="/GetOutNow/src/profile/Planner.java" 
-    binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="112" y="834"/>    
+  <class id="28" language="java" name="applicationModel.Location" project="GetOutNow" 
+    file="/GetOutNow/src/applicationModel/Location.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="171" width="221" x="2159" y="37"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="26" language="java" name="profile.Profile" project="GetOutNow" file="/GetOutNow/src/profile/Profile.java" 
-    binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="542" y="956"/>    
+  <class id="29" language="java" name="applicationModel.TestInterest" project="GetOutNow" 
+    file="/GetOutNow/src/applicationModel/TestInterest.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="99" width="113" x="2006" y="37"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <dependency id="27">    
-    <end type="SOURCE" refId="9"/>    
-    <end type="TARGET" refId="20"/>  
-  </dependency>  
-  <dependency id="28">    
-    <end type="SOURCE" refId="16"/>    
-    <end type="TARGET" refId="13"/>  
-  </dependency>  
-  <dependency id="29">    
-    <end type="SOURCE" refId="9"/>    
-    <end type="TARGET" refId="13"/>  
-  </dependency>  
-  <association id="30">    
-    <end type="SOURCE" refId="3" navigable="false">      
-      <attribute id="31" name="cObj"/>      
-      <multiplicity id="32" minimum="0" maximum="1"/>    
+  <class id="30" language="java" name="applicationModel.TestCheckPassword" project="GetOutNow" 
+    file="/GetOutNow/src/applicationModel/TestCheckPassword.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="99" width="142" x="1308" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="31" language="java" name="applicationController.AccountController" project="GetOutNow" 
+    file="/GetOutNow/src/applicationController/AccountController.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="81" width="127" x="579" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="32" language="java" name="applicationModel.RestaurantScrape" project="GetOutNow" 
+    file="/GetOutNow/src/applicationModel/RestaurantScrape.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="99" width="209" x="3788" y="698"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="33" language="java" name="applicationModel.ConfirmBox" project="GetOutNow" 
+    file="/GetOutNow/src/applicationModel/ConfirmBox.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="117" width="168" x="3158" y="698"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="34" language="java" name="applicationModel.TestAccount" project="GetOutNow" 
+    file="/GetOutNow/src/applicationModel/TestAccount.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="171" width="123" x="965" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <association id="35">    
+    <end type="SOURCE" refId="5" navigable="false">      
+      <attribute id="36" name="account"/>      
+      <multiplicity id="37" minimum="0" maximum="1"/>    
     </end>    
-    <end type="TARGET" refId="11" navigable="true"/>    
+    <end type="TARGET" refId="6" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <dependency id="33">    
-    <end type="SOURCE" refId="11"/>    
-    <end type="TARGET" refId="20"/>  
+  <dependency id="38">    
+    <end type="SOURCE" refId="16"/>    
+    <end type="TARGET" refId="12"/>  
   </dependency>  
-  <association id="34">    
-    <end type="SOURCE" refId="3" navigable="false">      
-      <attribute id="35" name="rObj"/>      
-      <multiplicity id="36" minimum="0" maximum="1"/>    
+  <generalization id="39">    
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="28"/>  
+  </generalization>  
+  <dependency id="40">    
+    <end type="SOURCE" refId="22"/>    
+    <end type="TARGET" refId="15"/>  
+  </dependency>  
+  <dependency id="41">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="24"/>  
+  </dependency>  
+  <dependency id="42">    
+    <end type="SOURCE" refId="16"/>    
+    <end type="TARGET" refId="10"/>  
+  </dependency>  
+  <association id="43">    
+    <end type="SOURCE" refId="5" navigable="false">      
+      <attribute id="44" name="model"/>      
+      <multiplicity id="45" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="2" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="46">    
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="10"/>  
+  </dependency>  
+  <dependency id="47">    
+    <end type="SOURCE" refId="8"/>    
+    <end type="TARGET" refId="10"/>  
+  </dependency>  
+  <dependency id="48">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="25"/>  
+  </dependency>  
+  <dependency id="49">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="32"/>  
+  </dependency>  
+  <dependency id="50">    
+    <end type="SOURCE" refId="30"/>    
+    <end type="TARGET" refId="6"/>  
+  </dependency>  
+  <dependency id="51">    
+    <bendpoint x="2944" y="698"/>    
+    <end type="SOURCE" refId="22"/>    
+    <end type="TARGET" refId="19"/>  
+  </dependency>  
+  <association id="52">    
+    <end type="SOURCE" refId="34" navigable="false">      
+      <attribute id="53" name="set"/>      
+      <multiplicity id="54" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="6" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="55">    
+    <end type="SOURCE" refId="4" navigable="false">      
+      <attribute id="56" name="rObj"/>      
+      <multiplicity id="57" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="8" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="58">    
+    <end type="SOURCE" refId="18"/>    
+    <end type="TARGET" refId="21"/>  
+  </dependency>  
+  <association id="59">    
+    <end type="SOURCE" refId="6" navigable="false">      
+      <attribute id="60" name="profile"/>      
+      <multiplicity id="61" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="1" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="62">    
+    <end type="SOURCE" refId="27" navigable="false">      
+      <attribute id="63" name="model"/>      
+      <multiplicity id="64" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="2" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="65">    
+    <end type="SOURCE" refId="27" navigable="false">      
+      <attribute id="66" name="account"/>      
+      <multiplicity id="67" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="6" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="68">    
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="12"/>  
+  </dependency>  
+  <dependency id="69">    
+    <end type="SOURCE" refId="26"/>    
+    <end type="TARGET" refId="1"/>  
+  </dependency>  
+  <association id="70">    
+    <end type="SOURCE" refId="4" navigable="false">      
+      <attribute id="71" name="cObj"/>      
+      <multiplicity id="72" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="16" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <dependency id="37">    
-    <end type="SOURCE" refId="3"/>    
-    <end type="TARGET" refId="19"/>  
-  </dependency>  
-  <dependency id="38">    
-    <end type="SOURCE" refId="3"/>    
-    <end type="TARGET" refId="21"/>  
-  </dependency>  
-  <dependency id="39">    
-    <end type="SOURCE" refId="11"/>    
-    <end type="TARGET" refId="13"/>  
-  </dependency>  
-  <association id="40">    
-    <end type="SOURCE" refId="25" navigable="false">      
-      <attribute id="41" name="eventList"/>      
-      <multiplicity id="42" minimum="0" maximum="2147483647"/>    
-    </end>    
-    <end type="TARGET" refId="23" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <dependency id="43">    
-    <end type="SOURCE" refId="3"/>    
-    <end type="TARGET" refId="17"/>  
-  </dependency>  
-  <association id="44">    
-    <end type="SOURCE" refId="6" navigable="false">      
-      <attribute id="45" name="model">        
-        <position height="0" width="0" x="776" y="-332"/>      
-      </attribute>      
-      <multiplicity id="46" minimum="0" maximum="1">        
-        <position height="0" width="0" x="776" y="-332"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="8" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="47">    
-    <end type="SOURCE" refId="6" navigable="false">      
-      <attribute id="48" name="account"/>      
-      <multiplicity id="49" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="22" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <dependency id="50">    
-    <end type="SOURCE" refId="3"/>    
-    <end type="TARGET" refId="14"/>  
-  </dependency>  
-  <association id="51">    
-    <end type="SOURCE" refId="4" navigable="false">      
-      <attribute id="52" name="model">        
-        <position height="0" width="0" x="776" y="-332"/>      
-      </attribute>      
-      <multiplicity id="53" minimum="0" maximum="1">        
-        <position height="0" width="0" x="776" y="-332"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="8" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <dependency id="54">    
-    <end type="SOURCE" refId="3"/>    
+  <generalization id="73">    
+    <end type="SOURCE" refId="8"/>    
+    <end type="TARGET" refId="28"/>  
+  </generalization>  
+  <dependency id="74">    
+    <bendpoint x="1890" y="698"/>    
+    <end type="SOURCE" refId="28"/>    
     <end type="TARGET" refId="12"/>  
   </dependency>  
-  <dependency id="55">    
+  <dependency id="75">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="33"/>  
+  </dependency>  
+  <dependency id="76">    
+    <end type="SOURCE" refId="13"/>    
+    <end type="TARGET" refId="33"/>  
+  </dependency>  
+  <dependency id="77">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="17"/>  
+  </dependency>  
+  <dependency id="78">    
+    <end type="SOURCE" refId="14"/>    
+    <end type="TARGET" refId="6"/>  
+  </dependency>  
+  <dependency id="79">    
+    <end type="SOURCE" refId="8"/>    
+    <end type="TARGET" refId="12"/>  
+  </dependency>  
+  <dependency id="80">    
+    <end type="SOURCE" refId="29"/>    
+    <end type="TARGET" refId="11"/>  
+  </dependency>  
+  <generalization id="81">    
     <end type="SOURCE" refId="16"/>    
-    <end type="TARGET" refId="20"/>  
-  </dependency>  
-  <dependency id="56">    
-    <end type="SOURCE" refId="3"/>    
-    <end type="TARGET" refId="7"/>  
-  </dependency>  
-  <dependency id="57">    
-    <end type="SOURCE" refId="1"/>    
-    <end type="TARGET" refId="7"/>  
-  </dependency>  
-  <association id="58">    
-    <end type="SOURCE" refId="22" navigable="false">      
-      <attribute id="59" name="profile"/>      
-      <multiplicity id="60" minimum="0" maximum="1"/>    
+    <end type="TARGET" refId="28"/>  
+  </generalization>  
+  <association id="82">    
+    <end type="SOURCE" refId="15" navigable="false">      
+      <attribute id="83" name="eventList"/>      
+      <multiplicity id="84" minimum="0" maximum="2147483647"/>    
     </end>    
-    <end type="TARGET" refId="26" navigable="true"/>    
+    <end type="TARGET" refId="19" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="61">    
-    <end type="SOURCE" refId="4" navigable="false">      
-      <attribute id="62" name="account"/>      
-      <multiplicity id="63" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="22" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
+  <dependency id="85">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="21"/>  
+  </dependency>  
+  <dependency id="86">    
+    <end type="SOURCE" refId="18"/>    
+    <end type="TARGET" refId="7"/>  
+  </dependency>  
+  <dependency id="87">    
+    <bendpoint x="2168" y="698"/>    
+    <end type="SOURCE" refId="28"/>    
+    <end type="TARGET" refId="10"/>  
+  </dependency>  
+  <dependency id="88">    
+    <bendpoint x="974" y="698"/>    
+    <end type="SOURCE" refId="34"/>    
+    <end type="TARGET" refId="1"/>  
+  </dependency>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
     sort-features="false" accessors="true" visibility="true">    
     <attributes public="true" package="true" protected="true" private="true" static="true"/>    
