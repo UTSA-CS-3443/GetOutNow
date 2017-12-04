@@ -330,17 +330,4 @@ public class SportsScrape {
 		System.out.println(htmlString);	
 	*/
 	}
-	
-	/*getters*/
-	public String getHomeTeam(){
-		return this.szTeam2;	
-	}
-	
-	public String getAwayTeam(){
-		return this.szTeam1;	
-	}
-	
-	public String getGameTime(){
-		return this.szTime;	
-	}
 }

@@ -35,6 +35,10 @@ public class Movies {
 		this.answer = input;
 	}
 	
+	/**
+	 * Returns the input answer.
+	 * @return char value answer.
+	 */
 	public char getAnswer() {
 		return this.answer;
 	}
