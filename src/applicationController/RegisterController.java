@@ -10,7 +10,7 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
 
-import profile.Account;
+import applicationModel.Account;
 import applicationModel.LoginModel;
 import javafx.animation.FadeTransition;
 import javafx.animation.PauseTransition;

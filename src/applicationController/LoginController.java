@@ -9,6 +9,7 @@ import org.controlsfx.control.Notifications;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
 
+import applicationModel.Account;
 import applicationModel.LoginModel;
 import javafx.animation.FadeTransition;
 import javafx.animation.PauseTransition;
@@ -29,7 +30,6 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
-import profile.Account;
 
 /**
  * @author Erwin Herrera

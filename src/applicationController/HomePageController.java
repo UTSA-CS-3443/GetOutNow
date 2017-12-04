@@ -11,14 +11,14 @@ import org.controlsfx.control.Notifications;
 
 import com.jfoenix.controls.JFXButton;
 
+import applicationModel.Coffee;
+import applicationModel.CoffeeScrape;
 import applicationModel.ConfirmBox;
-import data.Coffee;
-import data.CoffeeScrape;
-import data.MoviesScrape;
-import data.Restaurant;
-import data.RestaurantScrape;
-import data.SportsScrape;
-import data.WeatherScrape;
+import applicationModel.MoviesScrape;
+import applicationModel.Restaurant;
+import applicationModel.RestaurantScrape;
+import applicationModel.SportsScrape;
+import applicationModel.WeatherScrape;
 import javafx.application.Platform;
 import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
