@@ -12,14 +12,19 @@ The jar files are provided and located in 'AllJarFiles' of the Project root. If 
 
 Installation Instructions:
 
-1. Clone the repository into Eclipse using e-git or import GetOutNow-master.zip into your IDE of choice such as Eclipse [note: packages will need to be refactored and moved]
+1. Please ensure that a strong Wi-Fi connection is established.
 
-2. Right-click on GetOutNow project folder
+2. Clone the repository into Eclipse using e-git or import GetOutNow-master.zip into your IDE of choice such as Eclipse.
+   [Note: packages may need to be refactored and moved]
 
-3. Click on Build Path > Configure Build Path...
+3. Right-click on GetOutNow project folder.
 
-4. Libraries > Add jars
+4. Click on Build Path > Configure Build Path...
 
-5. Select the jar files from 'AllJarFiles'
+5. Libraries > Add jars
 
-6. Click Apply and Close
+6. Select the jar files from 'AllJarFiles'.
+
+7. Click Apply and Close.
+
+8. Open Main.java and run as a java application.
