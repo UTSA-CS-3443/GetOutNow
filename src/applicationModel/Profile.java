@@ -1,21 +1,13 @@
 package applicationModel;
 
 import java.util.ArrayList;
-/*
- * TODO:
- * 
- * Need Javadocs
- * Profile GUI 
- * 
- */
-
 
 /**
  * 
  * Profile.java stores the user's information and will be manipulated 
  * for any changes via the Settings.java file.
  * 
- *
+ *@author Clarence Bumanglag
  */
 
 public class Profile {
