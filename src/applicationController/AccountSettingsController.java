@@ -14,7 +14,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 /**
- * This class manages the two buttons in teh Account Settings fxml.
+ * This class manages the two buttons in the Account Settings window.
  * The user has the option to either create a new account or delete
  * an account. When the buttons are pressed, they will display another 
  * window accordingly.
@@ -23,6 +23,7 @@ import javafx.stage.Stage;
  */
 public class AccountSettingsController {
 
+	// FXML variables used 
     @FXML
     private AnchorPane parentPane;
 

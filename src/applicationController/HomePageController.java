@@ -38,6 +38,7 @@ import javafx.util.Duration;
  */
 public class HomePageController implements Initializable {
 
+	// FXML variables used
 	@FXML
 	private Parent loginPageParent;
 
@@ -83,8 +84,13 @@ public class HomePageController implements Initializable {
 	@FXML
 	private JFXButton sportsBT;
 
+	// used to create new objects for 
+	// the restaurants button
 	private Restaurant rObj;
 	private Coffee cObj;
+	
+	// primitive data types used 
+	// for data storage
 	private String weather;
 	private String basketball;
 	private String football;

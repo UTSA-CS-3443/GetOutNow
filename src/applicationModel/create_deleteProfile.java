@@ -10,6 +10,7 @@ import java.util.Scanner;
 import org.junit.Test;
 
 /**
+ * This class manages the creation and deletion of a profile.
  * @author Clarence Bumanglag
  *
  */

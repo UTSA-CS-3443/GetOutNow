@@ -30,12 +30,16 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 
 /**
+ * This class manages the LoginMenu.fxml where the user has the option
+ * to sign in with an existing account, or register for the application 
+ * by creating a new account to be used.
  * @author Erwin Herrera
  * @author Julian Chan / xmp183
  *
  */
 public class LoginController implements EventHandler<ActionEvent> {
 
+	// FXML variables used
 	@FXML
 	private AnchorPane signUpPage;
 
@@ -93,9 +97,13 @@ public class LoginController implements EventHandler<ActionEvent> {
 	@FXML
 	private Label passwordError;
 
+	// primitive data types used 
+	// for data storage
 	private String email_username;
 	private String passwordSave;
 
+	// used to create
+	// a new account 
 	private Account account;
 
 	/**
@@ -149,20 +157,20 @@ public class LoginController implements EventHandler<ActionEvent> {
 	@FXML
 	public void handleButtonAction(ActionEvent event) throws IOException {
 
-		if(event.getSource () == SignInButton)
+		if(event.getSource () == SignInButton)		// when sign in is pressed
 		{
 			userEmailError.setVisible(false);
 			passwordError.setVisible(false);
 			signInPage.toFront();
 
-		} else if (event.getSource() == signUpButton) {
+		} else if (event.getSource() == signUpButton) {		// when sign up is pressed
 
 			registerEmailError.setVisible(false);
 			registerPasswordError.setVisible(false);
 			confirmPasswordError.setVisible(false);
 			signUpPage.toFront();
 
-		} else if (event.getSource() == loginButton) {
+		} else if (event.getSource() == loginButton) {		// when login is pressed
 
 			if ((signInUserEmail.getText() == null || signInUserEmail.getText().trim().isEmpty() 
 					&& (password.getText() == null || password.getText().trim().isEmpty()))){
@@ -266,7 +274,7 @@ public class LoginController implements EventHandler<ActionEvent> {
 				}
 			}
 
-		} else if (event.getSource() == registerButton) {
+		} else if (event.getSource() == registerButton) {		// when register is pressed
 
 			if ((registerEmail.getText() == null || registerEmail.getText().trim().isEmpty())
 					&& (registerPassword.getText() == null || registerPassword.getText().trim().isEmpty())) {

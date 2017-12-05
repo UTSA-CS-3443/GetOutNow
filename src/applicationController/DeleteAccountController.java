@@ -25,12 +25,13 @@ import javafx.util.Duration;
 
 /**
  * This class manages the DeleteAccount.fxml 
- * that manages the option to delete an account.
+ * which provides the user the option to delete an account.
  * @author Erwin Herrera
  *
  */
 public class DeleteAccountController implements Initializable {
 
+	// FXML variables used
 	@FXML
 	private AnchorPane parentPane;
 
@@ -55,6 +56,8 @@ public class DeleteAccountController implements Initializable {
 	@FXML
 	private Label confirmPasswordError;
 
+	// primitive data types used 
+	// for data storage
 	private String username;
 	private String passwordSave;
 	private String passwordConfirm;

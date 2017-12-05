@@ -26,14 +26,14 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 
 /**
- * 
- * @author Erwin Herrera
  * CreateAccountController is paired with AccountCreate.fxml which contains a 'register'
  * button that will display a confirmation of a new account being created successfully.
+ * @author Erwin Herrera
  * 
  */
 public class CreateAccountController implements Initializable{
 
+	// FXML variables used
 	@FXML
 	private AnchorPane parentPane;
 
@@ -79,6 +79,8 @@ public class CreateAccountController implements Initializable{
 	@FXML
 	private ImageView loading;
 
+	// primitive data types used 
+	// for data storage
 	private String nameFirst;
 	private String nameLast;
 	private String email;

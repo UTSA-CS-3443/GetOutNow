@@ -20,8 +20,8 @@ public class ConfirmBox {		// used as verification (yes or no)
 	
 	/**
 	 * This method displays the confirm box generated.
-	 * @param title
-	 * @param message
+	 * @param title The title of the window
+	 * @param message	The message to be displayed to the user
 	 * @return a boolean value to determine the user's choice
 	 */
 	public static boolean display(String title, String message) {

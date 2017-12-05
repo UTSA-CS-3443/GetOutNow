@@ -33,11 +33,13 @@ import javafx.util.Duration;
  * @author Erwin Herrera
  * @author Julian Chan / xmp183
  * RegisterController is paired with Register.fxml which contains a 'register'
- * button that will load the Homepage.
+ * button that will redirect the user back to the login screen to login
+ * with the user(s)' newly created account.
  *
  */
 public class RegisterController implements Initializable {
 
+	// FXML variables used
 	@FXML
 	private AnchorPane parentPane;
 
@@ -83,6 +85,8 @@ public class RegisterController implements Initializable {
 	@FXML
 	private ImageView loading;
 
+	// primitive data types used 
+	// for data storage
 	private String nameFirst;
 	private String nameLast;
 	private String email;
@@ -90,6 +94,8 @@ public class RegisterController implements Initializable {
 	private String passwordSave;
 	private String passwordConfirm;
 
+	// used to create
+	// a new account
 	private Account account;
 
 	/**
@@ -134,7 +140,7 @@ public class RegisterController implements Initializable {
 	@FXML
 	public void handleButtonAction(ActionEvent event) throws IOException {
 
-		if(event.getSource() == registerBT) {
+		if(event.getSource() == registerBT) {		// when the register button is pressed
 
 			if ( (firstName.getText() == null || firstName.getText().trim().isEmpty() 
 					&& (lastName.getText() == null || lastName.getText().trim().isEmpty()))  
