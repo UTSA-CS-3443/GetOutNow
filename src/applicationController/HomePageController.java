@@ -2,10 +2,7 @@ package applicationController;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 import org.controlsfx.control.Notifications;
 
@@ -19,10 +16,8 @@ import applicationModel.Restaurant;
 import applicationModel.RestaurantScrape;
 import applicationModel.SportsScrape;
 import applicationModel.WeatherScrape;
-import javafx.application.Platform;
 import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -125,7 +120,8 @@ public class HomePageController implements Initializable {
 	}
 
 	/**
-	 * 
+	 * This method handles the event when the Account Settings button is pressed.
+	 * The button will display a separate window with the account settings options.
 	 * @param event
 	 */
 	@FXML
@@ -160,7 +156,8 @@ public class HomePageController implements Initializable {
 	}
 
 	/**
-	 * 
+	 * This method handles the event where the planner button is pressed by the user.
+	 * This will display a separate window where a planner can be used.
 	 * @param event
 	 */
 	@FXML

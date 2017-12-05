@@ -10,7 +10,6 @@ import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
 
 import applicationModel.Account;
-import applicationModel.LoginModel;
 import javafx.animation.FadeTransition;
 import javafx.animation.PauseTransition;
 import javafx.concurrent.Task;
@@ -26,7 +25,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
-import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
@@ -37,8 +35,6 @@ import javafx.util.Duration;
  *
  */
 public class LoginController implements EventHandler<ActionEvent> {
-
-	private LoginModel model;
 
 	@FXML
 	private AnchorPane signUpPage;
@@ -120,18 +116,6 @@ public class LoginController implements EventHandler<ActionEvent> {
 	 */
 	public void initialize(URL location, ResourceBundle resources) {
 
-	}
-
-	/**
-	 * This method ensures that the model of the login is only
-	 * initialized once.
-	 * @param model
-	 */
-	public void initModel(LoginModel model) {
-		// ensure model is only set once:
-		if (this.model != null) {
-			throw new IllegalStateException("Model can only be initialized once");
-		}
 	}
 
 	/**

@@ -11,10 +11,11 @@ import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
 /**
+ * This is the main class where the application is launched with the 
+ * LoginMenu where the user can either sign in or sign up for the GetOutNow application.
+ * 
  * @author Erwin Herrera
  * @author Julian Chan-xmp183
- * 
- *
  */
 public class Main extends Application {
 
@@ -33,10 +34,6 @@ public class Main extends Application {
 			BorderPane root = new BorderPane();
 			FXMLLoader loginLoader = new FXMLLoader(getClass().getResource("/applicationView/LoginMenu.fxml"));
 			root.setCenter(loginLoader.load());
-			//LoginController loginController = loginLoader.getController();
-
-			//LoginModel model = new LoginModel();
-			//loginController.initModel(model);
 
 			Scene scene = new Scene(root, 700, 400);
 			primaryStage.setScene(scene);

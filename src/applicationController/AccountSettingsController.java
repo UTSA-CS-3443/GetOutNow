@@ -4,18 +4,23 @@ import java.io.IOException;
 
 import com.jfoenix.controls.JFXButton;
 
-import javafx.animation.FadeTransition;
-import javafx.animation.PauseTransition;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import javafx.util.Duration;
 
+/**
+ * This class manages the two buttons in teh Account Settings fxml.
+ * The user has the option to either create a new account or delete
+ * an account. When the buttons are pressed, they will display another 
+ * window accordingly.
+ * @author Erwin Herrera
+ *
+ */
 public class AccountSettingsController {
 
     @FXML
@@ -44,6 +49,11 @@ public class AccountSettingsController {
 		super();
 	}
     
+	/**
+	 * This method handles the event when the create account button is pressed.
+	 * It will load the Create Account fxml and the user may create another account.
+	 * @param event
+	 */
     @FXML
     void handleCreateButtonAction(ActionEvent event) {
     	
@@ -61,6 +71,12 @@ public class AccountSettingsController {
 		secondStage.show();
     }
 
+    /**
+     * This method handles the event when the delete account button is pressed.
+     * When the user presses the button, it will load the Delete Account fxml and the user
+     * may choose to delete an existing account.
+     * @param event
+     */
     @FXML
     void handleDeleteButtonAction(ActionEvent event) {
     	
@@ -78,10 +94,4 @@ public class AccountSettingsController {
 		thirdStage.show();
 		
     }
-
-    @FXML
-    void handleModifyButtonAction(ActionEvent event) {
-
-    }
-
 }

@@ -11,7 +11,6 @@ import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
 
 import applicationModel.Account;
-import applicationModel.LoginModel;
 import javafx.animation.FadeTransition;
 import javafx.animation.PauseTransition;
 import javafx.event.ActionEvent;
@@ -30,16 +29,14 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 
 /**
- * 
- * @author Julian Chan / xmp183
+ *  
  * @author Erwin Herrera
+ * @author Julian Chan / xmp183
  * RegisterController is paired with Register.fxml which contains a 'register'
  * button that will load the Homepage.
  *
  */
 public class RegisterController implements Initializable {
-
-	private LoginModel model;
 
 	@FXML
 	private AnchorPane parentPane;
@@ -100,8 +97,7 @@ public class RegisterController implements Initializable {
 	 */
 	public RegisterController() {
 		super();
-		this.model = new LoginModel();
-
+		
 		email = new String();
 		nameFirst = new String();
 		nameLast = new String();
@@ -397,11 +393,8 @@ public class RegisterController implements Initializable {
 								}
 							});
 
-					//notificationBuilder.showConfirm();		// shows a questionmark to confirm
-					//notificationBuilder.show();				// regular notification with no icons, just text
-					//notificationBuilder.showError();			// shows an x for an error notification
+
 					notificationBuilder.showInformation(); 		// shows an i icon for information
-					//notificationBuilder.showWarning();		// shows an exclamation point
 				}
 			}
 

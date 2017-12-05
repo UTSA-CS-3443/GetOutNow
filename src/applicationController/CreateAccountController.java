@@ -11,18 +11,14 @@ import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
 
 import applicationModel.Account;
-import applicationModel.LoginModel;
 import javafx.animation.FadeTransition;
 import javafx.animation.PauseTransition;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
@@ -377,11 +373,8 @@ public class CreateAccountController implements Initializable{
 								}
 							});
 
-					//notificationBuilder.showConfirm();		// shows a questionmark to confirm
-					//notificationBuilder.show();				// regular notification with no icons, just text
-					//notificationBuilder.showError();			// shows an x for an error notification
+
 					notificationBuilder.showInformation(); 		// shows an i icon for information
-					//notificationBuilder.showWarning();		// shows an exclamation point
 				}
 			}
 
