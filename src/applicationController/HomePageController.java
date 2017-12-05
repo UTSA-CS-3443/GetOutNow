@@ -37,7 +37,7 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 
 /**
- * This program manages the GetOutNowHomepage.fxml
+ * This class manages the GetOutNowHomepage.fxml
  * @author Erwin Herrera
  *
  */
@@ -51,6 +51,9 @@ public class HomePageController implements Initializable {
 
 	@FXML
 	private FXMLLoader loginLoader;
+	
+	@FXML
+	private Parent accountLoader;
 
 	@FXML
 	private JFXButton plannerBT;
@@ -128,6 +131,18 @@ public class HomePageController implements Initializable {
 	@FXML
 	public void handleAccountBT(ActionEvent event) {
 
+		try {
+			accountLoader = FXMLLoader.load(getClass().getResource("/applicationView/AccountSettings.fxml"));
+		} catch (IOException e1) {
+			e1.printStackTrace();
+		}
+
+		Stage secondStage = new Stage();
+		Scene plannerPageScene = new Scene(accountLoader);
+		secondStage.resizableProperty().setValue(Boolean.FALSE);
+		secondStage.setScene(plannerPageScene);
+		secondStage.setTitle("Account Settings");
+		secondStage.show();
 	}
 
 	/**
@@ -217,7 +232,7 @@ public class HomePageController implements Initializable {
 		.title("Weather")
 		.text("The current weather is " + newMessage + " in San Antonio, TX.")  // Calls WeatherData and returns weather in Fahrenheit.
 		.graphic(new ImageView(img))
-		.hideAfter(Duration.seconds(15))
+		.hideAfter(Duration.seconds(12))
 		.position(Pos.TOP_LEFT)
 		.show());
 		// execute long running task on background thread
@@ -248,7 +263,7 @@ public class HomePageController implements Initializable {
 				+ "\nAction:\n" + newMessage + "\n\nScience Fiction:\n" 
 				+ scienceFiction + "\n\nComedy:\n" + comedy)
 		.graphic(new ImageView(img2))
-		.hideAfter(Duration.seconds(30))
+		.hideAfter(Duration.seconds(12))
 		.position(Pos.TOP_RIGHT)
 		.show());
 		// execute long running task on background thread
@@ -278,7 +293,7 @@ public class HomePageController implements Initializable {
 		.text("Here are some sports games you may be interested in!\n" 
 				+ "\nNBA:\n" + newMessage + "\nNFL:\n" + football)
 		.graphic(new ImageView(img3))
-		.hideAfter(Duration.seconds(20))
+		.hideAfter(Duration.seconds(12))
 		.position(Pos.BOTTOM_LEFT)
 		.show());
 		// execute long running task on background thread
@@ -314,7 +329,7 @@ public class HomePageController implements Initializable {
 				+ cObj.getLocation(2) + "\n"
 				+ cObj.getLocation(3) + "\n")
 		.graphic(new ImageView(img4))
-		.hideAfter(Duration.seconds(20))
+		.hideAfter(Duration.seconds(12))
 		.position(Pos.BOTTOM_RIGHT)
 		.show());
 		// execute long running task on background thread
@@ -354,7 +369,7 @@ public class HomePageController implements Initializable {
 				+ "\nAction:\n" + newMessage + "\n\nScience Fiction:\n" 
 				+ scienceFiction + "\n\nComedy:\n" + comedy)
 		.graphic(new ImageView(img))
-		.hideAfter(Duration.seconds(30))
+		.hideAfter(Duration.seconds(15))
 		.position(Pos.CENTER)
 		.show());
 		// execute long running task on background thread
@@ -398,7 +413,7 @@ public class HomePageController implements Initializable {
 				+ cObj.getLocation(2) + "\n"
 				+ cObj.getLocation(3) + "\n")
 		.graphic(new ImageView(img))
-		.hideAfter(Duration.seconds(20))
+		.hideAfter(Duration.seconds(15))
 		.position(Pos.CENTER)
 		.show());
 		// execute long running task on background thread
@@ -436,7 +451,7 @@ public class HomePageController implements Initializable {
 		.text("Here are some sports games you may be interested in!\n" 
 				+ "\nNBA:\n" + newMessage + "\nNFL:\n" + football)
 		.graphic(new ImageView(img))
-		.hideAfter(Duration.seconds(20))
+		.hideAfter(Duration.seconds(15))
 		.position(Pos.CENTER)
 		.show());
 		// execute long running task on background thread
@@ -473,7 +488,7 @@ public class HomePageController implements Initializable {
 		.title("Weather")
 		.text("The current weather is " + newMessage + " in San Antonio, TX.")  // Calls WeatherData and returns weather in Fahrenheit.
 		.graphic(new ImageView(img))
-		.hideAfter(Duration.seconds(15))
+		.hideAfter(Duration.seconds(12))
 		.position(Pos.CENTER)
 		.show());
 		// execute long running task on background thread

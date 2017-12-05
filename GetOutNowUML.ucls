@@ -271,8 +271,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="31" language="java" name="applicationController.AccountController" project="GetOutNow" 
-    file="/GetOutNow/src/applicationController/AccountController.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="31" language="java" name="applicationController.AccountSettingsController" project="GetOutNow" 
+    file="/GetOutNow/src/applicationController/AccountSettingsController.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="81" width="127" x="579" y="37"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -309,187 +309,223 @@
   </class>  
   <association id="35">    
     <end type="SOURCE" refId="5" navigable="false">      
-      <attribute id="36" name="account"/>      
-      <multiplicity id="37" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="6" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <dependency id="38">    
-    <end type="SOURCE" refId="16"/>    
-    <end type="TARGET" refId="12"/>  
-  </dependency>  
-  <generalization id="39">    
-    <end type="SOURCE" refId="3"/>    
-    <end type="TARGET" refId="28"/>  
-  </generalization>  
-  <dependency id="40">    
-    <end type="SOURCE" refId="22"/>    
-    <end type="TARGET" refId="15"/>  
-  </dependency>  
-  <dependency id="41">    
-    <end type="SOURCE" refId="4"/>    
-    <end type="TARGET" refId="24"/>  
-  </dependency>  
-  <dependency id="42">    
-    <end type="SOURCE" refId="16"/>    
-    <end type="TARGET" refId="10"/>  
-  </dependency>  
-  <association id="43">    
-    <end type="SOURCE" refId="5" navigable="false">      
-      <attribute id="44" name="model"/>      
-      <multiplicity id="45" minimum="0" maximum="1"/>    
+      <attribute id="36" name="model">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="37" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
     <end type="TARGET" refId="2" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <dependency id="46">    
-    <end type="SOURCE" refId="3"/>    
-    <end type="TARGET" refId="10"/>  
-  </dependency>  
-  <dependency id="47">    
-    <end type="SOURCE" refId="8"/>    
-    <end type="TARGET" refId="10"/>  
-  </dependency>  
-  <dependency id="48">    
+  <dependency id="38">    
     <end type="SOURCE" refId="4"/>    
-    <end type="TARGET" refId="25"/>  
+    <end type="TARGET" refId="17"/>  
   </dependency>  
-  <dependency id="49">    
-    <end type="SOURCE" refId="4"/>    
-    <end type="TARGET" refId="32"/>  
-  </dependency>  
-  <dependency id="50">    
-    <end type="SOURCE" refId="30"/>    
-    <end type="TARGET" refId="6"/>  
-  </dependency>  
-  <dependency id="51">    
-    <bendpoint x="2944" y="698"/>    
-    <end type="SOURCE" refId="22"/>    
-    <end type="TARGET" refId="19"/>  
-  </dependency>  
-  <association id="52">    
-    <end type="SOURCE" refId="34" navigable="false">      
-      <attribute id="53" name="set"/>      
-      <multiplicity id="54" minimum="0" maximum="1"/>    
+  <association id="39">    
+    <end type="SOURCE" refId="27" navigable="false">      
+      <attribute id="40" name="account">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="41" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
     <end type="TARGET" refId="6" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="55">    
-    <end type="SOURCE" refId="4" navigable="false">      
-      <attribute id="56" name="rObj"/>      
-      <multiplicity id="57" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="8" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <dependency id="58">    
-    <end type="SOURCE" refId="18"/>    
-    <end type="TARGET" refId="21"/>  
+  <dependency id="42">    
+    <end type="SOURCE" refId="26"/>    
+    <end type="TARGET" refId="1"/>  
   </dependency>  
-  <association id="59">    
+  <association id="43">    
     <end type="SOURCE" refId="6" navigable="false">      
-      <attribute id="60" name="profile"/>      
-      <multiplicity id="61" minimum="0" maximum="1"/>    
+      <attribute id="44" name="profile">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="45" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
     <end type="TARGET" refId="1" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="62">    
-    <end type="SOURCE" refId="27" navigable="false">      
-      <attribute id="63" name="model"/>      
-      <multiplicity id="64" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="2" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="65">    
-    <end type="SOURCE" refId="27" navigable="false">      
-      <attribute id="66" name="account"/>      
-      <multiplicity id="67" minimum="0" maximum="1"/>    
+  <dependency id="46">    
+    <bendpoint x="2944" y="698"/>    
+    <end type="SOURCE" refId="22"/>    
+    <end type="TARGET" refId="19"/>  
+  </dependency>  
+  <generalization id="47">    
+    <end type="SOURCE" refId="8"/>    
+    <end type="TARGET" refId="28"/>  
+  </generalization>  
+  <association id="48">    
+    <end type="SOURCE" refId="5" navigable="false">      
+      <attribute id="49" name="account">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="50" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
     <end type="TARGET" refId="6" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <dependency id="68">    
-    <end type="SOURCE" refId="3"/>    
-    <end type="TARGET" refId="12"/>  
-  </dependency>  
-  <dependency id="69">    
-    <end type="SOURCE" refId="26"/>    
-    <end type="TARGET" refId="1"/>  
-  </dependency>  
-  <association id="70">    
-    <end type="SOURCE" refId="4" navigable="false">      
-      <attribute id="71" name="cObj"/>      
-      <multiplicity id="72" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="16" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <generalization id="73">    
-    <end type="SOURCE" refId="8"/>    
-    <end type="TARGET" refId="28"/>  
-  </generalization>  
-  <dependency id="74">    
-    <bendpoint x="1890" y="698"/>    
-    <end type="SOURCE" refId="28"/>    
-    <end type="TARGET" refId="12"/>  
-  </dependency>  
-  <dependency id="75">    
-    <end type="SOURCE" refId="4"/>    
-    <end type="TARGET" refId="33"/>  
-  </dependency>  
-  <dependency id="76">    
-    <end type="SOURCE" refId="13"/>    
-    <end type="TARGET" refId="33"/>  
-  </dependency>  
-  <dependency id="77">    
-    <end type="SOURCE" refId="4"/>    
-    <end type="TARGET" refId="17"/>  
-  </dependency>  
-  <dependency id="78">    
-    <end type="SOURCE" refId="14"/>    
+  <dependency id="51">    
+    <end type="SOURCE" refId="30"/>    
     <end type="TARGET" refId="6"/>  
   </dependency>  
-  <dependency id="79">    
+  <dependency id="52">    
+    <end type="SOURCE" refId="22"/>    
+    <end type="TARGET" refId="15"/>  
+  </dependency>  
+  <dependency id="53">    
     <end type="SOURCE" refId="8"/>    
-    <end type="TARGET" refId="12"/>  
+    <end type="TARGET" refId="10"/>  
   </dependency>  
-  <dependency id="80">    
-    <end type="SOURCE" refId="29"/>    
-    <end type="TARGET" refId="11"/>  
+  <dependency id="54">    
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="10"/>  
   </dependency>  
-  <generalization id="81">    
-    <end type="SOURCE" refId="16"/>    
-    <end type="TARGET" refId="28"/>  
-  </generalization>  
-  <association id="82">    
+  <association id="55">    
     <end type="SOURCE" refId="15" navigable="false">      
-      <attribute id="83" name="eventList"/>      
-      <multiplicity id="84" minimum="0" maximum="2147483647"/>    
+      <attribute id="56" name="eventList">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="57" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
     <end type="TARGET" refId="19" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <dependency id="85">    
-    <end type="SOURCE" refId="4"/>    
-    <end type="TARGET" refId="21"/>  
+  <dependency id="58">    
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="12"/>  
   </dependency>  
-  <dependency id="86">    
-    <end type="SOURCE" refId="18"/>    
-    <end type="TARGET" refId="7"/>  
-  </dependency>  
-  <dependency id="87">    
+  <dependency id="59">    
     <bendpoint x="2168" y="698"/>    
     <end type="SOURCE" refId="28"/>    
     <end type="TARGET" refId="10"/>  
   </dependency>  
-  <dependency id="88">    
+  <dependency id="60">    
     <bendpoint x="974" y="698"/>    
     <end type="SOURCE" refId="34"/>    
     <end type="TARGET" refId="1"/>  
+  </dependency>  
+  <association id="61">    
+    <end type="SOURCE" refId="4" navigable="false">      
+      <attribute id="62" name="rObj">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="63" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="8" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="64">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="33"/>  
+  </dependency>  
+  <dependency id="65">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="25"/>  
+  </dependency>  
+  <dependency id="66">    
+    <bendpoint x="1890" y="698"/>    
+    <end type="SOURCE" refId="28"/>    
+    <end type="TARGET" refId="12"/>  
+  </dependency>  
+  <dependency id="67">    
+    <end type="SOURCE" refId="16"/>    
+    <end type="TARGET" refId="10"/>  
+  </dependency>  
+  <dependency id="68">    
+    <end type="SOURCE" refId="13"/>    
+    <end type="TARGET" refId="33"/>  
+  </dependency>  
+  <dependency id="69">    
+    <end type="SOURCE" refId="29"/>    
+    <end type="TARGET" refId="11"/>  
+  </dependency>  
+  <association id="70">    
+    <end type="SOURCE" refId="34" navigable="false">      
+      <attribute id="71" name="set">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="72" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="6" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="73">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="32"/>  
+  </dependency>  
+  <association id="74">    
+    <end type="SOURCE" refId="27" navigable="false">      
+      <attribute id="75" name="model">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="76" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="2" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="77">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="24"/>  
+  </dependency>  
+  <dependency id="78">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="21"/>  
+  </dependency>  
+  <dependency id="79">    
+    <end type="SOURCE" refId="18"/>    
+    <end type="TARGET" refId="21"/>  
+  </dependency>  
+  <generalization id="80">    
+    <end type="SOURCE" refId="16"/>    
+    <end type="TARGET" refId="28"/>  
+  </generalization>  
+  <dependency id="81">    
+    <end type="SOURCE" refId="14"/>    
+    <end type="TARGET" refId="6"/>  
+  </dependency>  
+  <generalization id="82">    
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="28"/>  
+  </generalization>  
+  <dependency id="83">    
+    <end type="SOURCE" refId="18"/>    
+    <end type="TARGET" refId="7"/>  
+  </dependency>  
+  <association id="84">    
+    <end type="SOURCE" refId="4" navigable="false">      
+      <attribute id="85" name="cObj">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="86" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="16" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="87">    
+    <end type="SOURCE" refId="8"/>    
+    <end type="TARGET" refId="12"/>  
+  </dependency>  
+  <dependency id="88">    
+    <end type="SOURCE" refId="16"/>    
+    <end type="TARGET" refId="12"/>  
   </dependency>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
     sort-features="false" accessors="true" visibility="true">    

@@ -3,6 +3,7 @@ package application;
 import applicationModel.ConfirmBox;
 //import applicationController.LoginController;
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 //import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -62,8 +63,8 @@ public class Main extends Application {
 	private void closeProgram() {
 		
 		Boolean answer = ConfirmBox.display("Confirm", "Are you sure you want to exit?");
-		if (answer)
-			stage.close();
+		if (answer == true)
+			Platform.exit();
 	}
 	
 	/**

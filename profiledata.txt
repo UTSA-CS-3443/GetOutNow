@@ -2,4 +2,3 @@ Username:goldfish:Email:goldfish@fishmail.com:Password:fish:Name:yes
 Username:core:Email:fake:Password:core:Name:yes
 Username:data:Email:new:Password:new:Name:new data
 Username:asdf:Email:asdf:Password:asdf:Name:fight sdf
-Username:nsdf:Email:lot:Password:asdf:Name:lot lot
